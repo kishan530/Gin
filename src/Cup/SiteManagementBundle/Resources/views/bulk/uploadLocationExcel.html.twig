@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+{% block title %}Bulk Upload|Consumer{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+
+
+
+<div class="container">
+		<div class="row">
+            <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Bulk Location Upload</span></h4>
+			
+		</div>
+		<div class="gap"></div>
+    	<div class="row">
+              <div class="col-md-6">
+              <ul class="errors help-block">			            
+			            {% for s in status if status|length>0 %}
+			            	<li>{{ s }}</li>
+			            {% endfor %}
+			    </ul>
+             
+              	    <div class="row booking-item-dates-change mb30" id="bulk">
+                      	{{ form_start(form) }}
+	   	 				{{ form_errors(form, { 'global_errors': true }) }}
+			    		<div class="row top-buffer2">
+                            
+							<div class="col-lg-12 col-sm-12">
+								<div class="row form-group {% if form.filePath.vars.errors|length %}has-error{% endif %}">
+									<div class="col-lg-4">
+										{{ form_label(form.filePath) }}
+									</div>
+									<div class="col-lg-8">
+										{{ form_widget(form.filePath) }}
+									</div>							
+								</div>											
+							</div>
+							<div class="col-lg-12 col-sm-12">
+								<div class="row top-buffer2 text-right">   
+								{{ form_widget(form.submit,{ 'attr': {'class': 'btn-system'}}) }}       	 
+									{{ form_end(form) }}
+								</div>	
+							</div>		
+						</div> 			
+                    </div>
+                   <div class="row">
+              	     <a id="download" href="{{ path('cup_site_management_bulk_location_download_sample') }}" class="go-right"><b>Download Sample</b></a>	
+              	     <div class="gap-small"></div>
+                    </div>
+              
+              </div>
+             
+            </div>
+ </div>
+    
+{% endblock %}
+

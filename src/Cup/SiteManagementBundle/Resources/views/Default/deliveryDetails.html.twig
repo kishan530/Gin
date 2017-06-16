@@ -1,0 +1,88 @@
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <h2>Delivery Partner</h2>
+                <div id="fullwidth" class="col-sm-12">
+                     <div class="col-lg-12">
+                    {{ form_start(form) }}
+                         <div class="row form-group">
+                            <div class="col-lg-2">
+                                {{ form_label(form.deliveryDetail[0].city) }}
+                            </div>
+                            <div class="col-lg-1">
+                            {{ form_label(form.deliveryDetail[0].noOfOrders) }}
+                            </div>
+                            <div class="col-lg-1">
+                                {{ form_label(form.deliveryDetail[0].averagePrice) }}
+                            </div>  
+                             <div class="col-lg-1">
+                            {{ form_label(form.deliveryDetail[0].minimumOrder) }}
+                            </div>
+                            
+                             <div class="col-lg-1">
+                            {{ form_label(form.deliveryDetail[0].dailySubscription) }} 
+                          {#  {{ form_label(form.deliveryDetail[0].dailySubscriptionNoOfOrders) }} #}
+                            </div> 
+                             <div class="col-lg-1">
+                                {{ form_label(form.deliveryDetail[0].weeklySubscription) }} 
+                             {#     {{ form_label(form.deliveryDetail[0].weeklySubscriptionNoOfOrders) }} #}
+                            </div>
+                             <div class="col-lg-1">
+                                {{ form_label(form.deliveryDetail[0].monthlySubscription) }}
+                             {#     {{ form_label(form.deliveryDetail[0].monthlySubscriptionNoOfOrders) }} #}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_label(form.deliveryDetail[0].note) }}
+                            </div>
+                             
+                        </div>
+                        {% for deliveryDetail in form.deliveryDetail %}
+                        <div class="row form-group">
+                            <div class="col-lg-2">
+                                {{ form_widget(deliveryDetail.city) }}
+                            </div>
+                            <div class="col-lg-1">
+                            {{ form_widget(deliveryDetail.noOfOrders) }}
+                            </div>
+                            <div class="col-lg-1">
+                                {{ form_widget(deliveryDetail.averagePrice) }}
+                            </div>  
+                             <div class="col-lg-1">
+                            {{ form_widget(deliveryDetail.minimumOrder) }}
+                            </div>
+                             
+                             <div class="col-lg-1">
+                            {{ form_widget(deliveryDetail.dailySubscription) }}
+                             {{ form_widget(deliveryDetail.dailySubscriptionNoOfOrders) }}
+                            </div> 
+                             <div class="col-lg-1">
+                                {{ form_widget(deliveryDetail.weeklySubscription) }}
+                                {{ form_widget(deliveryDetail.weeklySubscriptionNoOfOrders) }}
+                            </div>
+                             <div class="col-lg-1">
+                                {{ form_widget(deliveryDetail.monthlySubscription) }}
+                                {{ form_widget(deliveryDetail.monthlySubscriptionNoOfOrders) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(deliveryDetail.note) }}
+                            </div>                    
+                        </div>
+                        {% endfor %}
+                       
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Next">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

@@ -1,0 +1,18 @@
+cup_seo_advertising_bangalore:
+    path:     /paper-cup-advertising-bangalore
+    defaults: { _controller: CupSeoBundle:Seo:bangalore }
+cup_seo_advertising_delhi:
+    path:     /paper-cup-advertising-delhi
+    defaults: { _controller: CupSeoBundle:Seo:delhi }
+cup_seo_advertising_noida:
+    path:     /paper-cup-advertising-noida
+    defaults: { _controller: CupSeoBundle:Seo:noida }
+cup_seo_advertising_gurgaon:
+    path:     /paper-cup-advertising-gurgaon
+    defaults: { _controller: CupSeoBundle:Seo:gurgaon }
+cup_seo_advertising_pune:
+    path:     /paper-cup-advertising-pune
+    defaults: { _controller: CupSeoBundle:Seo:pune }
+cup_seo_advertising_mumbai:
+    path:     /paper-cup-advertising-mumbai
+    defaults: { _controller: CupSeoBundle:Seo:mumbai }

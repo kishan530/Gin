@@ -1,0 +1,59 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+     $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix page">
+        <div class="">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-12">
+                   <h3 class="sub-title">Paper Cup Advertising in Bangalore - A boon for startup companies</h3>
+                    <p class="page-text">Paper cup advertising is more popular across the globe. This big player is making its significance in promoting a brand, especially for the start-up companies. Eco friendly material and flexible to print / convey the message companies are expecting. The underlying factor to go with paper cup advertising is to brand exposure and wide spread. No barriers to limit paper cup advertising. Especially Bangalore is one of the best planet for start-up companies. Most of the corporate sector habitual to take a cup of coffee/tea or any soft drinks during office hours or even after office hours. By targeting on such environments will definitely give a bang promotion to the companies or brands.</p>
+<h3 class="ad-title">Paper Cup Advertising in Bangalore had High Success Rate  </h3>
+                    <p class="page-text">This is a proven result, none of the other mediums or environments will create such boosting promotion to the companies or brands. Paper cup advertising easily reaches to any location whether it is a corporate or a common location. Ultimately <b>paper cup advertising in Bangalore</b> has a great scope for marketing promotions. Wise utilization of resource will give an advantage to the strong brand promotion and will make a great difference in marketing budget.</p>
+                    <p class="page-text">Paper cup advertising not only strike at the right time but it can also help in targeting right people with customized geographic targeting. Everywhere in the market offers scope to promote brand or product with affordable paper cup advertising. So, Coffee cup advertising is pretty reasonable compare with other brand promotion mediums.</p>
+
+
+                   
+                </div>
+            </div>
+             <div class="small-gap"></div>
+             <b>Related Links</b>
+             <div class="row">
+		        
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_delhi') }}">Delhi</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_noida') }}">Noida</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_gurgaon') }}">Gurgaon</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_pune') }}">Pune</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_mumbai') }}">Mumbai</a>
+		        </div>
+		    </div>
+
+        </div>
+</section>
+{% endblock %}

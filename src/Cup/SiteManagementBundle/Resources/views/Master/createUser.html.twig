@@ -1,0 +1,98 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+     $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Create User</span></h4>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-6">
+                    {{ form_start(form) }}
+                    
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.userEmail) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.userEmail) }}
+                            </div> 
+                                                       
+                        </div>
+                     <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.userPassword) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.userPassword) }}
+                            </div> 
+                                                       
+                        </div>
+                    <div class="row form-group">
+                             <div class="col-lg-6">
+                            {{ form_label(form.dateCreated) }}
+                            </div>
+                             <div class="col-lg-6">
+                                {{ form_widget(form.dateCreated) }}
+                            </div>                           
+                        </div>
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.deviceNo) }}
+                            </div>
+                             <div class="col-lg-6">
+                                {{ form_widget(form.deviceNo) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.cityId) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.cityId) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.userType) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.userType) }}
+                            </div>                            
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary pull-right'}}) }}
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

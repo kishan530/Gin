@@ -1,0 +1,100 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+init();
+});
+
+</script>
+{% endblock %}
+{% block body %}
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+    <script src="{{ asset('js/TrackballControls.js') }}"></script>
+<script>
+var scene, camera, renderer;
+var geometry, material, mesh, outerCylinderMesh, innerCylinderMesh, controls;
+
+//init();
+//animate();
+
+function init() {
+    
+    
+    
+    var url= '{{ asset('../'~preview.imageUrl) }}';
+     var el = document.getElementById('prev');
+    
+     scene = new THREE.Scene();
+     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+					
+					
+//alert('camera');
+					 renderer = new THREE.WebGLRenderer();
+					//renderer.setSize( window.innerWidth*0.8, window.innerHeight );
+					//renderer.setSize( el[0].offsetWidth, window.innerHeight );
+     renderer.setSize( window.innerWidth, window.innerHeight );
+					//el.children().remove();
+					el.appendChild( renderer.domElement );
+					var texture = THREE.ImageUtils.loadTexture(url);
+					var material =  new THREE.MeshBasicMaterial( {map: texture}) ;
+                    //alert('material');
+					controls = new THREE.TrackballControls( camera, renderer.domElement );
+					controls.rotateSpeed = 4.0;
+					
+					//alert('controls');
+					//var outerCylinderGeometry = new THREE.CylinderGeometry( 40, 26, 60, 32,4,true );
+                    var outerCylinderGeometry = new THREE.CylinderGeometry( 50, 36, 80, 42,5,true );
+					var outerMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+					 outerCylinderMesh = new THREE.Mesh( outerCylinderGeometry, material );
+					//outerMaterial.side = THREE.DoubleSide;
+					outerCylinderMesh.position.set( 0, 0, 0 );
+					scene.add( outerCylinderMesh );
+					//alert('cylinder');
+					//var innerCylinderGeometry = new THREE.CylinderGeometry( 39, 25, 60, 32,4,true );
+                    var innerCylinderGeometry = new THREE.CylinderGeometry( 49, 35, 80, 42,5,true );
+					var innerMaterial = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+					innerCylinderMesh = new THREE.Mesh( innerCylinderGeometry, innerMaterial );
+                    //innerCylinderMesh.position.set( 0, 0, 0 );
+					innerMaterial.side = THREE.DoubleSide;
+					scene.add( innerCylinderMesh );
+					//alert(innerCylinderMesh);
+					var cylinderBaseMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
+					var cylinderBaseGeometry = new THREE.CircleGeometry( 35, 42 );				
+					var cylinderBaseMesh = new THREE.Mesh( cylinderBaseGeometry, cylinderBaseMaterial );
+					cylinderBaseMesh.position.y = -30;
+					cylinderBaseMesh.rotation.x += Math.PI/2;
+					cylinderBaseMaterial.side = THREE.DoubleSide;
+					scene.add( cylinderBaseMesh );
+
+					
+					camera.position.z = 150;
+					
+					
+					var mouseX = 0, mouseY = 0;
+					var windowHalfX = window.innerWidth / 2;
+					var windowHalfY = window.innerHeight / 2;
+                       
+render();
+
+}
+    
+function render() {
+						// alert('render');
+    requestAnimationFrame( render );							
+    outerCylinderMesh.rotation.y -= 0.02;
+    innerCylinderMesh.rotation.y -= 0.02;
+    controls.update();
+    renderer.render( scene, camera );
+}
+</script>
+    
+    
+
+    <div id="prev"></div>
+    {#
+    <button onclick="init()">Try it</button>
+     <img id="view" class="img-responsive" src="{{ asset('../'~preview.imageUrl) }}"  alt="target audience"> #}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+services:
+#    cup_site_management.example:
+#        class: Cup\SiteManagementBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+     mail.services:
+        class: Cup\SiteManagementBundle\Service\MailServices
+        arguments: ["@doctrine.orm.entity_manager",'@service_container', '@session']
+     cup.services:
+        class: Cup\SiteManagementBundle\Service\CupServices
+        arguments: ["@doctrine.orm.entity_manager",'@service_container', '@session']

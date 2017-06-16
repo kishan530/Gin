@@ -1,0 +1,52 @@
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <h3>Personal Inforamtion</h3>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-5">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_errors(form.email) }}
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.name) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.name) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.mobile) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.mobile) }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.email) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.email) }}
+                            </div>                       
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Next">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

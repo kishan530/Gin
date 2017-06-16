@@ -1,0 +1,124 @@
+<script>
+$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+</script>
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                 <div class="small-gap"></div>
+                <div id="fullwidth" class="col-sm-12">
+                     <div class="col-lg-12">
+                    {{ form_start(form) }}
+                        
+                         <div class="row form-group">
+                            
+                            <div class="col-lg-5">
+                                {% for location in form.locations %}
+                                <div class="row form-group">
+                                    <div class="col-lg-3">
+                                        <label> {{ cityArray[location.city.vars.value] }} </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        {{ form_widget(location.location) }}
+                                        {{ form_widget(location.city) }}
+                                    </div>
+
+
+                                </div>
+
+                                {% endfor %}
+                             </div>
+                             <div class="col-lg-7">
+                                 <div style="border:1px solid #000" class="text-center">
+                                    <h5 class="classic-title">Campaign Details</h5>
+                                     {#
+                                     <div class="row">
+                                         <div class="col-lg-3">
+                                            <label>Plan</label>
+                                            </div>
+                                           <div class="col-lg-3">
+                                               {{ request.planType }}
+                                            </div>                       
+
+                                             <div class="col-lg-3">
+                                            <label>Total Budget</label>
+                                            </div>
+                                            <div class="col-lg-3">
+                                               {{ request.totalAmount }}
+                                            </div>
+                                     </div>#}
+                                     <div class="row">
+                                        <div class="col-lg-2">
+                                            <label>City</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                            <label>Budget</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                            <label>Start Date</label>
+                                        </div> 
+                                        <div class="col-lg-2">
+                                            <label>Quantity/Day</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                            <label>Reach</label>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label>Cost for Reach</label>
+                                        </div>
+                                        
+                                     
+                                     </div>
+                                     {% for city in cities %}
+                                   
+                                     <div class="row">
+                                        <div class="col-lg-2">
+                                           {{ cityArray[city.city] }}
+                                        </div> 
+                                       <div class="col-lg-2">
+                                          <p id="budget{{ city.city }}">{{ city.budget }}</p> 
+                                        </div> 
+                                        <div class="col-lg-2">
+                                           {{ city.campaignDate.format('d/m/Y') }}
+                                        </div> 
+                                       <div class="col-lg-2">
+                                          <p id="quantity{{ city.city }}">0</p>
+                                            <div id="test{{ city.city }}"></div>
+                                        </div> 
+                                         <div class="col-lg-2">
+                                          <p id="reach{{ city.city }}">0</p>
+                                            <div id="test1{{ city.city }}"></div>
+                                        </div> 
+                                          <div class="col-lg-2">
+                                          <p id="cost{{ city.city }}">0</p>
+                                            <div id="test2{{ city.city }}"></div>
+                                        </div> 
+                                    </div>
+                                     {#
+                                     <p>{{ cityArray[city.city] }}</p>
+                                    
+                                     <p id="reach{{ city.city }}">0</p>
+                                     <div id="test{{ city.city }}"></div>
+                                     #}
+                                      {% endfor %}
+                                 </div>
+                           
+                            </div>
+                         </div>
+                       
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Next">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

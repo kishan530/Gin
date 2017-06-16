@@ -1,0 +1,186 @@
+<!-- Our main JS file -->
+		<script src="{{ asset('js/UploadJs/script.js') }}"></script>
+<script>
+
+$('#upload')
+    .bind('fileuploaddone', function (e, data) {
+    //alert(data.result);
+    init(data.result);
+});
+    
+
+
+</script>
+<style>
+/*----------------------------
+    The file upload form
+-----------------------------*/
+
+
+#upload{
+    font-family:'PT Sans Narrow', sans-serif;
+    background-color:#fff;
+    width:100%;
+    padding:30px;
+    border-radius:3px;
+    margin:0px auto 0px;;
+}
+
+#drop{
+    background-color: #EEE;
+    padding: 0px 67px;
+    margin-bottom: 30px;
+    border: 20px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    /*border-image: url(../images/border-image.png) 25 repeat;*/
+    text-align: center;
+    text-transform: uppercase;
+    font-size:16px;
+    font-weight:bold;
+    color:#000;
+}
+#drop h5{
+    width: 208px;
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+}
+#drop a{
+    padding:12px 26px;
+    color:#fff;
+    font-size:14px;
+    border-radius:2px;
+    cursor:pointer;
+    display:inline-block;
+    margin-top:12px;
+    line-height:1;
+}
+
+#drop a:hover{
+    background-color:#0986a3;
+}
+
+#drop input{
+    display:none;
+}
+
+#upload ul{
+    list-style:none;
+        padding: 0;
+   }
+
+#upload ul li{
+
+    background-color:#f9f9f9;
+
+  padding:40px;
+    height: 52px;
+
+    position: relative;
+}
+
+#upload ul li input{
+    display: none;
+}
+
+#upload ul li p{
+    width: 144px;
+   /* overflow: hidden;*/
+    white-space: nowrap;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    padding-left:38px;
+}
+
+#upload ul li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#upload ul li canvas{
+    top: 18px;
+    left: 20px;
+    position: absolute;
+}
+
+#upload ul li span{
+    width: 15px;
+    height: 12px;
+    background: url(../images/icon.png) no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#upload ul li.working span{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#upload ul li.error p{
+    color:red;
+}
+</style>
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                 <div class="small-gap"></div>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-5">
+                    {{ form_start(form, {'attr': {'id': 'upload'}}) }}
+                        {#
+                        <div class="row form-group">
+                            <div class="col-lg-12">
+                                {{ form_widget(form.design) }}
+                            </div>                       
+                        </div>
+                        #}
+                        <div class="row form-group">
+                            <div class="col-lg-12">
+                                <span>Note: This is optional you can upload your design later also</span>
+                             </div>
+                        </div>
+                        <div id="drop">
+                            <h5>Drop Your Design Here</h5>
+                            <a class="btn btn-primary">Browse</a>
+                            {{ form_widget(form.design) }}
+
+
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-12">
+                        <ul>
+                            <!-- The file uploads will be shown here -->
+                        </ul>
+                            </div>
+                        </div>
+                         
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <a id="upload-next" href="#" class="btn btn-primary pull-right">Next</a>
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                   <div class="col-lg-6">
+                    {% if campaignRequest.promotionType=='Cup Campaign' %}
+                     <div id="prev"></div>
+                       {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

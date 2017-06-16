@@ -1,0 +1,204 @@
+{% extends 'page.html.twig' %}
+{% block title %}GINGERCUP STORIES | GingerCup{% endblock %}
+
+{% block stylesheets %}
+<link rel='stylesheet' href="{{ asset('unitegallery/css/unite-gallery.css') }}" type='text/css' /> 
+
+{% endblock %}
+
+{% block javascripts %}
+
+	<script type='text/javascript' src="{{ asset('unitegallery/js/unitegallery.min.js') }}"></script> 			
+		<script type='text/javascript' src="{{ asset('unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}"></script> 
+		
+<script type="text/javascript"> 
+			
+			jQuery(document).ready(function(){ 
+				 jQuery("#gallery").unitegallery({
+					tiles_type:"tilesgrid",
+				}); 
+			
+			}); 
+		
+		</script>
+		 
+
+{% endblock %}
+  {% block body %}
+<section class="section clearfix">
+<div class="container">
+    <h1 class="text-center page-heading"><span>GingerCup</span> Gallery</h1>
+    
+    <div class="row">
+       
+        <div class="col-lg-9">
+           <div id="gallery" style="display: none">
+           
+     
+ <a href="#">
+<img alt=" bahubali papercup ad campaign "
+     src="{{ asset('images/gallery/bahubali_cup.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_cup.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt="movie papercup campaign"
+     src="{{ asset('images/gallery/bahubali_cups.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_cups.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt="movie advertisment"
+     src="{{ asset('images/gallery/bahubali_gc_clg.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_gc_clg.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt="movie ad gingercup papercup"
+     src="{{ asset('images/gallery/bahubali_gc_mall_2.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_gc_mall_2.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+
+ <a href="#">
+<img alt="movie promotion campaign"
+     src="{{ asset('images/gallery/bahubali_gc_mall.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_gc_mall.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+
+ <a href="#">
+<img alt="robot 2.0 competitor billion grossing papercup ad"
+     src="{{ asset('images/gallery/bahubali_gc_street_2.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_gc_street_2.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt="bahubali grossing breaking records"
+     src="{{ asset('images/gallery/bahubali_gc_street.jpg') }}"
+     data-image="{{ asset('images/gallery/bahubali_gc_street.jpg') }}"
+     data-description=""
+     style="display:none">
+</a>
+           
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		
+		
+				<div class="col-lg-3">
+		<ul>
+			<li> <a href="{{ path('deliverypartner_bahubali_gallery')}}">
+			Bahubali
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_bookmyshow_gallery')}}">
+			Bookmyshow
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_brigade_gallery')}}">
+			Brigade
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_Hotstar_gallery')}}">
+			Hotstar
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pokerninja_college_gallery')}}">
+			Pokerninja College
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_uber_gallery')}}">
+			Uber
+			</a></li>
+			
+			
+			<li> <a href="{{ path('deliverypartner_checkLittle_gallery')}}">
+			Little
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_clovia_gallery')}}">
+			Clovia
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_colors_gallery')}}">
+			Colors
+			</a></li>
+			
+			
+			<li> <a href="{{ path('deliverypartner_flashdoor_gallery')}}">
+			Flashdoor
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_fxkart_gallery')}}">
+			FX Kart
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_huawei_gallery')}}">
+			Huawei
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_modasta_gallery')}}">
+			Modasta
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_myra_gallery')}}">
+			Myra
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_nestaway_gallery')}}">
+			Nestaway
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pioneer_gallery')}}">
+			Pioneer
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pizzahut_gallery')}}">
+			Pizzahut
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pulse_gallery')}}">
+			Pulse
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_scripbox_gallery')}}">
+			Scripbox
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_superprofs_gallery')}}">
+			Superprofs
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_wooplr_gallery')}}">
+			Wooplr
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_yumist_gallery')}}">
+			Yumist
+			</a></li>
+			 
+			
+			<li>
+			
+			 <a href="{{ path('deliverypartner_other_gallery')}}">
+			Others
+			</a></li>
+		</ul>
+		</div>
+		
+        
+    </div>
+    
+    <div class="small-gap"></div>
+
+</div>
+</section>
+{% endblock %}

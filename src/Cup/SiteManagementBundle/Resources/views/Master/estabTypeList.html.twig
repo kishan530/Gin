@@ -1,0 +1,75 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+
+<script>
+
+    $("#list").on('click', ".deactivate", function (e) {	
+        exit();
+    var formURL = $(this).attr("href");
+    var tr = $(this).parent().parent();
+    $.ajax(
+            {
+                url : formURL,
+                type: 'GET',
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        tr.remove();
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+
+</script>
+
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                <div class="small-gap"></div>
+                <h2>Estub Types</h2>
+                </div>
+                 <div class="col-lg-6">
+                     <div class="small-gap"></div>
+                       <a href="{{ path('cup_site_management_campaign_add_estab_type') }}" class="btn btn-primary">Add New</a>
+                </div>
+               
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-10">
+                        <table id="list" class="table table-bordered col-lg-12 col-sm-12">
+                           {% if estubTypes|length>0 %}	
+                                  <tr class="blue">
+                                        <th>Sl.No </th>
+                                        <th>Name</th>
+                                        <th></th>                                                                   
+                                    </tr>	
+                            {% endif %}			
+
+                             {% for estubType in estubTypes if estubTypes|length>0 %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ estubType.typeName }}</td>   
+                                    <td> <a href="{{ path('cup_site_management_campaign_edit_estab_type',{ 'id': estubType.id }) }}" class="deactivate">Edit</a></td>                    
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

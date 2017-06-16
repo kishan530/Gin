@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8 />
+<meta name=viewport content="width=device-width, initial-scale=1">
+{% block meta %}
+<meta name=description itemprop=description
+	content="Gingercup an advertising agency offers offline marketing ideas, guerilla marketing services in India for startups and small business owners." />
+<meta name=keywords
+	content="Paper Cup Advertising,paper cup marketing,coffee cup advertising,paper cup advertising India,cup advertising,printed paper cups,Free Paper Cup Advertising,advertising coffee cup,advertising cup,coffee cup advertising,coffee mug advertising,ginger cups,advertising mug,paper cup media,paper cup market,ginger paper,paper cup with logo">
+<link rel=canonical href="http://www.gingercup.com/" />
+<meta property=og:locale content=en_US />
+<meta property=og:type content=website />
+<meta property=og:title content="Home Page - GingerCup" />
+<meta property=og:url content="http://www.gingercup.com/" />
+<meta property=og:site_name content=GingerCup />
+<meta property=og:image
+	content="http://gingercup.com/images/audience-254x300.png" />
+<meta property=og:image
+	content="http://gingercup.com/images/distribute-300x240.png" />
+<meta name=twitter:card content=summary />
+<meta name=twitter:title content="Home Page - GingerCup" />
+<meta name=twitter:image
+	content="http://gingercup.com/wp-content/uploads/2014/02/audience-254x300.png" />
+{% endblock %}
+<title>{% block title %}GingerCup | Papercup Advertising, Guerilla
+	Marketing{% endblock %}</title>
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<link type="image/x-icon" rel="shortcut icon"
+	href="{{ asset('favicon.ico') }}">
+<!-- Bootstrap -->
+<link defer="defer" href="{{ asset('css/bootstrap.min.css') }}"
+	rel="stylesheet">
+<link defer="defer" href="{{ asset('css/font-awesome.css') }}"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans"
+	rel="stylesheet">
+<link defer="defer" href="{{ asset('css/style.css?version=2.10') }}"
+	rel="stylesheet">
+{% block stylesheets %}{% endblock %}
+
+
+
+
+
+</head>
+<body>
+	<div class="row">
+		<div class="top-bar"></div>
+		<div class="top-header">
+		<div class="container">
+		<div class="row">		
+				<div class="col-md-2">
+					<a href="{{ path('cup_site_management_homepage') }}"><img alt=""
+						src="{{ asset('images/Logo5.png') }}"></a> <a target="_blank"
+						class="fuse_social_icons_links"
+						href="https://www.facebook.com/gingercup"> <i
+						class="fa fa-facebook fb-awesome-social awesome-social visible-xs"></i></a>
+					<a target="_blank" class="fuse_social_icons_links"
+						href="https://twitter.com/ginger_cup"> <i
+						class="fa fa-twitter tw-awesome-social awesome-social visible-xs"></i></a>
+				</div>
+				<div class="col-md-10">
+					<div class="user-account pull-right">
+						<div class="text-left">
+							<label> <span>Call us</span> +91-8884442846/47
+							</label> {% if is_granted('IS_AUTHENTICATED_FULLY') %} Welcome <a
+								href="{{ path('fos_user_security_logout') }}"><b>{%
+									trans%}Logout{% endtrans %}</b></a> {% else %} {# <a href="{{
+							path('fos_user_security_login')}}">Login</a> <a href="{{
+							path('fos_user_registration_register')}}">Signup</a> #} {%
+							endif%}
+						</div>
+						<div>
+							{% block reachus %} <a href="#reachUs" data-toggle="modal"
+								data-target="#contact" class="free-cups">Get Free Cups</a> <a
+								href="#reachUs" data-toggle="modal" data-target="#contact"
+								class="free-cups">Advertise with us</a> {% endblock %} <a
+								target="_blank" class="fuse_social_icons_links"
+								href="https://www.facebook.com/gingercup"> <i
+								class="fa fa-facebook fb-awesome-social awesome-social hidden-xs"></i></a>
+							<a target="_blank" class="fuse_social_icons_links"
+								href="https://twitter.com/ginger_cup"> <i
+								class="fa fa-twitter tw-awesome-social awesome-social hidden-xs"></i></a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+			<nav class="navbar" id=slide-nav>
+
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" aria-expanded="false"
+							aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+
+					</div>
+					<div id="slidemenu">
+						<ul class="nav navbar-nav">
+							{% if is_granted('ROLE_ADMIN') %}
+							<li class="dropdown active"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Manage</a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="{{ path('cup_site_management_campaign_consumer_list') }}">Consumer
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_bulk_consumer_upload') }}">Upload
+											Consumer</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_location_list') }}">Location
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_bulk_location_upload') }}">Upload
+											Location</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_add_city') }}">Add
+											City</a></li>
+								</ul></li> {% endif%} {% if is_granted('ROLE_SUPER_ADMIN') %}
+							<li class="active"><a
+								href="{{ path('cup_site_management_delivery_partner_list') }}">Delivery
+									Partner</a></li>
+							<li class="active"><a
+								href="{{ path('cup_site_management_enroll_deliverypartner') }}">Register
+									Partner</a></li>
+							<li class="dropdown active"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Promotion</a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="{{ path('cup_site_management_campaign_request_campaign') }}">Request</a></li>
+									<li><a href="{{ path('cup_site_management_campaign_list') }}">List</a></li>
+								</ul></li>
+							<li class="dropdown active"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Invoice</a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="{{ path('cup_site_management_campaign_generate_invoice') }}">Generate</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_invoice_list') }}">List</a></li>
+								</ul></li>
+							<li class="dropdown active"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Manage</a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="{{ path('cup_site_management_campaign_add_city') }}">Add
+											City</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_location_list') }}">Location
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_user_list') }}">User
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_consumer_list') }}">Consumer
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_bulk_consumer_upload') }}">Upload
+											Consumer</a></li>
+									<li><a
+										href="{{ path('cup_site_management_bulk_location_upload') }}">Upload
+											Location</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_estab_type_list') }}">Estab
+											List</a></li>
+									<li><a href="{{ path('cup_site_management_web_scrapper') }}">Crawler</a></li>
+								</ul></li>
+							<li class="active"><a
+								href="{{ path('deliverypartner_contact_list') }}">Contact List</a></li>
+							<li class="dropdown active"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Preview</a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="{{ path('cup_site_management_campaign_preview_list') }}">Preview
+											List</a></li>
+									<li><a
+										href="{{ path('cup_site_management_campaign_upload_preview_design') }}">Upload</a></li>
+								</ul></li> {#} <li class="dropdown"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown">V2</a> <ul
+							class="dropdown-menu"> <li><a
+							href="http://www.gingercup.com/v2/#/consumerList">Consumers</a></li>
+							<li><a
+							href="http://www.gingercup.com/v2/#/registerUser">Register</a></li>
+							<li><a href="http://www.gingercup.com/v2/#/tools">Tools</a></li>
+							<li><a
+							href="http://www.gingercup.com/v2/#/consumerMap">MAP</a></li>
+							<li><a
+							href="http://www.gingercup.com/v2/#/preview">Preview</a></li>
+							</ul> </li> {#}
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Static</a>
+								<ul class="dropdown-menu">
+									{% endif%} {% block menu %}
+									<li><a href="{{ path('cup_site_management_homepage')}}">Home</a></li>
+									<li><a href="#ADVERTISING" class="scrollDiv">Gingercup
+											Advertising</a></li>
+									<li><a href="#CAMPAIGN" class="scrollDiv">Gingercup Campaign</a></li>
+									<li><a href="#STORIES" class="scrollDiv">Gingercup Stories</a></li>
+									<!-- <li class="only-mobile"><a href="{{ path('deliverypartner_paper_cup_advertising')}}">PAPER CUP ADVERTISING</a></li>
+            <li class="only-mobile"><a href="{{ path('deliverypartner_coffee_cup_advertising')}}">COFFEE CUP ADVERTISING</a></li>
+            <li class="only-mobile"><a href="{{ path('deliverypartner_stories')}}">GINGERCUP STORIES</a></li>-->
+									{% endblock %}
+									<li><a href="{{ path('deliverypartner_gallery')}}">Gallery</a></li>
+									<li><a href="{{ path('deliverypartner_news') }}">News</a></li>
+									<li><a target="_blank" href="http://www.gingercup.com/blog">Blog</a></li>
+
+									{# <li><a href="{{ path('deliverypartner_media') }}">MEDIA
+									PARTNERS</a></li> #}
+									<li><a href="http://careers.gingercup.com/">Careers</a></li>
+									<li><a href="{{ path('deliverypartner_reach_us')}}">Contact Us</a></li>
+									<!-- <li class="only-mobile"> <a href="{{ path('deliverypartner_reach_us')}}"><img alt="" src="{{ asset('images/d.png') }}"></a> </li>
+            <li class="only-mobile"> <a href="{{ path('deliverypartner_reach_us')}}"><img alt="" src="{{ asset('images/e.png') }}"></a> </li>-->
+									{% if is_granted('ROLE_SUPER_ADMIN') %}</li>
+						</ul>
+						{% endif%}
+
+						</ul>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+				<!--/.container-fluid -->
+			</nav>
+	</div>
+	<div class="container">
+		<div id="page-content">{% block body %}{% endblock %}</div>
+	</div>
+
+	<section class="section clearfix footer text-center">
+		<div>Copyright © 2016-2017 . All rights reserved.</div>
+		<div class="terms">
+			<a href="{{ path('deliverypartner_privacy_policy')}}" target="_blank">Privacy
+				Policy</a> | <a
+				href="{{ path('deliverypartner_terms_and_conditions')}}"
+				target="_blank">T&amp;c</a>
+		</div>
+	</section>
+	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<script defer="defer" src="{{ asset('js/jquery-ui.js') }}"></script>
+	<script defer="defer" src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script>
+       $('.scrollDiv').click(function(){$('html, body').stop().animate({scrollTop:$($(this).attr('href')).offset().top-50},400);return false;});$(document).ready(function(){$('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));var toggler='.navbar-toggle';var pagewrapper='#page-content';var navigationwrapper='.navbar-header';var menuwidth='100%';var slidewidth='55%';var menuneg='-100%';var slideneg='-60%';$("#slide-nav").on("click",toggler,function(e){var selected=$(this).hasClass('slide-active');$('#slidemenu').stop().animate({left:selected?menuneg:'0px'});$('#navbar-height-col').stop().animate({left:selected?slideneg:'0px'});$(pagewrapper).stop().animate({left:selected?'0px':slidewidth});$(navigationwrapper).stop().animate({left:selected?'0px':slidewidth});$(this).toggleClass('slide-active',!selected);$('#slidemenu').toggleClass('slide-active');$('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');});var selected='#slidemenu, #page-content, body, .navbar, .navbar-header';$(window).on("resize",function(){if($(window).width()>767&&$('.navbar-toggle').is(':hidden')){$(selected).removeClass('slide-active');}});});            
+    </script>
+	{% block javascripts %}{% endblock %}
+</body>
+</html>

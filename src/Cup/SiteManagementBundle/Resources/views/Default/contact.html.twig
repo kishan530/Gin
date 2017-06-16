@@ -1,0 +1,81 @@
+{% extends 'page.html.twig' %}
+{% block title %}Contact Us | Gingercup{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
+
+
+  {% block body %}
+
+
+ <section class="section clearfix page">
+        <div class="">
+            <div class="row">
+                <div id="fullwidth" class="col-sm-12">
+
+                     <h1 class="page-heading">Contact <span>Us</span></h1>
+                    <!-- START CONTENT -->
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12 contact-text">
+                           
+                            <h3 class="sub-title">Address</h3>
+                             
+                            <p class="page-text">1st Floor,3rd Cross</p> 
+                            <p class="page-text">Kundalahalli Colony, ITPL Main Road Bangalore-560037</p>
+                             <p class="page-text">Email:contact@gingercup.com</p>
+                             <p class="page-text">Phone:+91-888 444 2846/47</p>
+                        </div><!-- end col -->
+
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div id="contact_form" class="contact_form">
+                                <div id="message">
+                                    <div class="col-lg-12 col-sm-12 form-group has-error">
+                                      <ul class="errors">
+                                            <div class="row top-buffer">
+                                                {{ form_errors(form.name) }}
+                                            </div>
+                                            <div class="row top-buffer">
+                                                {{ form_errors(form.mobile) }}
+                                            </div>
+                                            <div class="row top-buffer">
+                                                {{ form_errors(form.email) }}
+                                            </div>
+                                            <div class="row top-buffer">
+                                                {{ form_errors(form.message) }}
+                                            </div>
+                                        </ul>
+								    </div>
+                                </div>
+                                {{ form_start(form) }}
+				                {{ form_errors(form, { 'global_errors': true }) }}
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                         {{ form_widget(form.name, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Name','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                     {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
+                                    </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12">
+                                         {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}
+                                        
+                                        
+                                        
+                                        
+                                         {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary btn-lg border-radius'}}) }}
+							              
+                                    
+                                    </div>
+                                {{ form_end(form) }}   
+                            </div><!-- end contact-form -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                    <!-- END CONTENT -->
+
+                </div><!-- end fullwidth -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end section -->
+  {% endblock %}

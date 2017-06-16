@@ -1,0 +1,650 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+ <section class="section clearfix">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner main" role="listbox">
+   {# <div class="item active">
+      <!--<img src="{{ asset('images/g41742.png') }}">-->
+        
+         <img src="{{ asset('images/slides/DELHI1.jpg') }}">
+    </div>
+#}
+    
+
+    <div class="item active">
+         <img src="{{ asset('images/slides/baahubali.jpg') }}" width="100%" height="300px">
+    </div>
+      <div class="item ">
+         <img src="{{ asset('images/slides/Hotstar.jpg') }}" width="100%" height="350px">
+    </div>
+     <div class="item">
+         <img src="{{ asset('images/slides/jET.jpg') }}" width="100%" height="350px">
+    </div>
+    <div class="item">
+         <img src="{{ asset('images/slides/myra.jpg') }}" width="100%" height="350px">
+    </div>
+    <div class="item">
+         <img src="{{ asset('images/slides/Uber.jpg') }}" width="100%" height="350px">
+    </div>
+	 
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+        {#
+ <div class="mainPitch" style="position:absolute; top:106px;">
+     
+        <div class="row">
+          <div class="col-xs-9 text-center">
+              <h1 class="slider-label">Taking Advertising to the Streets......</h1>
+              <h1 class="slider-label">Ad Tea Cup in your Marketing Teams </h1>
+            <div class="mainAction"><a class="btn btn-danger scrollDiv" href="#reachUs">Ask For Callback</a></div>
+              <div class="row">
+             <img style="margin-top:38px;" class="img-responsive col-xs-8" src="{{ asset('images/cuphand1.png') }}">
+              </div>
+           
+          </div>
+            <div class="col-xs-3">
+                <img style="margin-top:70px;" src="{{ asset('images/location-map-1.png') }}"> 
+            </div>
+        </div>
+     
+    </div> #}
+</section>
+<section class="section clearfix">
+    <h1 class="text-center heading" id="ADVERTISING"><span>GingerCup</span> Advertising</h1>
+	<div class="small-gap"></div>
+    <div class="row box-row">
+        <div class="col-lg-4 box-outer">
+			<div class="box">
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+                <figure><img src="{{ asset('images/homeCups/exposure-time1.jpg') }}" alt="ExposureTime" height="218"></figure>
+				<h3 class="box-title">Exposure Time</h3>
+            </div>
+			 </div>
+            <div class="row">
+                <div class="col-lg-12">
+                <p class="page-text adv">GingerCup has 3-5 mins of exposure time unlike any other media</p>
+                </div>
+            </div>
+			{#}
+			<div class="row">
+                <div class="col-lg-12">
+					 <a class="btn btn-primary read-more" href="{{ path('deliverypartner_coffee_cup_advertising') }}" target="_self">Read More</a>
+				</div>
+			</div>
+			{#}
+			</div>
+        </div>
+        <div class="col-lg-4 box-outer">
+		<div class="box">
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+                 <img src="{{ asset('images/homeCups/distribution_planing.jpg') }}" alt="DistributionPlaning" height="218">
+				  <h3 class="box-title d-plan">Distribution Planning</h3>
+            </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-12">
+                <p class="page-text adv">Exposure time 3-5 min, consumer Reach-targeted ,Monitoring -Feedback Collection Select your target Consumer,based on filter like location,city,age,lifestyle</p>
+                </div>
+            </div>
+			{#}
+			<div class="row">
+                <div class="col-lg-12">
+					 <a class="btn btn-primary read-more" href="{{ path('deliverypartner_coffee_cup_advertising') }}" target="_self">Read More</a>
+				</div>
+			</div>
+			{#}
+			</div>
+        </div>
+        <div class="col-lg-4 box-outer">
+		<div class="box">
+		<div class="box-img-outer">
+            <div class="row text-center box-img">
+					
+                  <img src="{{ asset('images/homeCups/analysis_report.jpg') }}" alt="FeedbackAnalysis" height="218">
+				  <h3 class="box-title">Analysis Report</h3>
+				 
+            </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-12">
+                <p class="page-text adv">Get details,Campaign Photos and post campaign analysis report.A/B testing result for your next big Campaign Planning.</p>
+                </div>
+            </div>
+			{#}
+			<div class="row">
+                <div class="col-lg-12">
+					 <a class="btn btn-primary read-more" href="{{ path('deliverypartner_coffee_cup_advertising') }}" target="_self">Read More</a>
+				</div>
+			</div>
+			{#}
+			</div>
+        </div>
+    </div>
+	 <div class="row">
+                 <div class="col-lg-12 text-center">
+                    <a class="btn btn-primary read-more campaign-btn" href="{{ path('deliverypartner_paper_cup_advertising') }}" target="_self">Read More</a>
+                </div>
+    </div>
+    <hr>
+    <h1 class="text-center heading" id="CAMPAIGN"><span>GingerCup</span> Campaign</h1>
+	<div class="small-gap"></div>
+    <div class="row box-row">
+        <div class="col-lg-4 box-outer">
+			<div class="box">
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+                <img src="{{ asset('images/homeCups/understand_your_auditions.jpg') }}" alt="Understand your Audience" height="218">
+				<h3 class="box-title long-text">Understand your Audience</h3>
+            </div>
+            </div>
+			</div>
+        </div>
+        <div class="col-lg-4 box-outer">
+			<div class="box">
+		<div class="box-img-outer">
+            <div class="row text-center box-img">
+                 <img src="{{ asset('images/homeCups/target_auditions.jpg') }}" alt="Target Auditions" height="218">
+				  <h3 class="box-title d-plan">Target Auditions</h3>
+            </div>
+            </div>
+           
+			</div>
+        </div>
+        <div class="col-lg-4 box-outer box-right">
+			<div class="box">
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+					
+                  <img src="{{ asset('images/homeCups/campaign_highlight.jpg') }}" alt="Campaign Launch" height="430">
+				  <h3 class="box-title launch">Campaign Launch</h3>
+				 
+            </div>
+            </div>
+			</div>
+        </div>
+		<div class="col-lg-8 box-outer box-bottom">
+			<div class="box">
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+					
+                  <img src="{{ asset('images/homeCups/post_campaign_analysis.jpg') }}" alt="Post Campaign Analysis" height="183" class="img-fluid">
+				  <h3 class="box-title long-text">Post Campaign Analysis</h3>
+				 
+            </div>
+            </div>
+			</div>
+        </div>
+    </div>
+   
+    <div class="row">
+                 <div class="col-lg-12 text-center">
+                    <a class="btn btn-primary read-more campaign-btn" href="{{ path('deliverypartner_coffee_cup_advertising') }}" target="_self">Read More</a>
+                </div>
+    </div>
+    <hr>
+    <h1 class="text-center heading" id="STORIES"><span>Our</span> Clients</h1>
+    <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                  <div class="content"> 
+                      <div id="testimonials" class="carousel slide semi-circle-border" data-ride="carousel">
+                          <!-- Indicators --> 
+                          <ol class="carousel-indicators"> 
+                              <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                              <li data-target="#testimonials" data-slide-to="1"></li>
+                              <li data-target="#testimonials" data-slide-to="2"></li>
+                               <li data-target="#testimonials" data-slide-to="3"></li>
+                               <li data-target="#testimonials" data-slide-to="4"></li>
+                               <li data-target="#testimonials" data-slide-to="5"></li>
+                               <li data-target="#testimonials" data-slide-to="6"></li>
+                               <li data-target="#testimonials" data-slide-to="7"></li>
+                          </ol>
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner">
+                              <div class="item active">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Flash.png') }}" alt="FlashDoor says" title="FlashDoor says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                            <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> GingerCup really helped us embark on the growth curve</p>
+											
+                                                      <p>We always believed in the potential of our online laundry service; however we never thought that mere 10 days of campaigning would create this sort of buzz!!! The personalized marketing model of GingerCup really helped us embark on the growth curve. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i>
+</p> 
+
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">FlashDoor says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                         <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                               <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Wooplr.png') }}" alt="Wooplr says" title="Wooplr says"> 
+                                              </div> 
+                                               <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2">  <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> only because of the targeted marketing model of GingerCup .</p>
+                                                      <p>The Tastemakers featured on our App, got a lot of followers following the successful marketing campaign carried out by the GingerCup team. It really helped increase our brand awareness and visibility among the young college girls. This was possible only because of the targeted marketing model that GingerCup stands for. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                     
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Wooplr says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                     <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Superprofs.png') }}" alt="SuperProfs says" title="SuperProfs says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> our online courses has only multiplied each passing day</p>
+                                                      <p>GingerCup ran our marketing campaign across 6 colleges and 4 offices to make sure that our online learning platform reaches the hands of our target audience. This kind of specific target marketing was unheard before. The number of students enrolling for our online courses has only multiplied each passing day. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                      
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">SuperProfs says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                        <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Clovia.png') }}" alt="Clovia Says" title="Clovia Says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> This was the icing on the cake we would say</p>
+                                                          <p>The success of the marketing campaign carried out by GingerCup was reflected in the article that got published in Afaqs. Our product advert got rave reviews from industry experts. This was the icing on the cake we would say. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                     
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Clovia says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                              
+                        <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Yumist.png') }}" alt="Yumist says" title="Yumist says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> There was a spurt in the number of App downloads too</p>
+                                                          <p>The marketing campaign undertaken by GingerCup surpassed our expectations in terms of the number of meal orders we started getting within a week. There was a spurt in the number of App downloads too. We sincerely thank GingerCup for the marketing efforts. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                     
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Yumist says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                        <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Chillr.png') }}" alt="Chillr says" title="Chillr says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> Our mobile wallet App was received with great enthusiasm by one and all</p>
+                                                          <p>The way in which the marketing campaign panned out for us was just excellent. Our mobile wallet App was received with great enthusiasm by one and all. The overall user base expanded much to our delight.</p> 
+                                                      
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Chillr says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                            <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/FXKart.png') }}" alt="FxKart says" title="FxKart says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> It's Awesome, really.</p>
+                                                      <p>It's Awesome, really. We can't imagine how they have targeted our TG within Offices. Our team has done lot of BTL activities in past with
+varying degrees of ROI, but this stand tall out of all. Thanks for a such a tailored campaign. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                     
+										<div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">FxKart says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                        <div class="item">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="thumbnail adjust1">
+                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
+                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Nestway.png') }}" alt="NestAway says" title="NestAway says"> 
+                                              </div> 
+                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
+                                                  <div class="caption"> 
+                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> It is very great offline medium for brand creation</p>
+                                                      <p>This campaign created immediate buzz in the town about our brand. It is very great offline medium for brand creation and awareness in a very targeted approach. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
+                                                      <div class="adjust2 text-right"> 
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">NestAway says</a>                                                          
+													  </div>
+                                                  </div> 
+                                              </div>
+                                          </div> 
+                                      </div> 
+                                  </div> 
+                          </div>
+                        {#
+                              <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>  #}
+                          </div>
+                      </div> 
+        
+                </div>
+        </div>
+    </div>
+    <div class="row">
+                 <div class="col-lg-12 text-center">
+                    <a class="btn btn-primary read-more campaign-btn" href="{{ path('deliverypartner_stories') }}" target="_self">Read GingerCup Stories</a>
+                </div>
+    </div>
+    <hr>
+    <div class="row">
+		<div class="col-lg-12">
+                 <div class="col-lg-4 text-center">
+                   <h3 class="section-heading"><span>Latest</span> Blog Posts</h3>
+                    <ul>
+					{% for post in postslist if postslist|length>0 %}
+                        <li><a class="blog-link" href="{{ post.guid }}" target="_blank">{{ post.post_title }}</a></li>
+                       
+					{% endfor %}
+                     </ul>
+                </div>
+                 <div class="col-lg-4 text-center">
+                    <a href="https://www.youtube.com/watch?v=RhfOUHzuQ6o" target="_blank"><img class="img-responsive" src="{{ asset('images/vd.PNG') }}"></a>
+                </div>
+                 <div class="col-lg-4 text-center">
+                   <h3 class="section-heading"><span>Ready to engage with </span><br> your Customer ?</h3>
+                    <a class="btn btn-primary read-more scrollDiv" href="#reachUs" data-toggle="modal"
+								data-target="#contact">Get Free consultation</a>
+                </div>
+		</div>
+    </div>
+	<div class="small-gap"></div>
+	    <div class="row">
+		<div class="col-lg-12">
+		<div class="col-lg-12 footer-top semi-circle-border">
+		 <div class="col-lg-7">
+		  		<div class="row">
+	                 <div class="col-lg-12">
+	                   <h3>About Us</h3>
+	                    <p>GingerCup takes marketing up close and personal. It reflects the personalised branding strategy that GingerCup provides to its clients. 'Simple yet dynamic' is the motto we believe in. The service offering is simple "the coffee cup with the logo of the brand on it" but how the marketing strategy evolves from this coffee cup is dynamic. That's the GingerCup story.</p>	
+	                 </div>
+                </div>
+				 <div class="row">
+					 <div class="col-lg-12 contact-text">
+					   <h3>Contact Us</h3>                   
+						 <p>1st Floor,3rd Cross</p> 
+						 <p>Kundalahalli Colony, ITPL Main Road Bangalore-560037</p>
+						 <p>Email:contact@gingercup.com</p>
+						 <p>Phone:+91-888 444 2846/47</p>
+					</div>
+				</div>
+    	</div>
+    	<div class="col-lg-5">
+		<div class="row" style="padding:67px">
+		<div class="row" style="padding:13px;border: 1px solid;">
+			<h3>Subscribe to our news letters</h3>
+				<div class="col-lg-12 text-right">
+						 
+		
+									
+<style>
+    div#sib_embed_signup .needsfilled input {border-color: #B94A48 !important; color: #B94A48 !important;}
+    div#sib_embed_signup .needsfilled {color: #B94A48 !important;}
+    div#sib_embed_signup input[type="text"] {border: 1px solid #CCCCCC;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;}
+    div#sib_embed_signup div.message_area {position: relative;padding: 10px 30px 10px 10px; margin: 0px 0px 10px 0px;font-size:14px; border-radius: 5px;-webkit-border-radius: 5px; -moz-border-radius: 5px;box-sizing: border-box;}
+    div#sib_embed_signup div.message_area button.close {position: absolute;right: 8px;top: 8px;color: inherit;background: 0 0;border: 0;padding: 0px;-webkit-appearance: none;cursor: pointer;font-weight: bold;font-size: 14px;}
+    .tipicon{cursor: pointer;padding: 3px 7px;font-size: 12px;font-weight: bold;line-height: 1.2;color: #fff;text-align: center;vertical-align: baseline;background-color: #999;border-radius: 10px;text-decoration: none;}
+    .tooltip{display: inline;position: absolute;left: 97%;}
+    .tooltip:hover:after{background: #333;background: rgba(0,0,0,.8);border-radius: 5px;color: #fff;content: attr(data-title);right: -2px;bottom: 26px;padding: 5px 15px;position: absolute;z-index: 98;width: 220px;}
+    .tooltip_small:hover:after{padding: 5px 5px; width: 150px;}
+    .tooltip:hover:before{border: solid;border-color: #333 transparent;border-width: 6px 6px 0 6px;bottom: 20px;content: "";left: 1px;position: absolute;z-index: 99;}
+div#sib_embed_signup .sib-container h1 {font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+div#sib_embed_signup h1.title {font-size: 40px;}
+div#sib_embed_signup .sib-container .forms-builder-footer, div#sib_embed_signup .sib-container .description, div#sib_embed_signup .sib-container .fake-label, div#sib_embed_signup .sib-container .row, div#sib_embed_signup .sib-container #company-name{font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+div#sib_embed_signup .forms-builder-footer,div#sib_embed_signup div.description,div#sib_embed_signup .fake-label,div#sib_embed_signup .row  {font-size: 15px;}
+div#sib_embed_signup .sib-container .button {font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+div#sib_embed_signup .button{font-size: 12px;}
+div#sib_embed_signup input {font-size: 13px;}
+div#sib_embed_signup .sib-containter h1 {color: #232323;}
+div#sib_embed_signup .sib-container {color: #343434;}
+div#sib_embed_signup .forms-builder-wrapper{ max-width: 350px;}
+div#sib_embed_signup .header{ padding: 0 10px;}
+div#sib_embed_signup h1.title{ lineHeight: 40px;}
+div#sib_embed_signup h3.company-name{ lineHeight: 20px;}
+div#sib_embed_signup div.description{ padding: 10px 15px;}
+div#sib_embed_signup input[type=text]{ padding: 8px 4px; width:100% !important;box-sizing: border-box;}
+div#sib_embed_signup .tooltip{ left: 98%;}
+div#sib_embed_signup div.message_area{ font-size: 12px;}
+</style>
+<div id="sib_embed_signup">
+    <div class="forms-builder-wrapper" style="position:relative;">
+                <input type="hidden" id="sib_embed_signup_lang" value="en">
+        <input type="hidden" id="sib_embed_invalid_email_message" value="That email address is not valid. Please try again.">
+	    <input type="hidden" name="primary_type" id="primary_type" value="email">
+        <div id="sib_loading_gif_area" style="position: absolute;z-index: 9999;display: none;">
+          <img src="https://my.sendinblue.com/public/theme/version4/assets/images/loader_sblue.gif" style="display: block;margin-left: auto;margin-right: auto;position: relative;top: 40%;">
+        </div>
+                <form class="description" id="theform" name="theform" action="https://my.sendinblue.com/users/subscribeembed/js_id/2r0dl/id/1" onsubmit="return false;">
+            <input type="hidden" name="js_id" id="js_id" value="2r0dl"><input type="hidden" name="listid" id="listid" value="16"><input type="hidden" name="from_url" id="from_url" value="yes"><input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
+                        <div class="sib-container rounded">
+                
+               <input type="hidden" name="req_hid" id="req_hid" value="" style="font-size: 13px; font-family: &quot;Trebuchet MS&quot;, Verdana, Tahoma, Geneva, sans-serif;">
+               <div class="header" style="padding: 0px 10px;">
+                    <h1 class="title editable" data-editfield="newsletter_name"  style="font-weight: normal; text-align: left; font-size: 40px; margin-bottom: 2px; padding: 0px; margin-top: 0px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(35, 35, 35); display: none;">My Newsletter</h1>
+  		    <h3 id="company-name"  style="font-weight: normal; text-align: left; font-size: 20px; margin-bottom: 12px; padding: 0px; margin-top: 0px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(52, 52, 52); display: none;">By</h3>
+                </div>
+                    <div class="description editable" data-editfield="newsletter_description"  style="padding: 10px 15px; border-bottom: 1px solid rgb(204, 204, 204); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(52, 52, 52); font-size: 15px; display: none;">What type of content do you plan to share with your subscribers? </div>
+                    <div class="view-messages" style=" margin:5px 0;"> </div>
+                        <!-- an email as primary -->
+            <div class="primary-group email-group forms-builder-group ui-sortable" style="">
+                <div class="row mandatory-email" style="position: relative; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(52, 52, 52); font-size: 15px;">
+                    <div class="lbl-tinyltr"  style="clear: both; float: none; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;text-align: left;color:#FFF;padding-bottom: 10px;">Enter your email address to subscribe. <red style="color:#ff0000;">*</red></div>
+					
+					
+                    <input type="text" name="email" id="email" value="" style="padding: 8px 4px; width: 85%; min-width: auto;">
+					
+                    <div style="clear:both;"></div>
+                    <div class="hidden-btns">
+                        <a class="btn move" href="#"><i class="fa fa-arrows"></i></a><br>
+                        <!--<a class="btn btn-danger delete"  href="#"><i class="fa fa-trash-o fa-inverse"></i></a>-->
+                    </div>
+                </div>
+                
+            </div>
+                                        <div class="captcha forms-builder-group" style="display: none;"><div class="row" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(52, 52, 52); font-size: 15px; padding: 10px;"><div id="gcaptcha"></div></div></div>
+                         
+            <!-- end of primary -->
+                         <div class="byline row" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(52, 52, 52); font-weight: bold; font-size: 16px; text-align: right; display: block;">
+						 
+                         <button class="button editable btn btn-primary read-more" type="submit" data-editfield="subscribe"  style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; display: inline-block; white-space: nowrap; min-height: 30px; margin: 5px 5px 0px 0px; padding: 0px 10px; text-decoration: none; text-transform: capitalize; text-align: center; font-weight: bold; font-style: normal; font-size: 12px; cursor: pointer; border: 1px solid #FFF; border-radius: 4px; vertical-align: top; height: auto; line-height: 150%;">Subscribe</button>
+						 
+						 </div>
+                         <div style="clear:both;"></div>
+                        </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    var sib_prefix = 'sib';
+    var sib_dateformat = 'dd-mm-yyyy';
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit"></script>
+
+<script>
+    var verifyCallback = function(response) {
+        if(response.length > 0) {
+            $(".captcha > div.row > div.message_area").remove();
+        }
+    };
+
+    var myCallBack = function() {
+        //Render the recaptcha1 on the element with ID "recaptcha1"
+        if($('.captcha > div.row > div#gcaptcha').length > 0) {
+            var captcha = grecaptcha.render('gcaptcha', {
+              'sitekey' : '6LezqRkUAAAAACOopT30XBwc1_-zbarrSr8FIjXU',
+              'theme' : 'light',
+              'callback' : verifyCallback,
+            });
+        }
+    };
+</script>
+<script type='text/javascript' src='https://my.sendinblue.com/public/theme/version4/assets/js/src/subscribe-validate.js?v=1494235434'></script>
+<!-- End : SendinBlue Signup Form HTML Code -->
+							
+
+				</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+    </div>
+	<div class="small-gap"></div>
+    <div class="row">
+	<div class="col-lg-12">
+	<ul class="nav navbar-nav seo-links">
+        <li>
+            <a href="{{ path('cup_seo_advertising_bangalore') }}" >Bangalore</a>
+        </li>
+         <li>
+            <a href="{{ path('cup_seo_advertising_delhi') }}">Delhi</a>
+        </li>
+         <li>
+            <a href="{{ path('cup_seo_advertising_noida') }}">Noida</a>
+        </li>
+         <li>
+            <a href="{{ path('cup_seo_advertising_gurgaon') }}">Gurgaon</a>
+        </li>
+         <li>
+            <a href="{{ path('cup_seo_advertising_pune') }}">Pune</a>
+        </li>
+         <li>
+            <a href="{{ path('cup_seo_advertising_mumbai') }}">Mumbai</a>
+        </li>
+		</ul>
+		</div>
+    </div>
+	
+	<div class="small-gap"></div>
+ 
+	<div class="small-gap"></div>
+    
+</section>
+
+<div id="contact" class="modal fade" tabindex="-1" data-easein="rotateInDownLeft" data-easeout="rotateOutDownLeft" style="z-index: 10000000;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+                <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+      		<div class="row">
+                  <div class="col-md-12" id="contactForm">
+						{{ form_start(form) }}
+				                {{ form_errors(form, { 'global_errors': true }) }}
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                         {{ form_widget(form.name, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Name','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                    </div>
+                                     <div class="col-md-12 col-sm-12 col-xs-12">
+                                     {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
+                                    </div>
+                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                         {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}                                                                                                                                                                                               				              
+                                    
+                                    </div>
+                     <div class="make-margin"></div>
+                                   <div class="col-md-12 col-sm-12 col-xs-12">
+                            {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary btn-lg border-radius'}}) }}
+                                </div>
+                                {{ form_end(form) }} 
+                  </div>
+             </div>        	   
+      </div>
+     
+                
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+     $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix page">
+        <div class="">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-12">
+                    <h3 class="sub-title">Paper cup Advertising in Delhi</h3>
+                    <p class="page-text">Delhi is the capital of India. Daily thousands of members from other states and foreign visits Delhi for various reasons. Spreading any business across the states and other countries purely depends on how best marketing strategy will follow by startup companies in Delhi. Marketing ways should have a difference compare with others do. For such innovative marketing strategy Paper cup advertising in delhi is one of the best idealistic approach to exhibit effective communication. This will reach to all categories like business people, officials, professionals and also common people who come from various places.</p>
+<h3 class="page-title">Paper Cup Advertising in Delhi is The Best Innovative Approach</h3>
+                    <p class="page-text">Paper cup advertising not only promotes brands or products of a companies, it can also conveys eco-friendly concept involved in marketing promotional strategy. Rich look and feel good factors in paper cup advertising give scope to go ahead with variety of designing concepts and focus on a specific element. </p>
+                    <p class="page-text">Additional benefits with paper cup advertising is, cost effective and more brand promotion with a limited budget. Startup companies probably runs with a limitation in their budget for various departments. In such approach, paper cup advertising delivers prominent message at low cost to most of the people. As per the recent survey, more than 90% of people use to take coffee or other cool/hot drinks regularly. By setting a proper target and with innovative graphic printing on paper cups will give outstanding results to the business. Depends on requirement companies can order various sizes paper cups with a great design element in it.</p>
+
+                </div>
+            </div>
+             <div class="small-gap"></div>
+             <b>Related Links</b>
+             <div class="row">
+		        <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_bangalore') }}">Bangalore</a>
+		        </div>
+		       
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_noida') }}">Noida</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_gurgaon') }}">Gurgaon</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_pune') }}">Pune</a>
+		        </div>
+		         <div class="col-lg-2">
+		            <a href="{{ path('cup_seo_advertising_mumbai') }}">Mumbai</a>
+		        </div>
+		    </div>
+
+        </div>
+</section>
+{% endblock %}

@@ -1,0 +1,403 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script  src="{{ asset('js/chosen.jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/prism.js') }}" type="text/javascript" charset="utf-8"></script>
+
+<script src="{{ asset('js/UploadJs/jquery.knob.js') }}"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="{{ asset('js/UploadJs/jquery.ui.widget.js') }}"></script>
+		<script src="{{ asset('js/UploadJs/jquery.iframe-transport.js') }}"></script>
+		<script src="{{ asset('js/UploadJs/jquery.fileupload.js') }}"></script>
+<!-- Our main JS file -->
+		<script src="{{ asset('js/UploadJs/script.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+  <script src="{{ asset('js/TrackballControls.js') }}"></script>
+<script src="{{ asset('js/3dview.js') }}"></script>
+   
+
+						
+
+
+
+<script>
+$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+$("#reg").on('click', "ul.setup-panel li a", function (e) {	
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        	$next_items = $item.nextAll();
+        
+        if (!$item.hasClass('disabled')) {
+            $('ul.setup-panel li').removeClass('active');
+            $('.step').removeClass('active');
+            $item.addClass('active');
+            $next_items.addClass('disabled');
+            //$target.show();
+             $target.addClass('active');
+            
+        }
+    });
+$("#plan").on('submit', "[name='cup_sitemanagementbundle_campaign_plan']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('cup_site_management_campaign_plan_type') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+                        $('#city').load("{{ path('cup_site_management_campaign_select_city') }}");
+                        $('ul.setup-panel li a[href="#city"]').trigger('click'); 
+                        //$('#deliveryPartner').removeClass('active');
+                        // $('#deliveryDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        alert(data);
+                        $('#plan').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+$("#city").on('submit', "[name='cup_SiteManagementBundle_cup_campaign_cities_collection']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('cup_site_management_campaign_select_city') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+                        $('#partner').load("{{ path('cup_site_management_campaign_select_partner') }}");
+                        $('ul.setup-panel li a[href="#partner"]').trigger('click'); 
+                       // $('#deliveryDetail').removeClass('active');
+                        // $('#customerDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        $('#city').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+$("#partner").on('change', "#cup_SiteManagementBundle_partner_collection_locations_0_location", function (e) {
+   // $("#cup_SiteManagementBundle_cup_campaign_location_collection__token").val('');
+    var partners = $(this).val();
+    var city = $("#cup_SiteManagementBundle_partner_collection_locations_0_city").val();
+     var formURL = "{{ path('cup_site_management_campaign_total_flyer_reach') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : { 'partners': partners,'city': city},
+                success:function(data, textStatus, jqXHR)
+                {
+                    //alert(data);
+                     $('#reach'+city).html(data);                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+ });
+$("#partner").on('change', "#cup_SiteManagementBundle_partner_collection_locations_1_location", function (e) {
+   // $("#cup_SiteManagementBundle_cup_campaign_location_collection__token").val('');
+    var partners = $(this).val();
+    var city = $("#cup_SiteManagementBundle_partner_collection_locations_1_city").val();
+     var formURL = "{{ path('cup_site_management_campaign_total_reach') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : { 'partners': partners,'city': city},
+                success:function(data, textStatus, jqXHR)
+                {
+                     $('#reach'+city).html(data);                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+ });
+$("#partner").on('change', "#cup_SiteManagementBundle_partner_collection_locations_2_location", function (e) {
+   // $("#cup_SiteManagementBundle_cup_campaign_location_collection__token").val('');
+    var partners = $(this).val();
+    var city = $("#cup_SiteManagementBundle_partner_collection_locations_2_city").val();
+     var formURL = "{{ path('cup_site_management_campaign_total_reach') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : { 'partners': partners,'city': city},
+                success:function(data, textStatus, jqXHR)
+                {
+                     $('#reach'+city).html(data);                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+ });
+
+$("#partner").on('submit', "[name='cup_SiteManagementBundle_partner_collection']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('cup_site_management_campaign_select_partner') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                     if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(3)').removeClass('disabled');
+                       // $('#date').load("{{ path('cup_site_management_campaign_select_date') }}");
+                       // $('ul.setup-panel li a[href="#date"]').trigger('click'); 
+                        
+                         $('#design').load("{{ path('cup_site_management_campaign_upload_design') }}");
+                        $('ul.setup-panel li a[href="#design"]').trigger('click'); 
+                       // $('#deliveryDetail').removeClass('active');
+                        // $('#customerDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        $('#location').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+    
+
+$("#date").on('submit', "[name='cup_sitemanagementbundle_campaign_date']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('cup_site_management_campaign_select_date') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                     if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(4)').removeClass('disabled');
+                        $('#design').load("{{ path('cup_site_management_campaign_upload_design') }}");
+                        $('ul.setup-panel li a[href="#design"]').trigger('click'); 
+                       // $('#deliveryDetail').removeClass('active');
+                        // $('#customerDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        $('#date').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+
+$("#design").on('click', "#upload-next", function (e) {	
+                 $('ul.setup-panel li:eq(4)').removeClass('disabled');
+                $('#personal').load("{{ path('cup_site_management_campaign_personal_info') }}");
+                $('ul.setup-panel li a[href="#personal"]').trigger('click'); 
+   }); 
+$("#personal").on('submit', "[name='cup_sitemanagementbundle_campaignrequest']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('cup_site_management_campaign_personal_info') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                     if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(5)').removeClass('disabled');
+                        $('#confirmation').load("{{ path('cup_site_management_campaign_confirm_campaign') }}");
+                        $('ul.setup-panel li a[href="#confirmation"]').trigger('click'); 
+                       // $('#deliveryDetail').removeClass('active');
+                        // $('#customerDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        $('#personal').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+
+
+</script>
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+<link href="{{ asset('css/chosen.css') }}" rel="stylesheet" media="screen">
+<link href="{{ asset('css/prism.css') }}" rel="stylesheet" media="screen">
+
+<style>
+.nav-justified>li{display:inline-block;width:13%}.nav-justified>li:after,.nav-justified>li:first-child:after{content:'';width:100%;height:2px;position:absolute;left:-50%;top:9px}.list-group-item-heading{margin-top:8px!important;}.nav-justified>li:after{background:#000;z-index:1}.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#000!important;background:0 0!important}.nav-pills>li.active span,.nav-pills>li.active span:focus,.nav-pills>li.active span:hover{color:#000!important;background:#0ff!important}.nav-justified>li:first-child:after{background:0 0!important;z-index:-1}.nav-justified>li a{margin-top:-13px;z-index:100}   
+
+</style>
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Request Flyer Promotion</span></h4>
+                <div class="small-gap"></div>
+                <div class="col-sm-12" id="reg">
+                   	<ul class="nav nav-pills nav-justified setup-panel">
+		                <li class="active"><a href="#plan">
+		                    <span class="badge">1</span>
+                            <h4 class="list-group-item-heading">Plan</h4>
+		                   
+		                </a></li>
+		                <li class="disabled"><a href="#city">
+		                    <span class="badge">2</span>
+                             <h4 class="list-group-item-heading">City</h4>
+		                </a></li>
+		                <li class="disabled"><a href="#partner">
+		                   <span class="badge">3</span>
+                             <h4 class="list-group-item-heading">Delivery Partner</h4>
+		                  
+		                </a></li>
+                        {#
+                         <li class="disabled"><a href="#date">
+		                   <span class="badge">4</span>
+                             <h4 class="list-group-item-heading">Shedule</h4>
+		                  
+		                </a></li>#}
+                         <li class="disabled"><a href="#design">
+		                   <span class="badge">5</span>
+                             <h4 class="list-group-item-heading">Design</h4>
+		                  
+		                </a></li>
+                         <li class="disabled"><a href="#personal">
+		                   <span class="badge">6</span>
+                             <h4 class="list-group-item-heading">Personal Details</h4>
+		                  
+		                </a></li>
+                        <li class="disabled"><a href="#confirmation">
+		                   <span class="badge">7</span>
+                             <h4 class="list-group-item-heading">Confirmation</h4>
+		                  
+		                </a></li>
+		            </ul>
+                    <div class="small-gap"></div>
+                    <div class="small-gap"></div>
+                </div>
+                
+                <div class="col-sm-12">
+                   <div class="step active" id="plan">
+                            {{ render(controller('CupSiteManagementBundle:DeliveryPartner:planType')) }} 
+                    </div>
+                    <div class="step" id="city">
+                    
+                    </div>
+                    <div class="step" id="partner">
+                    
+                    </div>
+                     <div class="step" id="date">
+                    
+                    </div>
+                     <div class="step" id="design">
+                    
+                    </div>
+                     <div class="step" id="personal">
+                    
+                    </div>
+                     <div class="step" id="confirmation">
+                    confirmation
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block menu %}
+			<li><a href="{{ path('deliverypartner_paper_cup_advertising')}}">Paper Cup Advertising</a></li>
+            <li><a href="{{ path('deliverypartner_coffee_cup_advertising')}}">Coffee Cup Advertising</a></li>
+            <li><a href="{{ path('deliverypartner_stories')}}">Gingercup Stories</a></li>
+{% endblock %}
+ {% block reachus %}
+           <a href="{{ path('deliverypartner_reach_us')}}" class="free-cups">Get Free Cups</a>
+           <a href="{{ path('deliverypartner_reach_us')}}" class="free-cups">Advertise with us</a>
+{% endblock %}

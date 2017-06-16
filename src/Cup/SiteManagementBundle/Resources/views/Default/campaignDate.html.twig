@@ -1,0 +1,69 @@
+<script>
+var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate()+15, 0, 0, 0, 0);
+ $('#cup_sitemanagementbundle_campaign_date_campaignDate').datepicker({
+		 onRender: function(date) {
+             return date.valueOf() < now.valueOf() ? 'disabled' : '';
+		 },
+        onSelect: function(dateText, inst) {
+            $.ajax(
+            {
+                url : "{{ path('cup_site_management_campaign_change_date') }}",
+                type: 'GET',
+                data : {'selectedDate':dateText },
+                success:function(data, textStatus, jqXHR)
+                {
+                    $('#cup_sitemanagementbundle_campaign_date_campaignEndDate').val(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+        },
+        minDate: now,
+         });
+ </script>
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <h3>Select Date</h3>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-5">
+                    {{ form_start(form) }}
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.campaignDate) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.campaignDate) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.campaignEndDate) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.campaignEndDate) }}
+                                <span>(According to budget this will come automatic)</span>
+                            </div>                       
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Next">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

@@ -1,0 +1,140 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Promotion </span></h4>
+                <div class="small-gap"></div>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-9">
+                        <u><b>Personal Details</b></u>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Name</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.name }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Mobile</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.mobile }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Email-id</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.email }}
+                            </div>                       
+                        </div>
+                        <u><b>Promotion Details</b></u>
+                        <div class="row form-group">
+                            <div class="col-lg-2">
+                            <label>Promotion Type</label>
+                            </div>
+                           <div class="col-lg-2">
+                               {{ request.promotionType }}
+                            </div>
+                            <div class="col-lg-2">
+                            <label>Plan</label>
+                            </div>
+                           <div class="col-lg-2">
+                               {{ request.planType }}
+                            </div>                       
+                       
+                             <div class="col-lg-2">
+                            <label>Total Budget</label>
+                            </div>
+                            <div class="col-lg-2">
+                               {{ request.totalAmount }}
+                            </div>
+                                                 
+                        </div>
+                        <u><b>Selected Cities</b></u>
+                                    <div class="row form-group">
+                                         <div class="col-lg-2">
+                                        <label>City</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                        <label>Budget</label>
+                                        </div>
+                                        <div class="col-lg-2">
+                                        <label>Start Date</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                        <label>End Date</label>
+                                        </div>
+                                        {#
+                                         <div class="col-lg-2">
+                                        <label>Reach</label>
+                                        </div>
+                                        #}
+                                         <div class="col-lg-2">
+                                        <label>No of Days</label>
+                                        </div>
+                                    </div>
+                                {% for city in request.city if request.city|length>0 %}
+                                <div class="row form-group">
+                                        <div class="col-lg-2">
+                                           {{ cities[city.city] }}
+                                        </div> 
+                                        <div class="col-lg-2">
+                                           {{ city.budget }}
+                                        </div> 
+                                        <div class="col-lg-2">
+                                           {{ city.campaignDate.format('d/m/Y') }}
+                                        </div> 
+                                      
+                                      <div class="col-lg-2">
+                                         {% if city.campaignEndDate %}
+                                           {{ city.campaignEndDate.format('d/m/Y') }}
+                                          {% endif %}
+                                        </div> 
+                                    {#
+                                        <div class="col-lg-2">
+                                           {{ city.reach }}
+                                        </div> 
+                                    #}
+                                        <div class="col-lg-2">
+                                           {{ city.noOfDays }}
+                                        </div> 
+
+                                    </div>
+                            {% if request.promotionType=='Cup Campaign' %}
+                                 <div class="row form-group">
+                                        <div class="col-lg-12">
+                                            {% for l in city.location if city.location|length>0 %}
+                                               {{ locations[l.location] }},
+                                            {% endfor %}
+                                     </div>
+                                    </div>
+                            {% else %}
+                                    <div class="row form-group">
+                                        <div class="col-lg-12">
+                                            {% for p in city.partner if city.partner|length>0 %}
+                                               {{ partners[p.partner].partner.companyName }},
+                                            {% endfor %}
+                                     </div>
+                                    </div>
+                         {% endif %}
+                                {% endfor %}
+                       
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

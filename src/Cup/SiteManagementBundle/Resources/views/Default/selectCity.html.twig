@@ -1,0 +1,65 @@
+<script>
+var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate()+15, 0, 0, 0, 0);
+ $('.date-picker').datepicker({
+		 onRender: function(date) {
+             return date.valueOf() < now.valueOf() ? 'disabled' : '';
+		 },
+        onSelect: function(dateText, inst) {
+
+        },
+        minDate: now,
+         });
+ </script>
+
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                <div id="fullwidth" class="col-sm-12">
+                     <div class="col-lg-12">
+                    {{ form_start(form) }}
+                        <div class="row form-group">
+                            <div class="col-lg-2">
+                               <label>City</label>
+                            </div>
+                            <div class="col-lg-3">
+                                <label>Budget</label>
+                            </div>
+                           <div class="col-lg-2">
+                                <label>Campaign Date</label>
+                            </div>
+                                      
+                        </div>
+                        {% for city in form.cities %}
+                        <div class="row form-group">
+                           <div class="col-lg-2">
+                                {{ form_widget(city.city) }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ form_widget(city.budget) }}
+                            </div>
+                            <div class="col-lg-2">
+                                {{ form_widget(city.campaignDate) }}
+                            </div> 
+                                      
+                        </div>
+                        {% endfor %}
+                       
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Next">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

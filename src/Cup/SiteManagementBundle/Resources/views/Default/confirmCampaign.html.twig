@@ -1,0 +1,168 @@
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <h3>Confirm Campaign</h3>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-11">
+                        <u><b>Personal Details</b></u>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Name</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.name }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Mobile</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.mobile }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            <label>Email-id</label>
+                            </div>
+                            <div class="col-lg-6">
+                               {{ request.email }}
+                            </div>                       
+                        </div>
+                        <u><b>Campaign Details</b></u>
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                            <label>Plan</label>
+                            </div>
+                           <div class="col-lg-3">
+                               {{ request.planType }}
+                            </div>                       
+                       
+                             <div class="col-lg-3">
+                            <label>Total Budget</label>
+                            </div>
+                            <div class="col-lg-3">
+                               {{ request.totalAmount }}
+                            </div>
+                                                 
+                        </div>
+                        {#
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                            <label>Start Date</label>
+                            </div>
+                            <div class="col-lg-3">
+                               {{ request.campaignDate|date('d/m/Y') }}
+                            </div> 
+                           <div class="col-lg-3">
+                            <label>End Date</label>
+                            </div>
+                          <div class="col-lg-3">
+                               {{ request.campaignEndDate|date('d/m/Y') }}
+                            </div>                       
+                                                 
+                        </div>
+                        #}
+                        <u><b>Selected Cities</b></u>
+                                    <div class="row form-group">
+                                         <div class="col-lg-2">
+                                        <label>City</label>
+                                        </div>
+                                         <div class="col-lg-1">
+                                        <label>Budget</label>
+                                        </div>
+                                        <div class="col-lg-2">
+                                        <label>Start Date</label>
+                                        </div>
+                                         <div class="col-lg-2">
+                                        <label>End Date</label>
+                                        </div>
+                                         {% if request.promotionType=='Cup Campaign' %}
+                                         <div class="col-lg-2">
+                                            <label>Quantity/Day</label>
+                                        </div>
+                                         {% endif %}
+                                         <div class="col-lg-1">
+                                            <label>Reach</label>
+                                        </div>
+                                         {% if request.promotionType=='Cup Campaign' %}
+                                        <div class="col-lg-1">
+                                            <label>Cost for Reach</label>
+                                        </div>
+                                         {% endif %}
+                                       
+                                         <div class="col-lg-1">
+                                        <label>No of Days</label>
+                                        </div>
+                                    </div>
+                                {% for city in selectCity.cities if selectCity.cities|length>0 %}
+                                <div class="row form-group">
+                                        <div class="col-lg-2">
+                                           {{ cityArray[city.city] }}
+                                        </div> 
+                                        <div class="col-lg-1">
+                                           {{ city.budget }}
+                                        </div> 
+                                        <div class="col-lg-2">
+                                           {{ city.campaignDate.format('d/m/Y') }}
+                                        </div> 
+                                      
+                                      <div class="col-lg-2">
+                                         {% if city.campaignEndDate %}
+                                           {{ city.campaignEndDate.format('d/m/Y') }}
+                                          {% endif %}
+                                        </div> 
+                                     {% if request.promotionType=='Cup Campaign' %}
+                                        <div class="col-lg-2">
+                                           {{ city.cupQuantityPerDay }}
+                                        </div> 
+                                     {% endif %}
+                                        <div class="col-lg-1">
+                                           {{ city.reach }}
+                                        </div>
+                                     {% if request.promotionType=='Cup Campaign' %}
+                                     <div class="col-lg-1">
+                                           {{ city.costForReach }}
+                                    </div> 
+                                     {% endif %}
+                                     <div class="col-lg-1">
+                                           {{ city.noOfDays }}
+                                        </div> 
+
+                                    </div>
+                                 <div class="row form-group">
+                                        <div class="col-lg-12">
+                                            {% for l in city.location if city.location|length>0 %}
+                                               {{ locations[l.location] }},
+                                            {% endfor %}
+                                     </div>
+                                    </div>
+                                {% endfor %}
+                        {#
+                        <u><b>Selected Locations</b></u>
+                         <div class="row form-group">
+                            <div class="col-lg-12">
+                                
+                                {% for location in selectLocation.locations if selectLocation.locations|length>0 %}
+                                    {{ locations[location.location] }},
+                                {% endfor %}
+                                
+                           
+                            </div>                       
+                        </div>
+                        #}
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="{{ path('cup_site_management_campaign_finish_campaign') }}" class="btn btn-primary pull-right">Confirm</a>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

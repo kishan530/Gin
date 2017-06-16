@@ -1,0 +1,62 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                <div class="small-gap"></div>
+                <h2>Delivery Partner List</h2>
+                </div>
+                <div class="col-lg-4 text-left">
+                    <div class="small-gap"></div>
+                    <a class="btn btn-primary pull-left" href="{{ path('cup_site_management_enroll_deliverypartner') }}" style="margin-top: 20px;">Add New</a>
+                </div>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-5">
+                        <table id="result" class="table table-bordered col-lg-12 col-sm-12">
+                           {% if deliveryPartners|length>0 %}	
+                                  <tr class="blue">
+                                        <th>Sl.No </th>
+                                        <th>Company Name</th>
+                                       <th> IndustryType </th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>                                
+                                       
+                                        <th> Package Dimenson </th>
+                                       <th>Sex Ratio</th>
+                                        <th>Married Ratio</th>  
+                                      <th>View</th>  
+                                    </tr>	
+                            {% endif %}			
+
+                             {% for deliveryPartner in deliveryPartners if deliveryPartners|length>0 %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ deliveryPartner.companyName }}</td> 
+                                     <td>{{ deliveryPartner.industryType }}</td> 
+                                    <td>{{ deliveryPartner.phoneNumber }}</td> 
+                                    <td>{{ deliveryPartner.email }}</td>   
+                                    
+                                    <td>{{ deliveryPartner.packageDimenson }}</td>
+                                    <td> {% if deliveryPartner.customerDetail.first %} 
+                                        {{ deliveryPartner.customerDetail.first.sexRatio }} 
+                                        {% endif %}</td> 
+                                     <td> {% if deliveryPartner.customerDetail.first %} 
+                                        {{ deliveryPartner.customerDetail.first.marriedToBachelorRatio }}
+                                     {% endif %}</td>  
+                                    <td><a target="_blank" href="{{ path('deliverypartner_show',{ 'id': deliveryPartner.id }) }}">view</a></td>
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

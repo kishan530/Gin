@@ -1,0 +1,64 @@
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <h2>Customer Details</h2>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-5">
+                    {{ form_start(form) }}
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.sexRatio) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.sexRatio) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.marriedToBachelorRatio) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.marriedToBachelorRatio) }}
+                            </div>                       
+                        </div>
+                         <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.ageGroup) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.ageGroup) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.incomeGroup) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.incomeGroup) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.note) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.note) }}
+                            </div>                       
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="submit" class="btn btn-primary pull-right" value="Finish">
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

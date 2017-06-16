@@ -1,0 +1,374 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script  src="{{ asset('js/chosen.jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/prism.js') }}" type="text/javascript" charset="utf-8"></script>
+<script>
+
+     // keep track of how many city fields have been rendered
+    var itemCount = '{{ form.item|length }}';
+
+    $('#add-another-item').click(function(e) {
+            e.preventDefault();
+            /*if(itemCount>4){
+                alert('Max 5 only');
+                exit();
+            }*/
+
+            var itemList = $('#item-list');
+
+            // grab the prototype template
+            var newWidget = itemList.attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            // with a number that's unique to your city
+            newWidget = newWidget.replace(/__name__/g, itemCount);
+            itemCount++;
+
+            // create a new list element and add it to the list
+            var newLi = $('<div></div>').html(newWidget);
+            newLi.appendTo(itemList);
+        });
+    
+     // keep track of how many city fields have been rendered
+    var termsCount = '{{ form.terms|length }}';
+
+    $('#add-another-terms').click(function(e) {
+            e.preventDefault();
+            /*if(itemCount>4){
+                alert('Max 5 only');
+                exit();
+            }*/
+
+            var itemList = $('#terms-list');
+
+            // grab the prototype template
+            var newWidget = itemList.attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            // with a number that's unique to your city
+            newWidget = newWidget.replace(/__name__/g, itemCount);
+            itemCount++;
+
+            // create a new list element and add it to the list
+            var newLi = $('<div></div>').html(newWidget);
+            newLi.appendTo(itemList);
+        });
+    
+    $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Generate Invoice</span></h4>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-8">
+                    {{ form_start(form) }}
+                    
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.invoiceTitle) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.invoiceTitle) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.invoiceDate) }}
+                            </div>
+                             <div class="col-lg-3">
+                                {{ form_widget(form.invoiceDate) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group">
+                             <div class="col-lg-3">
+                            {{ form_label(form.supplierRef) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.supplierRef) }}
+                            </div> 
+                           <div class="col-lg-3">
+                            {{ form_label(form.otherRef) }}
+                            </div>
+                             <div class="col-lg-3">
+                                {{ form_widget(form.otherRef) }}
+                            </div>                            
+                        </div>
+                    
+                     <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.sellerName) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.sellerName) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.sellerTIN) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.sellerTIN) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.sellerTaxNo) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.sellerTaxNo) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.sellerPAN) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.sellerPAN) }}
+                            </div>                            
+                        </div>
+                    
+                     <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.sellerAddress) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.sellerAddress) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.sellerAddress2) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.sellerAddress2) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.buyerName) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.buyerName) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.buyerEmail) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.buyerEmail) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.buyerAddress) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.buyerAddress) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.buyerAddress2) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.buyerAddress2) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.buyerOrderNo) }}
+                            </div>
+                             <div class="col-lg-3">
+                                {{ form_widget(form.buyerOrderNo) }}
+                            </div> 
+                           <div class="col-lg-3">
+                            {{ form_label(form.buyerOrderDate) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.buyerOrderDate) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.despatchNo) }}
+                            </div>
+                           <div class="col-lg-3">
+                                {{ form_widget(form.despatchNo) }}
+                            </div> 
+                             <div class="col-lg-3">
+                            {{ form_label(form.despatchThrough) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.despatchThrough) }}
+                            </div>                            
+                        </div>
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.destination) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.destination) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.deliveryNoteDate) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.deliveryNoteDate) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                            {{ form_label(form.modePayment) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.modePayment) }}
+                            </div> 
+                            <div class="col-lg-3">
+                            {{ form_label(form.serviceTax) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.serviceTax) }}
+                            </div> 
+                                                       
+                        </div>
+                    <div class="row form-group">
+                           
+                            <div class="col-lg-3">
+                            {{ form_label(form.swachBharthCess) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.swachBharthCess) }}
+                            </div>  
+                             <div class="col-lg-3">
+                            {{ form_label(form.krishiKalyanCess) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.krishiKalyanCess) }}
+                            </div> 
+                        </div>
+
+                        <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.deliveryNote) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.deliveryNote) }}
+                            </div>                            
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-12">
+                            {{ form_label(form.termsOfDelivery) }}
+                            </div>
+                            <div class="col-lg-12">
+                                {{ form_widget(form.termsOfDelivery) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group"> 
+                            <div class="col-lg-1">
+                                {{ form_widget(form.sendMail) }}
+                            </div>
+                            <div class="col-lg-11 text-left">
+                                 {{ form_label(form.sendMail) }}
+                            </div>                            
+                        </div>
+                     <h3>Items</h3>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                                <label>Description</label>
+                            </div> 
+                            <div class="col-lg-3">
+                                <label>Quantity</label>
+                            </div>
+                            <div class="col-lg-3">
+                                <label>Price</label>
+                            </div>                            
+                        </div>
+                        {% macro information_prototype(i) %}
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                                {{ form_widget(i.description) }}
+                            </div> 
+                            <div class="col-lg-3">
+                                {{ form_widget(i.quantity) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(i.rate) }}
+                            </div>                            
+                        </div>
+                   
+                            
+                        {% endmacro %}
+                        <div id="item-list"
+                                                data-prototype="{{ _self.information_prototype(form.item.vars.prototype)|e }}">
+                                            {% for i in form.item %}
+                            <div class="row form-group">
+                            <div class="col-lg-6">
+                                {{ form_widget(i.description) }}
+                            </div> 
+                            <div class="col-lg-3">
+                                {{ form_widget(i.quantity) }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ form_widget(i.rate) }}
+                            </div>                            
+                        </div>
+                            {% endfor %}
+                        </div>
+                    <a href="#" id="add-another-item">Add another item</a>
+                    
+                    
+                     <h3>Terms & Condition</h3>
+                       
+                        {% macro term_information_prototype(j) %}
+                        <div class="row form-group">
+                            <div class="col-lg-8">
+                                {{ form_widget(j.description) }}
+                            </div> 
+                                                    
+                        </div>
+                   
+                            
+                        {% endmacro %}
+                        <div id="terms-list"
+                                                data-prototype="{{ _self.term_information_prototype(form.terms.vars.prototype)|e }}">
+                                            {% for j in form.terms %}
+                            <div class="row form-group">
+                            <div class="col-lg-8">
+                                {{ form_widget(j.description) }}
+                            </div> 
+                                                      
+                        </div>
+                            {% endfor %}
+                        </div>
+                    <a href="#" id="add-another-terms">Add another terms</a>
+                    
+                    
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary pull-right'}}) }}
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

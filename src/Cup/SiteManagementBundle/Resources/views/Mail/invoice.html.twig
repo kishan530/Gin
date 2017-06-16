@@ -1,0 +1,244 @@
+<div><div class="adM">
+</div><div style="margin-top:10px"><div class="adM">
+	 </div><div style="display:block"><div class="adM">
+	</div><table width="100%">
+		<tbody>
+		<tr>
+			<td style="text-align:center">
+				<h2 style="margin:0px;padding:0px">{{ invoice.invoiceTitle }}</h2>				
+			</td>
+		</tr>
+	</tbody></table>
+<table width="100%" cellspacing="0" cellpadding="0" frame="box">
+<tr>
+<td valign="top" width="50%">
+  <div style="border-bottom: solid 1px #000;">
+      <h4>{{ invoice.sellerName }}</h4>
+      <p>{{ invoice.sellerAddress }}</p>
+      <p>{{ invoice.sellerAddress2 }}</p>
+      
+    
+    </div>
+    <div>
+        <h4>Buyer</h4>
+        <p><b> {{ invoice.buyerName }} </b></p>
+        <p> {{ invoice.buyerAddress }} </p>
+        <p> {{ invoice.buyerAddress2 }} </p>
+    
+    </div>
+    
+</td>
+<td align="center" width="50%">
+  <table width="100%" align="center" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+          <td>
+              <p>Invoice No</p>
+              <p> {{ invoice.invoiceNo }} </p>
+          
+          </td>
+          <td>
+            <p>Dated</p>
+             <p> {{ invoice.invoiceDate.format('d/m/Y') }} </p>
+              
+          </td>
+      
+      </tr>
+     <tr>
+          <td>
+              <p>Delivery Note</p>
+               <p> {{ invoice.deliveryNote }} </p>
+         </td>
+         <td>
+             <p>Mode/Terms of Payment</p>
+              <p> {{ invoice.modePayment }} </p>
+         
+         </td>
+      </tr>
+      <tr>
+            <td>
+                <p>Supplier's Ref.</p>
+                 <p> {{ invoice.supplierRef }} </p>
+          
+            </td>
+            <td>
+                <p>Other Reference(s)</p>
+                 <p> {{ invoice.otherRef }} </p>
+                
+            </td>
+      
+      </tr>
+      <tr>
+          <td>
+              <p>Buyer's Order No.</p>
+               <p> {{ invoice.buyerOrderNo }} </p>
+          
+          </td>
+          <td>
+              <p>Dated</p>
+               <p> {{ invoice.buyerOrderDate.format('d/m/Y') }} </p>
+          
+          </td>
+      
+      </tr>
+      <tr>
+          <td>
+              <p>Despatch Document No.</p>
+               <p> {{ invoice.despatchNo }} </p>
+          
+          </td>
+          <td>
+            <p>Delivery Note Date</p>
+               <p> {{ invoice.deliveryNoteDate.format('d/m/Y') }} </p>
+          </td>
+      
+      </tr>
+      <tr>
+            <td>
+                <p>Despatched through</p>
+                 <p> {{ invoice.despatchThrough }} </p>
+          </td>
+          <td>
+                <p>Destination</p>
+                 <p> {{ invoice.destination }} </p>
+          </td>
+      </tr>
+      <tr>
+          <td colspan="2">
+              <p>Terms of Delivery</p>
+               <p> {{ invoice.termsOfDelivery }} </p>
+          
+          </td>
+      
+      </tr>
+      
+    </table>
+    
+    
+</td>
+</tr>
+</table>
+<table width="100%" align="center" cellspacing="0" cellpadding="0" frame="vsides" border="1px solid #000">
+    <tr>
+        <td>Sl No.</td>
+        <td>Description of Goods</td>
+        <td>Quantity</td>
+        <td>Rate</td>
+        <td>per</td>
+        <td>Amount</td>
+    
+    </tr>
+    {% for item in invoice.item if invoice.item|length>0 %}
+    <tr>
+        <td> {{ loop.index }} </td>
+        <td> {{ item.description }} </td>
+        <td> {{ item.quantity }} </td>
+        <td> {{ item.rate }} </td>
+        <td> {{ item.isPercentage }} </td>
+        <td> RS. {{ item.amount }} </td>
+    </tr>
+    {% endfor %}
+     <tr>
+        <td></td>
+        <td align="right">Out Put Service Tax</td>
+        <td></td>
+        <td></td>
+        <td>%</td>
+        <td>{{ invoice.serviceTaxPer }}</td>
+    </tr>
+     <tr>
+        <td></td>
+        <td align="right">Swach Bharth Cess</td>
+        <td></td>
+        <td></td>
+        <td>%</td>
+        <td>{{ invoice.swachBharthCessPer }}</td>
+    </tr>
+     <tr>
+        <td></td>
+        <td align="right">Krishi Kalyan Cess</td>
+        <td></td>
+        <td></td>
+        <td>%</td>
+        <td>{{ invoice.krishiKalyanCessPer }}</td>
+    </tr>
+     <tr>
+        <td></td>
+        <td align="right">Rounding Off</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ invoice.roundingOff }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="right">Total</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Rs.{{ invoice.total }}</td>
+    </tr>
+</table>
+<table width="100%" align="center" cellspacing="0" cellpadding="0" frame="box">
+    <tr>
+        <td>
+            <p>Amount Chargeable (in words)</p>
+            <p> {{ invoice.totalInWords }} </p>
+        
+        </td>
+        <td align="right">
+            <p>E. & O.E</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <br>
+            <p>Company's VAT TIN : {{ invoice.sellerTIN }} </p>
+            <p>Company's Service Tax No. : {{ invoice.sellerTaxNo }} </p>
+            <p>Company's PAN : {{ invoice.sellerPAN }} </p>
+            <p><u><b>Declaration</b></u></p>
+            {% for term in invoice.terms if invoice.terms|length>0 %}
+                <p>{{ loop.index }}.{{ term.description }} .</p>
+             {% endfor %}
+            
+            {#
+            <p>1.Payment should be made as per term of payment
+
+stipulated in this invoice ,otherwise interest @24% PA
+
+                will be charged.</p><p>
+
+2 In Case of Software Sales Invoice "No TDS to be
+
+deducted on this Invoice; Refer Notification no. 21
+
+/2012 [F. No. 142/10/2012 - SO(TPL)] S.O. 1323 [E],
+
+dated 13th June 2012 which has notified that no
+
+deduction of tax shall be made under section 194J of
+
+the Act, in the case payment by a person for the
+
+acquisition of his software license. There is no
+
+modification done on the software being supplied vide
+
+this invoice. We have deducted With Holding Tax
+
+under Section 194J/195 on payment for this Service.</p> 
+            
+            #}
+        </td>
+        <td width="50%">
+        </td>
+    </tr>
+</table>
+<p style="text-align:center">This is a Computer Generated Invoice</p>
+    
+
+    
+<div class="yj6qo"></div><div class="adL">
+
+</div></div><div class="adL">
+</div></div><div class="adL">
+</div></div>

@@ -1,0 +1,18 @@
+<table border="1">
+     <tr>
+         <th>Name</th>
+         <th>Address</th>
+          <th>Rating</th>
+    </tr>
+     {% for college in colleges if colleges|length>0 %}
+    <tr>
+    <td>{{ college.name|striptags }}</td>
+<td>{{ college.location|striptags  }}</td>
+        
+<td>{{ college.rating|striptags }}</td> 
+    
+    </tr>
+    {% endfor %}
+
+
+</table>

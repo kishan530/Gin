@@ -1,0 +1,213 @@
+{% extends 'page.html.twig' %}
+{% block title %}GINGERCUP STORIES | GingerCup{% endblock %}
+
+{% block stylesheets %}
+<link rel='stylesheet' href="{{ asset('unitegallery/css/unite-gallery.css') }}" type='text/css' /> 
+
+{% endblock %}
+
+{% block javascripts %}
+
+	<script type='text/javascript' src="{{ asset('unitegallery/js/unitegallery.min.js') }}"></script> 			
+		<script type='text/javascript' src="{{ asset('unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}"></script> 
+		
+<script type="text/javascript"> 
+			
+			jQuery(document).ready(function(){ 
+				 jQuery("#gallery").unitegallery({
+					tiles_type:"tilesgrid",
+				}); 
+			
+			}); 
+		
+		</script>
+		 
+
+{% endblock %}
+  {% block body %}
+<section class="section clearfix">
+<div class="container">
+    <h1 class="text-center page-heading"><span>GingerCup</span> Gallery</h1>
+    
+    <div class="row">
+       
+        <div class="col-lg-9">
+           <div id="gallery" style="display: none">
+           
+
+            <a href="#">
+<img alt=" Myra Campaign "
+     src="{{ asset('images/gallery/myra_college_blr_2.JPG') }}"
+     data-image="{{ asset('images/gallery/myra_college_blr_2.JPG') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra Business School Papercup Campaign "
+     src="{{ asset('images/gallery/myra_college_blr_4.png') }}"
+     data-image="{{ asset('images/gallery/myra_college_blr_4.png') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra B School Papercup Campaign "
+     src="{{ asset('images/gallery/myra_it_blr_1.jpeg') }}"
+     data-image="{{ asset('images/gallery/myra_it_blr_12.jpeg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra ad Campaign "
+     src="{{ asset('images/gallery/myra_it_blr_2.jpeg') }}"
+     data-image="{{ asset('images/gallery/myra_it_blr_16.jpeg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra advertisment Campaign "
+     src="{{ asset('images/gallery/myra_it_blr_3.jpeg') }}"
+     data-image="{{ asset('images/gallery/myra_it_blr_17.jpeg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra ad "
+     src="{{ asset('images/gallery/myra_it_blr_4.jpeg') }}"
+     data-image="{{ asset('images/gallery/myra_it_blr_4.jpeg') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra advertisment "
+     src="{{ asset('images/gallery/myra_cup.JPG') }}"
+     data-image="{{ asset('images/gallery/myra_cup.JPG') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra Papercup "
+     src="{{ asset('images/gallery/myra_cup2.JPG') }}"
+     data-image="{{ asset('images/gallery/myra_cup2.JPG') }}"
+     data-description=""
+     style="display:none">
+</a>
+
+ <a href="#">
+<img alt=" Myra gingercup Campaign "
+     src="{{ asset('images/gallery/myra_cup3.JPG') }}"
+     data-image="{{ asset('images/gallery/myra_cup3.JPG') }}"
+     data-description=""
+     style="display:none">
+</a>
+           
+			
+			
+			</div>
+		</div>
+		
+		
+				<div class="col-lg-3">
+		<ul>
+			<li> <a href="{{ path('deliverypartner_bahubali_gallery')}}">
+			Bahubali
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_bookmyshow_gallery')}}">
+			Bookmyshow
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_brigade_gallery')}}">
+			Brigade
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_Hotstar_gallery')}}">
+			Hotstar
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pokerninja_college_gallery')}}">
+			Pokerninja College
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_uber_gallery')}}">
+			Uber
+			</a></li>
+			
+			
+			<li> <a href="{{ path('deliverypartner_checkLittle_gallery')}}">
+			Little
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_clovia_gallery')}}">
+			Clovia
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_colors_gallery')}}">
+			Colors
+			</a></li>
+			
+			
+			<li> <a href="{{ path('deliverypartner_flashdoor_gallery')}}">
+			Flashdoor
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_fxkart_gallery')}}">
+			FX Kart
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_huawei_gallery')}}">
+			Huawei
+			</a></li>
+			
+			<li> <a href="{{ path('deliverypartner_modasta_gallery')}}">
+			Modasta
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_myra_gallery')}}">
+			Myra
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_nestaway_gallery')}}">
+			Nestaway
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pioneer_gallery')}}">
+			Pioneer
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pizzahut_gallery')}}">
+			Pizzahut
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_pulse_gallery')}}">
+			Pulse
+			</a></li>
+			<li> <a href="{{ path('deliverypartner_scripbox_gallery')}}">
+			Scripbox
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_superprofs_gallery')}}">
+			Superprofs
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_wooplr_gallery')}}">
+			Wooplr
+			</a></li>
+			<li>
+			 <a href="{{ path('deliverypartner_yumist_gallery')}}">
+			Yumist
+			</a></li>
+			 
+			
+			<li>
+			
+			 <a href="{{ path('deliverypartner_other_gallery')}}">
+			Others
+			</a></li>
+		</ul>
+		</div>
+        
+    </div>
+    
+    <div class="small-gap"></div>
+
+</div>
+</section>
+{% endblock %}

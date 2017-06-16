@@ -1,0 +1,230 @@
+{% extends 'page.html.twig' %}
+{% block title %}GINGERCUP STORIES | GingerCup{% endblock %}
+
+{% block stylesheets %}
+<link rel='stylesheet' href="{{ asset('unitegallery/css/unite-gallery.css') }}" type='text/css' /> 
+
+{% endblock %}
+
+{% block javascripts %}
+
+	<script type='text/javascript' src="{{ asset('unitegallery/js/unitegallery.min.js') }}"></script> 			
+		<script type='text/javascript' src="{{ asset('unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}"></script> 
+		
+<script type="text/javascript"> 
+			
+			jQuery(document).ready(function(){ 
+				 jQuery("#gallery").unitegallery({
+					tiles_type:"tilesgrid",
+					tile_enable_textpanel: true,	
+					tile_textpanel_source: "title",	
+					tile_textpanel_always_on: true,
+					tile_width: 350,		
+					tile_height: 290,
+					tile_as_link: true,
+					tile_link_newpage: false,
+				}); 
+			
+			}); 
+		
+		</script>
+		 
+
+{% endblock %}
+  {% block body %}
+<section class="section clearfix page">
+<div class="">
+    <h1 class="text-center page-heading"><span>GingerCup</span> Gallery</h1>
+    
+    <div class="row">
+       
+        <div class="col-lg-12">
+           <div id="gallery" style="display: none">
+			 <a href="{{ path('deliverypartner_bahubali_gallery')}}">
+			<img alt="Bahubali"
+			     src="{{ asset('images/gallery/bahubali_cups.jpg') }}"
+			     data-image="{{ asset('images/gallery/bahubali_cups.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_bookmyshow_gallery')}}">
+			<img alt="Bookmyshow"
+			     src="{{ asset('images/gallery/bookmyshow_dli_cups.JPG') }}"
+			     data-image="{{ asset('images/gallery/bookmyshow_dli_cups.JPG') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_brigade_gallery')}}">
+			<img alt="Brigade"
+			     src="{{ asset('images/gallery/brigade_cups_3.jpg') }}"
+			     data-image="{{ asset('images/gallery/brigade_cups_3.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_Hotstar_gallery')}}">
+			<img alt="Hotstar"
+			     src="{{ asset('images/gallery/hotstar_cup2.jpg') }}"
+			     data-image="{{ asset('images/gallery/hotstar_cup2.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_pokerninja_college_gallery')}}">
+			<img alt="Pokerninja College"
+			     src="{{ asset('images/gallery/pokerninja_random_mum_2.jpeg') }}"
+			     data-image="{{ asset('images/gallery/pokerninja_random_mum_2.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_uber_gallery')}}">
+			<img alt="Uber"
+			     src="{{ asset('images/gallery/uber_cup_pune_2.JPG') }}"
+			     data-image="{{ asset('images/gallery/uber_cup_pune_2.JPG') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			
+			 <a href="{{ path('deliverypartner_checkLittle_gallery')}}">
+			<img alt="Little"
+			     src="{{ asset('images/gallery/CheckLittle_cups.jpg') }}"
+			     data-image="{{ asset('images/gallery/CheckLittle_cups.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_clovia_gallery')}}">
+			<img alt="Clovia"
+			     src="{{ asset('images/gallery/clovia_cups3.jpeg') }}"
+			     data-image="{{ asset('images/gallery/clovia_cups3.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_colors_gallery')}}">
+			<img alt="Colors"
+			     src="{{ asset('images/gallery/colors_mall3.JPG') }}"
+			     data-image="{{ asset('images/gallery/colors_mall3.JPG') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			
+			 <a href="{{ path('deliverypartner_flashdoor_gallery')}}">
+			<img alt="Flashdoor"
+			     src="{{ asset('images/gallery/flashdoor_cup.jpg') }}"
+			     data-image="{{ asset('images/gallery/flashdoor_cup.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_fxkart_gallery')}}">
+			<img alt="FX Kart"
+			     src="{{ asset('images/gallery/fxkart_cup3.jpeg') }}"
+			     data-image="{{ asset('images/gallery/fxkart_cup3.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_huawei_gallery')}}">
+			<img alt="Huawei"
+			     src="{{ asset('images/gallery/huawei_cup2.JPG') }}"
+			     data-image="{{ asset('images/gallery/huawei_cup2.JPG') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			 <a href="{{ path('deliverypartner_modasta_gallery')}}">
+			<img alt="Modasta"
+			     src="{{ asset('images/gallery/modasta_blr_cup.jpg') }}"
+			     data-image="{{ asset('images/gallery/modasta_blr_cup.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_myra_gallery')}}">
+			<img alt="Myra"
+			     src="{{ asset('images/gallery/myra_cup.JPG') }}"
+			     data-image="{{ asset('images/gallery/myra_cup.JPG') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_nestaway_gallery')}}">
+			<img alt="Nestaway"
+			     src="{{ asset('images/gallery/nestaway_cup.jpg') }}"
+			     data-image="{{ asset('images/gallery/nestaway_cup.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_pioneer_gallery')}}">
+			<img alt="Pioneer"
+			     src="{{ asset('images/gallery/pioneer_cup.jpeg') }}"
+			     data-image="{{ asset('images/gallery/pioneer_cup.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_pizzahut_gallery')}}">
+			<img alt="Pizzahut"
+			     src="{{ asset('images/gallery/pizzahut_cup.jpg') }}"
+			     data-image="{{ asset('images/gallery/pizzahut_cup.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_pulse_gallery')}}">
+			<img alt="Pulse"
+			     src="{{ asset('images/gallery/pulse_random.jpg') }}"
+			     data-image="{{ asset('images/gallery/pulse_random.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_scripbox_gallery')}}">
+			<img alt="Scripbox"
+			     src="{{ asset('images/gallery/scripbox_cups.jpg') }}"
+			     data-image="{{ asset('images/gallery/scripbox_cups.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_superprofs_gallery')}}">
+			<img alt="Superprofs"
+			     src="{{ asset('images/gallery/superprofs_cups.jpeg') }}"
+			     data-image="{{ asset('images/gallery/superprofs_cups.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_wooplr_gallery')}}">
+			<img alt="Wooplr"
+			     src="{{ asset('images/gallery/wooplr_cup.jpeg') }}"
+			     data-image="{{ asset('images/gallery/wooplr_cup.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 <a href="{{ path('deliverypartner_yumist_gallery')}}">
+			<img alt="Yumist"
+			     src="{{ asset('images/gallery/yumist_cup_1.jpeg') }}"
+			     data-image="{{ asset('images/gallery/yumist_cup_1.jpeg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			 
+			
+			
+			
+			 <a href="{{ path('deliverypartner_other_gallery')}}">
+			<img alt="Others"
+			     src="{{ asset('images/gallery/abp_cups.jpg') }}"
+			     data-image="{{ asset('images/gallery/abp_cups.jpg') }}"
+			     data-description=""
+			     style="display:none">
+			</a>
+			
+			
+			
+			</div>
+		</div>
+        
+    </div>
+    
+    <div class="small-gap"></div>
+
+</div>
+</section>
+{% endblock %}

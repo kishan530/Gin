@@ -1,0 +1,321 @@
+cup_site_management_delivery_partner_list:
+    path:     /delivery-partner-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:index" }
+cup_site_management_homepage:
+    path:     /
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:home" }
+    methods:  GET
+cup_site_management_enroll_deliverypartner:
+    path:     /register-delivery-partner
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:enrollDeliveryPartner" }
+    methods:  GET
+
+deliverypartner_show:
+    path:     /{id}/show
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:show" }
+    methods:  GET
+
+deliverypartner_new:
+    path:     /register-partner
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:new" }
+    methods:  [GET, POST]
+delivery_detail_new:
+    path:     /delivery-detail
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deliveryDetail" }
+    methods:  [GET, POST]
+delivery_customer_detail_new:
+    path:     /customer-detail
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:customerDetail" }
+    methods:  [GET, POST]
+cup_site_management_campaign_plan_type:
+    path:     /cup-campaign_plan_type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:planType" }
+    methods:  [GET, POST]
+cup_site_management_campaign_select_city:
+    path:     /cup-campaign-select-city
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:selectCity" }
+    methods:  [GET, POST]
+cup_site_management_campaign_select_location:
+    path:     /cup-campaign-select-location
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:selectLocation" }
+cup_site_management_campaign_total_reach:
+    path:     /cup-campaign-total-reach
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:totalReach" }
+    methods:  [GET, POST]
+cup_site_management_campaign_total_flyer_reach:
+    path:     /cup-campaign-total-flyer-reach
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:totalFlyerReach" }
+    methods:  [GET, POST]
+cup_site_management_campaign_select_date:
+    path:     /cup-campaign-select-date
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:selectDate" }
+    methods:  [GET, POST]
+cup_site_management_campaign_change_date:
+    path:     /cup-campaign-change-date
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:changeDate" }
+    methods:  [GET]
+cup_site_management_campaign_upload_design:
+    path:     /cup-campaign-upload-design
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:uploadDesign" }
+    methods:  [GET, POST]
+cup_site_management_campaign_personal_info:
+    path:     /cup-campaign-personal-info
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:submitDetail" }
+    methods:  [GET, POST]
+cup_site_management_campaign_request_campaign:
+    path:     /cup-campaign-request-campaign
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:requestCampaign" }
+    methods:  [GET, POST]
+cup_site_management_campaign_request_promotion:
+    path:     /request-flyer-promotion
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:requestPromotion" }
+    methods:  [GET]
+cup_site_management_campaign_select_partner:
+    path:     /flyer-promotion-select-partner
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:selectPartner" }
+cup_site_management_campaign_confirm_campaign:
+    path:     /cup-campaign-confirm-campaign
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:confirmCampaign" }
+    methods:  [GET]
+cup_site_management_campaign_finish_campaign:
+    path:     /cup-campaign-finish-campaign
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:finishCampaign" }
+    methods:  [GET]
+cup_site_management_campaign_list:
+    path:     /cup-campaign-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:campaignList" }
+    methods:  [GET]
+cup_site_management_web_scrapper:
+    path:     /web-scrapper
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:webScrapper" }
+    methods:  [GET]
+cup_site_management_be_bangalore_scrapper:
+    path:     /be/{city}/scrapper
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:beBangaloreScrapper" }
+cup_site_management_mba_scrapper:
+    path:     /mba/{city}/scrapper
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:mbaScrapper" }
+cup_site_management_campaign_view:
+    path:     /view/{id}/cup-campaign
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:viewCampaign" }
+    methods:  [GET]
+
+deliverypartner_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:edit" }
+    methods:  [GET, POST]
+
+deliverypartner_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:delete" }
+    methods:  DELETE
+deliverypartner_reach_us:
+    path:     /reach-us
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:contact" }
+    methods:  [GET, POST]
+deliverypartner_news:
+    path:     /news
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:news" }
+    methods:  [GET]
+deliverypartner_blog:
+    path:     /blog-page
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:blog" }
+    methods:  [GET]
+deliverypartner_media:
+    path:     /media
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:media" }
+    methods:  [GET]
+deliverypartner_stories:
+    path:     /gingercup-story
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:story" }
+    methods:  [GET]
+deliverypartner_coffee_cup_advertising:
+    path:     /coffee-cup-advertising
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:coffeeAdvertising" }
+    methods:  [GET]
+deliverypartner_paper_cup_advertising:
+    path:     /paper-cup-advertising
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:paperAdvertising" }
+    methods:  [GET]
+deliverypartner_contact_success:
+    path:     /contact-success
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:contactSuccess" }
+    methods:  [GET]
+deliverypartner_privacy_policy:
+    path:     /privacy-policy
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:privacyPolicy" }
+    methods:  [GET]
+deliverypartner_terms_and_conditions:
+    path:     /terms-and-conditions
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:termsAndConditions" }
+    methods:  [GET]
+deliverypartner_gallery:
+    path:     /gallery
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:gallery" }
+deliverypartner_bahubali_gallery:
+    path:     /gallery/bahubali
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bahubaliGallery" }
+deliverypartner_brigade_gallery:
+    path:     /gallery/brigade
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:brigadeGallery" }
+deliverypartner_Hotstar_gallery:
+    path:     /gallery/hotstar
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:hotstarGallery" }
+deliverypartner_pokerninja_college_gallery:
+    path:     /gallery/pokerninja-college
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pokerninjaCollegeGallery" }
+deliverypartner_uber_gallery:
+    path:     /gallery/uber
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:uberGallery" }
+
+deliverypartner_bookmyshow_gallery:
+    path:     /gallery/bookmyshow
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bookmyshowGallery" }
+deliverypartner_checkLittle_gallery:
+    path:     /gallery/checkLittle
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:checkLittleGallery" }
+deliverypartner_clovia_gallery:
+    path:     /gallery/clovia
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:cloviaGallery" }
+deliverypartner_colors_gallery:
+    path:     /gallery/colors
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:colorsGallery" }
+deliverypartner_flashdoor_gallery:
+    path:     /gallery/flashdoor
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:flashdoorGallery" }
+deliverypartner_fxkart_gallery:
+    path:     /gallery/fxkart
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:fxkartGallery" }
+deliverypartner_huawei_gallery:
+    path:     /gallery/huawei
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:huaweiGallery" }
+deliverypartner_modasta_gallery:
+    path:     /gallery/modasta
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:modastaGallery" }
+deliverypartner_myra_gallery:
+    path:     /gallery/myra
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:myraGallery" }
+deliverypartner_nestaway_gallery:
+    path:     /gallery/nestaway
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:nestawayGallery" }
+deliverypartner_pioneer_gallery:
+    path:     /gallery/pioneer
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pioneerGallery" }
+deliverypartner_pizzahut_gallery:
+    path:     /gallery/pizzahut
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pizzahutGallery" }
+deliverypartner_pulse_gallery:
+    path:     /gallery/pulse
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pulseGallery" }
+deliverypartner_scripbox_gallery:
+    path:     /gallery/scripbox
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:scripboxGallery" }
+deliverypartner_superprofs_gallery:
+    path:     /gallery/superprofs
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:superprofsGallery" }
+deliverypartner_wooplr_gallery:
+    path:     /gallery/wooplr
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:wooplrGallery" }
+deliverypartner_yumist_gallery:
+    path:     /gallery/yumist
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:yumistGallery" }
+
+
+
+deliverypartner_other_gallery:
+    path:     /gallery/other
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:otherGallery" }
+deliverypartner_contact_list:
+    path:     /contact-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:contactList" }
+    methods:  [GET]
+cup_site_management_campaign_preview_design_old:
+    path:     /preview/{id}/design
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewDesignOld" }
+    methods:  [GET]
+cup_site_management_campaign_preview_design:
+    path:     /preview/{id}/
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewDesign" }
+    methods:  [GET]
+cup_site_management_campaign_upload_preview_design:
+    path:     /upload-preview-design
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:uploadPreviewDesign" }
+    methods:  [GET, POST]
+cup_site_management_campaign_deactivate_design:
+    path:     /deactivate/{id}/design
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deactivateDesign" }
+    methods:  [GET]
+cup_site_management_campaign_preview_list:
+    path:     /preview-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewList" }
+    methods:  [GET]
+cup_site_management_campaign_generate_invoice:
+    path:     /generate-invoice
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:generateInvoice" }
+cup_site_management_campaign_create_user:
+    path:     /create-user
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:createUser" }
+cup_site_management_campaign_edit_user:
+    path:     /edit/{id}/user
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editUser" }
+cup_site_management_campaign_add_location:
+    path:     /add-location
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:addLocation" }
+cup_site_management_campaign_edit_location:
+    path:     /edit/{id}/location
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editLocation" }
+cup_site_management_campaign_add_consumer:
+    path:     /add-consumer
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:addConsumer" }
+cup_site_management_campaign_edit_consumer:
+    path:     /edit/{id}/consumer
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editConsumer" }
+cup_site_management_campaign_delete_consumer:
+    path:     /delete/{id}/consumer
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deleteConsumer" }
+cup_site_management_campaign_add_city:
+    path:     /add-city
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:addCity" }
+cup_site_management_campaign_add_estab_type:
+    path:     /add-estab-type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:addEstabType" }
+cup_site_management_campaign_edit_estab_type:
+    path:     /edit/{id}/estab-type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editEstabType" }
+cup_site_management_campaign_invoice_list:
+    path:     /invoice-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:invoiceList" }
+    methods:  [GET]
+cup_site_management_campaign_location_list:
+    path:     /location-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:locationList" }
+    methods:  [GET]
+cup_site_management_campaign_delete_location:
+    path:     /delete/{id}/location
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deleteLocation" }
+    methods:  [GET]
+cup_site_management_campaign_user_list:
+    path:     /user-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:userList" }
+    methods:  [GET]
+cup_site_management_campaign_consumer_list:
+    path:     /consumer-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:consumerList" }
+    methods:  [GET]
+cup_site_management_campaign_estab_type_list:
+    path:     /estab-type-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:estabTypeList" }
+    methods:  [GET]
+cup_site_management_bulk_consumer_upload:
+    path:     /bulk-consumer-upload
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bulkUploadConsumer" }
+cup_site_management_bulk_consumer_download_sample:
+    path:     /bulk-consumer-download-sample
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:downloadSample" }
+cup_site_management_bulk_location_upload:
+    path:     /bulk-location-upload
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bulkUploadLocation" }
+cup_site_management_bulk_location_download_sample:
+    path:     /bulk-location-download-sample
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:downloadLocationSample" }
+

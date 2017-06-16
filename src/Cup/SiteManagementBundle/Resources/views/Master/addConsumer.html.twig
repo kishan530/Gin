@@ -1,0 +1,273 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+     $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+    
+    
+    $("#consumer").on('change', '#cup_sitemanagementbundle_consumer_city', function (e) {
+		  var $form = $(this).closest('form');
+		  
+		  // Simulate form data, but only include the selected value.
+		 var data = {};
+		 data[$(this).attr('name')] = $(this).val();
+	  var formURL = $form.attr("action");
+	  var type = $form.attr('method');
+		 $.ajax(
+	           {
+	               url : formURL,
+	               type: type,
+	               data: data,
+	               success: function(data) {                   
+	              		             
+                    $('#cup_sitemanagementbundle_consumer_location').html($(data).find('#cup_sitemanagementbundle_consumer_location').html());                 
+	               },
+	               error: function(jqXHR, textStatus, errorThrown)
+	               {
+	                   //if fails
+	                   alert('Error: ' +  errorThrown);
+	               }
+	           }); 
+	});	
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Create Consumer</span></h4>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-6" id="consumer">
+                    {{ form_start(form) }}
+                    
+                    <div class="col-lg-12 col-sm-12 form-group has-error">
+			<ul class="errors">
+	            {{ form_errors(form, { 'global_errors': true }) }}
+	            {{ form_errors(form.estabName) }}
+	            {{ form_errors(form.contactName) }}
+	            {{ form_errors(form.contactNo) }}
+	            {{ form_errors(form.altNo) }}
+	            {{ form_errors(form.emailId) }}
+	            {{ form_errors(form.address) }}
+	            {{ form_errors(form.city) }}
+	            {{ form_errors(form.location) }}
+	            {{ form_errors(form.estabType) }}
+	            {{ form_errors(form.rating) }}
+	            {{ form_errors(form.landMark) }}
+	             {{ form_errors(form.lng) }}
+	              {{ form_errors(form.lat) }}
+	               {{ form_errors(form.cupSizes) }}
+	                {{ form_errors(form.cupSizes2) }}
+	                {{ form_errors(form.cupSizes3) }}
+	                {{ form_errors(form.cupQuantityPerDay) }}
+	                {{ form_errors(form.cupQuantityPerDay2) }}
+	                {{ form_errors(form.cupQuantityPerDay3) }}
+	                {{ form_errors(form.reach) }}
+	                {{ form_errors(form.createdBy) }}
+	                {{ form_errors(form.remark) }}
+            </ul>
+            </div>
+                    
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.estabName) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.estabName) }}
+                            </div> 
+                                                       
+                        </div>
+                    
+                    <div class="row form-group">
+                             <div class="col-lg-6">
+                            {{ form_label(form.contactName) }}
+                            </div>
+                             <div class="col-lg-6">
+                                {{ form_widget(form.contactName) }}
+                            </div>                           
+                        </div>
+                     
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.contactNo) }}
+                            </div>
+                             <div class="col-lg-6">
+                                {{ form_widget(form.contactNo) }}
+                            </div>                            
+                        </div>
+                    <div class="row form-group">
+                             <div class="col-lg-6">
+                            {{ form_label(form.altNo) }}
+                            </div>
+                             <div class="col-lg-6">
+                                {{ form_widget(form.altNo) }}
+                            </div>                           
+                        </div>
+                        <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.emailId) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.emailId) }}
+                            </div>                            
+                        </div>
+                    
+                    
+                     <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.address) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.address) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.city) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.city) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.location) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.location) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.landMark) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.landMark) }}
+                            </div>                            
+                        </div>
+                     <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.lat) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.lat) }}
+                            </div>                            
+                        </div>
+ 
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.lng) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.lng) }}
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.estabType) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.estabType) }}
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.cupSizes) }}
+                            </div>
+                            <div class="col-lg-6">
+                                 <div class="row">
+                                     <div class="col-lg-4">
+                                        {{ form_widget(form.cupSizes) }}
+                                     </div>
+                                      <div class="col-lg-4">
+                                        {{ form_widget(form.cupSizes2) }}
+                                     </div>
+                                      <div class="col-lg-4">
+                                        {{ form_widget(form.cupSizes3) }}
+                                     </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.cupQuantityPerDay) }}
+                            </div>
+                            <div class="col-lg-6">
+                                 <div class="row">
+                                     <div class="col-lg-4">
+                                            {{ form_widget(form.cupQuantityPerDay) }}
+                                     </div>
+                                      <div class="col-lg-4">
+                                            {{ form_widget(form.cupQuantityPerDay2) }}
+                                     </div>
+                                      <div class="col-lg-4">
+                                            {{ form_widget(form.cupQuantityPerDay3) }}
+                                     </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.reach) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.reach) }}
+                            </div>                            
+                        </div>
+                         <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.rating) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.rating) }}
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.createdBy) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.createdBy) }}
+                            </div>                            
+                        </div>
+                    <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.remark) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.remark) }}
+                            </div>                            
+                        </div>
+                    
+                   
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary pull-right'}}) }}
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

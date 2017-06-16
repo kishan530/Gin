@@ -1,0 +1,57 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+     $(document).ready(function() {
+        $('.date-picker').datepicker();
+    });
+
+</script>
+
+{% endblock %}
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Add Estab</span></h4>
+                <div class="small-gap"></div>
+                
+                <div class="col-sm-6">
+                    {{ form_start(form) }}
+                    
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.typeName) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.typeName) }}
+                            </div> 
+                                                       
+                        </div>
+                   
+                   
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                           
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary pull-right'}}) }}
+                            </div>                       
+                        </div>
+                        
+                       
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

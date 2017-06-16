@@ -1,0 +1,22 @@
+parameters:
+     security.authentication.success_handler.class: Cup\SecurityBundle\Controller\LoginSuccessHandler
+services:
+#    cup_security.example:
+#        class: Cup\SecurityBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+     cup.registration.form.type:
+        class: Cup\SecurityBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: cup_user_registration }
+     security.authentication.customized_success_handler:
+          class: %security.authentication.success_handler.class%
+          arguments:  [@router, @security.authorization_checker]
+          tags:
+            - { name: 'monolog.logger', channel: 'security' }
+#     fos_facebook.user.login:
+#        class:  Cup\SecurityBundle\Controller\FacebookProvider
+#        arguments:
+#            facebook: "@fos_facebook.api"
+#            userManager: "@fos_user.user_manager"
+#            validator: "@validator"

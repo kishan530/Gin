@@ -1,0 +1,163 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+
+<script>
+
+    $("#list").on('click', ".deactivate", function (e) {
+     e.preventDefault(); //STOP default action
+    var formURL = $(this).attr("href");
+    var tr = $(this).parent().parent();
+     var name = $(this).attr('title');
+        if (!confirm("The Consumer "+name+" details will be deleted permanently form the system, please confirm")) {
+		            exit();
+		  }	
+    $.ajax(
+            {
+                url : formURL,
+                type: 'GET',
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        tr.remove();
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+   
+});
+    
+         $(document).ready(function() {
+        $('.date-picker').datepicker({dateFormat: 'dd/mm/yy'});
+    });
+
+</script>
+
+{% endblock %}
+
+{% block stylesheets %}
+<link defer="defer" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<link defer="defer" href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                <div class="small-gap"></div>
+                <h2>Consumer List</h2>
+                </div>
+                <div class="col-lg-3">
+                      <div class="small-gap"></div>
+                    <a href="{{ path('cup_site_management_campaign_add_consumer') }}" class="btn btn-primary">Add New</a>
+                </div>
+              </div>
+                <div class="row">
+                 <div class="col-sm-12">
+                    {{ form_start(form) }}
+                    
+                    <div class="row form-group">
+                            <div class="col-lg-3">
+                                  {{ form_label(form.city) }}
+                                {{ form_widget(form.city) }}
+                            </div> 
+                            <div class="col-lg-3">
+                                  {{ form_label(form.estabType) }}
+                                {{ form_widget(form.estabType) }}
+                            </div> 
+                             <div class="col-lg-3">
+                                  {{ form_label(form.rating) }}
+                                {{ form_widget(form.rating) }}
+                            </div> 
+                            
+                             <div class="col-lg-3">
+                                  {{ form_label(form.estabName) }}
+                                {{ form_widget(form.estabName) }}
+                            </div> 
+                           
+                           
+                     </div>
+                        <div class="row form-group">
+                        	 <div class="col-lg-3">
+                                  {{ form_label(form.mobile) }}
+                                {{ form_widget(form.mobile) }}
+                            </div> 
+                             <div class="col-lg-3">
+                                  {{ form_label(form.createdBy) }}
+                                {{ form_widget(form.createdBy) }}
+                            </div>
+                             <div class="col-lg-3">
+                                  {{ form_label(form.startDate) }}
+                                {{ form_widget(form.startDate) }}
+                            </div> 
+                            <div class="col-lg-3">
+                                  {{ form_label(form.endDate) }}
+                                {{ form_widget(form.endDate) }}
+                            </div> 
+                            </div>
+                            <div class="row form-group">
+                            <div class="col-lg-10">
+                            </div>
+                            <div class="col-lg-1">
+                                 <div class="small-gap"></div>
+                                <input type="checkbox" name="export"> <label>Export</label>
+                            </div>
+                            <div class="col-lg-1">
+                                <div class="small-gap"></div>
+                                {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary pull-right'}}) }}
+                            </div> 
+                        </div>
+                    </div>
+
+                        
+                       
+                    {{ form_end(form) }}
+                </div>
+               
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-12">
+                        <table id="list" class="table table-bordered col-lg-12 col-sm-12">
+                           {% if consumers|length>0 %}	
+                                  <tr class="blue">
+                                        <th>Sl.No </th>
+                                        <th>Estab Name</th>
+                                       
+                                        <th>Contact Name</th>
+                                        <th>Contact No</th>
+                                       <th>Reach</th>
+                                      
+                                        <th></th>       
+                                      
+                                    </tr>	
+                            {% endif %}			
+
+                             {% for consumer in consumers if consumers|length>0 %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ consumer.estabName }}</td>
+                                   
+                                    <td>{{ consumer.contactName }}</td>
+                                    <td>{{ consumer.contactNo }}</td>
+                                     <td>{{ consumer.reach }}</td>
+                                    
+                                    <td> <a href="{{ path('cup_site_management_campaign_edit_consumer',{ 'id': consumer.id }) }}" class="">Edit</a>
+                                        <a href="{{ path('cup_site_management_campaign_delete_consumer',{ 'id': consumer.id }) }}" class="deactivate" title="{{ consumer.estabName }}" >Delete</a>
+                                    
+                                    </td>                    
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

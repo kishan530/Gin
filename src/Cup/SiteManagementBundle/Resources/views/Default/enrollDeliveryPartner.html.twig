@@ -1,0 +1,178 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+<script>
+
+$("#reg").on('click', "ul.setup-panel li a", function (e) {	
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        	$next_items = $item.nextAll();
+        
+        if (!$item.hasClass('disabled')) {
+            $('ul.setup-panel li').removeClass('active');
+            $('.step').removeClass('active');
+            $item.addClass('active');
+            $next_items.addClass('disabled');
+            //$target.show();
+             $target.addClass('active');
+            
+        }
+    });
+$("#deliveryPartner").on('submit', "[name='cup_SiteManagementBundle_delivery_partner']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('deliverypartner_new') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+                        $('#deliveryDetail').load("{{ path('delivery_detail_new') }}");
+                        $('ul.setup-panel li a[href="#deliveryDetail"]').trigger('click'); 
+                        //$('#deliveryPartner').removeClass('active');
+                        // $('#deliveryDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        alert(data);
+                        $('#deliveryPartner').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+$("#deliveryDetail").on('submit', "[name='cup_SiteManagementBundle_delivery_collection']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('delivery_detail_new') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                    if(data=='true')
+                    {
+                        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+                        $('#customerDetail').load("{{ path('delivery_customer_detail_new') }}");
+                        $('ul.setup-panel li a[href="#customerDetail"]').trigger('click'); 
+                       // $('#deliveryDetail').removeClass('active');
+                        // $('#customerDetail').addClass('active');
+                        
+                    }
+                    else
+                    {
+                    	/*var ajaxDisplay = document.getElementById('deliveryPartner');
+                         ajaxDisplay.innerHTML = data;*/
+                        alert(data);
+                        $('#deliveryDetail').html(data);
+                    }		                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+    
+$("#customerDetail").on('submit', "[name='cup_SiteManagementBundle_customer']", function (e) {	 	  
+    var postData = $(this).serializeArray();
+    var formURL = "{{ path('delivery_customer_detail_new') }}";
+    var method = $(this).attr("method");
+    $.ajax(
+            {
+                url : formURL,
+                type: method,
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                     $('#customerDetail').html(data);                        
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    alert(textStatus);
+                    //if fails
+                    alert('Error: ' +  errorThrown);
+                }
+            });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+
+
+</script>
+{% endblock %}
+{% block stylesheets %}
+<style>
+.step{
+    display : none;
+}
+.step.active{
+    display : block;
+}
+.nav-justified>li {
+border: 1px solid #000;
+}
+</style>
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                <h2>Register Delivery Partner</h2>
+                <div class="col-sm-12" id="reg">
+                   	<ul class="nav nav-pills nav-justified setup-panel">
+		                <li class="active"><a href="#deliveryPartner">
+		                    <span class="badge">1</span>
+                            <h4 class="list-group-item-heading">Delivery Partner</h4>
+		                   
+		                </a></li>
+		                <li class="disabled"><a href="#deliveryDetail">
+		                    <span class="badge">2</span>
+                             <h4 class="list-group-item-heading">Delivery Detail</h4>
+		                </a></li>
+		                <li class="disabled"><a href="#customerDetail">
+		                   <span class="badge">3</span>
+                             <h4 class="list-group-item-heading">Customer Detail</h4>
+		                  
+		                </a></li>
+		            </ul>
+                </div>
+                <div class="col-sm-12">
+                   <div class="step active" id="deliveryPartner">
+                            {{ render(controller('CupSiteManagementBundle:DeliveryPartner:new')) }} 
+                    </div>
+                    <div class="step" id="deliveryDetail">
+                    
+                    </div>
+                    <div class="step" id="customerDetail">
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}

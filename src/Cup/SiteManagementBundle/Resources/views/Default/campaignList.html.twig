@@ -1,0 +1,49 @@
+{% extends 'page.html.twig' %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+
+    <section class="section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="small-gap"></div>
+                 <div class="small-gap"></div>
+                <h4 class="classic-title"><span>Promotion Requests </span></h4>
+                <div class="small-gap"></div>
+                <div id="fullwidth" class="col-sm-12">
+                    <div class="col-lg-8">
+                        <table id="result" class="table table-bordered col-lg-12 col-sm-12">
+                           {% if requests|length>0 %}	
+                                  <tr class="blue">
+                                        <th>Sl.No </th>
+                                        <th>Name</th>
+                                        <th>Email</th> 
+                                         <th>Mobile</th> 
+                                         <th>Plan Type</th> 
+                                        <th>Budget</th>  
+                                        <th>View</th>  
+                                    </tr>	
+                            {% endif %}			
+
+                             {% for request in requests if requests|length>0 %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ request.name }}</td>  
+                                    <td>{{ request.email }}</td> 
+                                    <td>{{ request.mobile }}</td> 
+                                    <td>{{ request.planType }}</td>
+                                    <td>{{ request.totalAmount }}</td> 
+                                    
+                                    <td><a target="_blank" href="{{ path('cup_site_management_campaign_view',{ 'id': request.id }) }}">view</a></td>
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+{% endblock %}
