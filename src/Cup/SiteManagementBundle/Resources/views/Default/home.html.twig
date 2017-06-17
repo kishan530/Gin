@@ -23,19 +23,19 @@
     
 
     <div class="item active">
-         <img src="{{ asset('images/slides/baahubali.jpg') }}" width="100%" height="300px">
+   <a href="{{ path('deliverypartner_bahubali_gallery') }}"> <img src="{{ asset('images/slides/baahubali.jpg') }}" width="100%" height="300px"> </a>
     </div>
       <div class="item ">
-         <img src="{{ asset('images/slides/Hotstar.jpg') }}" width="100%" height="350px">
+         <a href="{{ path('deliverypartner_Hotstar_gallery') }}"><img src="{{ asset('images/slides/Hotstar.jpg') }}" width="100%" height="350px"></a>
     </div>
      <div class="item">
-         <img src="{{ asset('images/slides/jET.jpg') }}" width="100%" height="350px">
+         <a href="{{ path('deliverypartner_gallery') }}"><img src="{{ asset('images/slides/jET.jpg') }}" width="100%" height="350px"></a>
     </div>
     <div class="item">
-         <img src="{{ asset('images/slides/myra.jpg') }}" width="100%" height="350px">
+         <a href="{{ path('deliverypartner_myra_gallery') }}"><img src="{{ asset('images/slides/myra.jpg') }}" width="100%" height="350px"></a>
     </div>
     <div class="item">
-         <img src="{{ asset('images/slides/Uber.jpg') }}" width="100%" height="350px">
+         <a href="{{ path('deliverypartner_uber_gallery') }}"><img src="{{ asset('images/slides/Uber.jpg') }}" width="100%" height="350px"></a>
     </div>
 	 
   </div>
@@ -210,10 +210,18 @@
                 <div class="col-lg-12 text-center">
                     
                   <div class="content"> 
+                  
                       <div id="testimonials" class="carousel slide semi-circle-border" data-ride="carousel">
                           <!-- Indicators --> 
                           <ol class="carousel-indicators"> 
-                              <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                          {%  set i=0 %}
+                            {% for client in clientList %}
+                             
+                              <li data-target="#testimonials" data-slide-to="{{ i }}" {% if i=='0' %}class="active" {% endif %}></li>
+                           
+                             {%  set i=i+1 %}
+                               {% endfor %}
+                               {#}
                               <li data-target="#testimonials" data-slide-to="1"></li>
                               <li data-target="#testimonials" data-slide-to="2"></li>
                                <li data-target="#testimonials" data-slide-to="3"></li>
@@ -221,187 +229,51 @@
                                <li data-target="#testimonials" data-slide-to="5"></li>
                                <li data-target="#testimonials" data-slide-to="6"></li>
                                <li data-target="#testimonials" data-slide-to="7"></li>
+                               {#}
                           </ol>
                           <!-- Wrapper for slides -->
+                          
                           <div class="carousel-inner">
-                              <div class="item active">
+                          {%  set i=0 %}
+                           {% for client in clientList %}
+                           
+                              <div class="item {% if  i=='0' %}active {% endif %}">
+                              <a href="{{ path('deliverypartner_stories') }}"> 
                                   <div class="row">
                                       <div class="col-xs-12">
                                           <div class="thumbnail adjust1">
                                               <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Flash.png') }}" alt="FlashDoor says" title="FlashDoor says"> 
+                                <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/'~client.clientImage) }}" alt="FlashDoor says" title="FlashDoor says">
                                               </div> 
                                               <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
                                                   <div class="caption"> 
-                                            <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> GingerCup really helped us embark on the growth curve</p>
+                                            <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> {{ client.subject }}</p>
 											
-                                                      <p>We always believed in the potential of our online laundry service; however we never thought that mere 10 days of campaigning would create this sort of buzz!!! The personalized marketing model of GingerCup really helped us embark on the growth curve. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i>
+                                                      <p>{{ client.description }} <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i>
 </p> 
 
 										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">FlashDoor says</a>                                                          
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">{{ client.clientName }}</a>                                                          
 													  </div>
                                                   </div> 
                                               </div>
                                           </div> 
                                       </div> 
                                   </div> 
+                                   </a>
                           </div>
-                         <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                               <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Wooplr.png') }}" alt="Wooplr says" title="Wooplr says"> 
-                                              </div> 
-                                               <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2">  <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> only because of the targeted marketing model of GingerCup .</p>
-                                                      <p>The Tastemakers featured on our App, got a lot of followers following the successful marketing campaign carried out by the GingerCup team. It really helped increase our brand awareness and visibility among the young college girls. This was possible only because of the targeted marketing model that GingerCup stands for. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                     
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Wooplr says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                     <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Superprofs.png') }}" alt="SuperProfs says" title="SuperProfs says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> our online courses has only multiplied each passing day</p>
-                                                      <p>GingerCup ran our marketing campaign across 6 colleges and 4 offices to make sure that our online learning platform reaches the hands of our target audience. This kind of specific target marketing was unheard before. The number of students enrolling for our online courses has only multiplied each passing day. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                      
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">SuperProfs says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                        <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Clovia.png') }}" alt="Clovia Says" title="Clovia Says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> This was the icing on the cake we would say</p>
-                                                          <p>The success of the marketing campaign carried out by GingerCup was reflected in the article that got published in Afaqs. Our product advert got rave reviews from industry experts. This was the icing on the cake we would say. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                     
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Clovia says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                              
-                        <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Yumist.png') }}" alt="Yumist says" title="Yumist says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> There was a spurt in the number of App downloads too</p>
-                                                          <p>The marketing campaign undertaken by GingerCup surpassed our expectations in terms of the number of meal orders we started getting within a week. There was a spurt in the number of App downloads too. We sincerely thank GingerCup for the marketing efforts. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                     
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Yumist says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                        <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Chillr.png') }}" alt="Chillr says" title="Chillr says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> Our mobile wallet App was received with great enthusiasm by one and all</p>
-                                                          <p>The way in which the marketing campaign panned out for us was just excellent. Our mobile wallet App was received with great enthusiasm by one and all. The overall user base expanded much to our delight.</p> 
-                                                      
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">Chillr says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                            <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/FXKart.png') }}" alt="FxKart says" title="FxKart says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> It's Awesome, really.</p>
-                                                      <p>It's Awesome, really. We can't imagine how they have targeted our TG within Offices. Our team has done lot of BTL activities in past with
-varying degrees of ROI, but this stand tall out of all. Thanks for a such a tailored campaign. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                     
-										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">FxKart says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
-                        <div class="item">
-                                  <div class="row">
-                                      <div class="col-xs-12">
-                                          <div class="thumbnail adjust1">
-                                              <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                      <img class="media-object img-rounded img-responsive" src="{{ asset('images/clients/Nestway.png') }}" alt="NestAway says" title="NestAway says"> 
-                                              </div> 
-                                              <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
-                                                  <div class="caption"> 
-                                                      <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> It is very great offline medium for brand creation</p>
-                                                      <p>This campaign created immediate buzz in the town about our brand. It is very great offline medium for brand creation and awareness in a very targeted approach. <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i></p> 
-                                                      <div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">NestAway says</a>                                                          
-													  </div>
-                                                  </div> 
-                                              </div>
-                                          </div> 
-                                      </div> 
-                                  </div> 
-                          </div>
+                           {%  set i=i+1 %}
+                    {% endfor %}
+
+                                                        
+
                         {#
                               <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
                     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>  #}
                           </div>
                       </div> 
-        
+       
                 </div>
         </div>
     </div>

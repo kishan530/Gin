@@ -1,0 +1,17 @@
+{# empty Twig template #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('cup_site_management_campaign_client_list') }}">List Details</a>
+        
+        <br>
+        <ul class="list-group">
+            <li class ="list-group-item"> {{ client.clientImage}} </li> 
+            <li class ="list-group-item"> {{ client.subject}} </li>
+            <li class ="list-group-item"> {{ client.description}} </li>
+			<li class ="list-group-item"> {{ client.clientName}} </li>
+            
+         </ul>  
+            
+   {% endblock %}

@@ -100,17 +100,24 @@ class DeliveryPartnerController extends Controller
     	//echo var_dump($postslist[0]->guid);
 		//exit();
     	
-    	$mailService = $this->container->get( 'mail.services' );
-    	$mailService->mail('kishan.kish530@gmail.com','test','kishan test');
+
     	
     	
         $entity = new Contact();
     	$form   = $this->createContactForm($entity);
        // return $this->render('CupSiteManagementBundle:Default:home.html.twig');
+       
+    	$clientList = $this->getDoctrine()
+    	->getRepository('CupSiteManagementBundle:OurClient')
+    	->findAll();
+    	
         return $this->render('CupSiteManagementBundle:Default:home.html.twig', array(
             'form' => $form->createView(),
-        	'postslist'=>$postslist
+        	'postslist'=>$postslist,
+        	'clientList'=>$clientList
         ));
+        
+        
     }
     /**
      *

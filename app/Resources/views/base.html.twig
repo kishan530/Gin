@@ -244,7 +244,34 @@
 	<script defer="defer" src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script>
        $('.scrollDiv').click(function(){$('html, body').stop().animate({scrollTop:$($(this).attr('href')).offset().top-50},400);return false;});$(document).ready(function(){$('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));var toggler='.navbar-toggle';var pagewrapper='#page-content';var navigationwrapper='.navbar-header';var menuwidth='100%';var slidewidth='55%';var menuneg='-100%';var slideneg='-60%';$("#slide-nav").on("click",toggler,function(e){var selected=$(this).hasClass('slide-active');$('#slidemenu').stop().animate({left:selected?menuneg:'0px'});$('#navbar-height-col').stop().animate({left:selected?slideneg:'0px'});$(pagewrapper).stop().animate({left:selected?'0px':slidewidth});$(navigationwrapper).stop().animate({left:selected?'0px':slidewidth});$(this).toggleClass('slide-active',!selected);$('#slidemenu').toggleClass('slide-active');$('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');});var selected='#slidemenu, #page-content, body, .navbar, .navbar-header';$(window).on("resize",function(){if($(window).width()>767&&$('.navbar-toggle').is(':hidden')){$(selected).removeClass('slide-active');}});});            
-    </script>
+       $('#slide-nav').addClass('original').clone().insertAfter('#slide-nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
+
+       scrollIntervalID = setInterval(stickIt, 10);
+
+
+       function stickIt() {
+
+         var orgElementPos = $('.original').offset();
+         orgElementTop = orgElementPos.top;               
+
+         if ($(window).scrollTop() >= (orgElementTop)) {
+           // scrolled past the original position; now only show the cloned, sticky element.
+
+           // Cloned element should always have same left position and width as original element.     
+           orgElement = $('.original');
+           coordsOrgElement = orgElement.offset();
+           leftOrgElement = coordsOrgElement.left;  
+           widthOrgElement = orgElement.css('width');
+           $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+           $('.original').css('visibility','hidden');
+         } else {
+           // not scrolled past the menu; only show the original menu.
+           $('.cloned').hide();
+           $('.original').css('visibility','visible');
+         }
+       }
+
+        </script>
 	{% block javascripts %}{% endblock %}
 </body>
 </html>

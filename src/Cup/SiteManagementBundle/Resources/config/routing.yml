@@ -100,6 +100,26 @@ cup_site_management_campaign_view:
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:viewCampaign" }
     methods:  [GET]
 
+cup_site_management_campaign_client_add:
+    path:    /client_add
+    defaults: { _controller: "CupSiteManagementBundle:Clients:clientAdd" }
+
+cup_site_management_campaign_client_edit:
+    path:    /{id}/client_edit
+    defaults: { _controller: CupSiteManagementBundle:Clients:clientEdit }
+
+cup_site_management_campaign_client_view:
+    path:    /{id}/client_view
+    defaults: { _controller: CupSiteManagementBundle:Clients:clientView }
+
+cup_site_management_campaign_client_list:
+    path:    /client_index
+    defaults: { _controller: CupSiteManagementBundle:Clients:clientList }
+
+cup_site_management_campaign_client_delete:
+    path:    /{id}/client_delete
+    defaults: { _controller: CupSiteManagementBundle:Clients:clientDelete }
+
 deliverypartner_edit:
     path:     /{id}/edit
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:edit" }
