@@ -15,10 +15,32 @@ class OurClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('client_image')
-            ->add('subject')
+        	->add('clientName')
+        	->add('subject')
             ->add('description')
-            ->add('client_name')
+            ->add('storyTitle')
+            ->add('storyDescription')
+            //->add('clientImage')
+            ->add('clientImage', 'file',array(
+            		'required' => false,
+            		'attr'   =>  array(
+            				'class'   => 'filestyle',
+            				'data-icon'   => 'false'
+            		),
+            		))
+            //->add('storyImage')
+            ->add('storyImage', 'file',array(
+            				'required' => false,
+            				'attr'   =>  array(
+            						'class'   => 'filestyle',
+            						'data-icon'   => 'false'
+            				),
+            		))
+            //->add('active')
+            ->add('active', 'checkbox', array(
+            		'label'    => 'active',
+            		'required' => false,
+            ));
         ;
     }
     
@@ -28,7 +50,7 @@ class OurClientType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Cup\SiteManagementBundle\Entity\OurClient'
+            'data_class' => 'Cup\SiteManagementBundle\Dto\OurClientDto'
         ));
     }
 

@@ -272,7 +272,13 @@ class DeliveryPartnerController extends Controller
      */
     public function storyAction()
     {
-        return $this->render('CupSiteManagementBundle:Default:stories.html.twig');
+    	$client = $this->getDoctrine()
+    	->getRepository('CupSiteManagementBundle:OurClient')
+    	->findAll();
+    	
+        return $this->render('CupSiteManagementBundle:Default:stories.html.twig',array(
+				'clients' => $client 				
+		));
     }
     /**
      *

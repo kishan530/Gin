@@ -39,7 +39,7 @@ body{/* padding-top:101px; */font-family:"Open Sans";background-color:#D9D9D9;}
     width: 9%;
 }
 .page-heading,.heading,.section-heading{
-color:#000;font-weight:700 !important;font-size:28px;line-height:38px;padding-top:50px;font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+color:#000;font-weight:700 !important;font-size:28px;line-height:38px;padding-top:20px;font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
     font-weight:bold;
     letter-spacing:-1px;
     word-spacing:-1px;
@@ -287,7 +287,7 @@ i.custom-quote {
 .page{
 	padding: 15px;
 }
-.footer{padding:20px 0;line-height:20px;font-size:12px;background:#262626;color:#999999;}
+.footer{padding:20px 0;line-height:20px;font-size:12px;background:#000000;color:#999999;}
 .footer .terms a{color:#606060;}
 .make-margin{margin:15px 0 15px !important;}
 .papercup-text{font-family:'comic sans ms', sans-serif;font-size:15px;text-align:center;line-height:34px;}
@@ -331,4 +331,9 @@ i.custom-quote {
 @media (min-width:768px){#page-content{left:0!important}
 .navbar.navbar-fixed-top.slide-active{position:fixed}
 .navbar-header{left:0!important}
+}
+#our_clients a
+{
+	    text-decoration: none!important;
+	    color:#fff;
 }

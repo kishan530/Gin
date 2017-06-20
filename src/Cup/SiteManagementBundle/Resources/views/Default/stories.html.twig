@@ -21,17 +21,45 @@
 <section class="section clearfix page">
 <div class="">
     <h1 class="text-center page-heading"><span>GingerCup</span> Stories</h1>
+    <div>
+    {% set i=0 %}
+    {% for client in clients %}
     
-    <div class="row">
-       
-        <div class="col-lg-9">
-            <h3 class="sub-title">Marketing gathers STEAM with GingerCup</h3>
-            <p class="page-text">Of the many campaigns that we do in a month, there are some that stand out for the sheer size of the campaign. One such campaign was for FlashDoor.in. It spanned over two weeks and 1 lakh Gingercups were distributed to tea vendors across Koramangala, Indiranagar and ITPL. One tea vendor caught our attention during this campaign. He served many kinds of tea including green tea and herbal tea. We saw people coming to this place throughout the day and were amazed with the variety he had on offer. Our team decided to know the reason behind his popularity in this area. The tea he prepared was not only refreshing but was always served with a smile on his face. That was the reason we decided we would offer him 600 cups everyday as a token of our appreciation for the service he renders day in and day out.</p>
-        </div>
-         <div class="col-lg-3 text-center">
-             <img class="img-responsive" src="{{ asset('images/22-1.png') }}">
-        </div>
+     {% if client.storyTitle!="" %}
+        {% if i is odd %}
+        <div class="row">
+        
+        
+               <div class="col-lg-9">
+             <h3 class="sub-title">{{  client.storyTitle }}</h3>
+            <p class="page-text">{{ client.storyDescription }}</p>
+        	</div> 
+        	<div class="col-lg-3 text-center">      
+             {% if client.storyImage!="" %}       
+  		  <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" ">                    
+    		 {% endif %}
+    		 </div> 
     </div>
+     {% else %}  
+     
+     <div class="row">   
+       <div class="col-lg-3 text-center">   
+      {% if client.storyImage!="" %}   
+        <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" ">
+       {% endif %}   
+       </div>
+               <div class="col-lg-9">
+             <h3 class="sub-title">{{  client.storyTitle }}</h3>
+            <p class="page-text">{{ client.storyDescription }}</p>
+        	</div>       
+               
+  		                     
+    </div>
+      {% endif %}
+      {% set i=i+1 %}
+     {% endif %}
+	{% endfor %}
+    {#}
     <div class="row">
         <div class="col-lg-3 text-center">
              <img class="img-responsive" src="{{ asset('images/29.png') }}">
@@ -61,7 +89,8 @@
         </div>
     </div>
     <div class="small-gap"></div>
-
+</div>
+{#}
 </div>
 </section>
 {% endblock %}

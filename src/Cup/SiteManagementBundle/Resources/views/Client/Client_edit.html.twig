@@ -1,10 +1,13 @@
 {# empty Twig template #}
 {% extends 'base.html.twig' %}
 {% block body %}
+  <section class="section clearfix">
+  <div class="container">
 <h1 class="page-header">welcome to EDit Register Page</h1>
     
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
-
+</div>
+</section>
 {% endblock %}
