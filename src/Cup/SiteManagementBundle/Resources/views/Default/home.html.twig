@@ -256,9 +256,9 @@
                           <div class="carousel-inner">
                           {%  set i=0 %}
                            {% for client in clientList %}
-                           
+                           <a href="{{ path('deliverypartner_stories') }}"> 
                               <div class="item {% if  i=='0' %}active {% endif %}">
-                              <a href="{{ path('deliverypartner_stories') }}"> 
+                              
                                   <div class="row">
                                       <div class="col-xs-12">
                                           <div class="thumbnail adjust1">
@@ -280,8 +280,8 @@
                                           </div> 
                                       </div> 
                                   </div> 
-                                   </a>
-                          </div>
+                                 
+                          </div>  </a>
                            {%  set i=i+1 %}
                     {% endfor %}
 

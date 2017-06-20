@@ -113,7 +113,7 @@ cup_site_management_campaign_client_view:
     defaults: { _controller: CupSiteManagementBundle:Clients:clientView }
 
 cup_site_management_campaign_client_list:
-    path:    /client-index
+    path:    /client-list
     defaults: { _controller: CupSiteManagementBundle:Clients:clientList }
 
 cup_site_management_campaign_client_delete:
