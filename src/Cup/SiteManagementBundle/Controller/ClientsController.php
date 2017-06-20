@@ -23,7 +23,7 @@ class ClientsController extends Controller
 		->findAll();
 // 		echo var_dump($client);
 		// replace this example code with whatever you need
-		return $this->render('CupSiteManagementBundle:Client:client_index.html.twig', array(
+		return $this->render('CupSiteManagementBundle:Client:Client_index.html.twig', array(
 				'clients' => $client
 				
 		));
