@@ -1,8 +1,10 @@
 {# empty Twig template #}
 
 {% extends 'base.html.twig' %}
-
 {% block body %}
+  <section class="section clearfix">
+  <div class="container">
+  
     <a href="{{ path('cup_site_management_campaign_client_list') }}">List Details</a>
         
         <br>
@@ -11,7 +13,13 @@
             <li class ="list-group-item"> {{ client.subject}} </li>
             <li class ="list-group-item"> {{ client.description}} </li>
 			<li class ="list-group-item"> {{ client.clientName}} </li>
+			<li class ="list-group-item"> {{ client.storyTitle}} </li>
+			<li class ="list-group-item"> {{ client.storyDescription}} </li>
+			<li class ="list-group-item"> {{ client.storyImage}} </li>
+			<li class ="list-group-item"> {{ client.active}} </li>
             
          </ul>  
+   </div>
+   </section>
             
    {% endblock %}

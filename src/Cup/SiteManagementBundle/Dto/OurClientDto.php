@@ -38,6 +38,30 @@ class OurClientDto
      *
      */
     private $clientName;
+    
+    /**
+     * @var string
+     *
+     */
+    private $storyTitle;
+    
+    /**
+     * @var string
+     *
+     */
+    private $storyDescription;
+    
+    /**
+     * @var string
+     *
+     */
+    private $storyImage;
+    
+    /**
+     * @var boolean
+     *
+     */
+    private $active;
 	
 	/**
 	 *
@@ -131,7 +155,79 @@ class OurClientDto
 		return $this;
 	}
 	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryTitle() {
+		return $this->storyTitle;
+	}
 	
+	/**
+	 *
+	 * @param
+	 *        	$storyTitle
+	 */
+	public function setStoryTitle($storyTitle) {
+		$this->storyTitle = $storyTitle;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryDescription() {
+		return $this->storyDescription;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$storyDescription
+	 */
+	public function setStoryDescription($storyDescription) {
+		$this->storyDescription = $storyDescription;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryImage() {
+		return $this->storyImage;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$storyImage
+	 */
+	public function setStoryImage($storyImage) {
+		$this->storyImage = $storyImage;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the boolean
+	 */
+	public function getActive() {
+		return $this->active;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$active
+	 */
+	public function setActive($active) {
+		$this->active = $active;
+		return $this;
+	}
+	
+
 	
     
 }

@@ -49,6 +49,35 @@ class OurClient
 	private $clientName;
 	
 	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="story_title", type="string")
+	 */
+	private $storyTitle;
+	
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="story_description", type="string")
+	 */
+	private $storyDescription;
+	
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="story_image", type="string")
+	 */
+	private $storyImage;
+	
+	/**
+	 * @var boolean
+	 *
+	 * @ORM\Column(name="active", type="boolean")
+	 */
+	private $active;
+	
+	
+	/**
 	 *
 	 * @return the integer
 	 */
@@ -139,6 +168,79 @@ class OurClient
 		$this->clientName = $clientName;
 		return $this;
 	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryTitle() {
+		return $this->storyTitle;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$storyTitle
+	 */
+	public function setStoryTitle($storyTitle) {
+		$this->storyTitle = $storyTitle;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryDescription() {
+		return $this->storyDescription;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$storyDescription
+	 */
+	public function setStoryDescription($storyDescription) {
+		$this->storyDescription = $storyDescription;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getStoryImage() {
+		return $this->storyImage;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$storyImage
+	 */
+	public function setStoryImage($storyImage) {
+		$this->storyImage = $storyImage;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the boolean
+	 */
+	public function getActive() {
+		return $this->active;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$active
+	 */
+	public function setActive($active) {
+		$this->active = $active;
+		return $this;
+	}
+	
 	
 	
 	
