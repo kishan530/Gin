@@ -277,17 +277,17 @@
                                       <div class="col-xs-12">
                                           <div class="thumbnail adjust1">
                                               <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                <img class="media-object img-rounded img-responsive" src="{{ asset('../../clients/'~client.clientImage) }}" alt="FlashDoor says" title="FlashDoor says" width="240" height="100">
+                                <img class="media-object img-rounded img-responsive" src="{{ asset('../../clients/'~client.clientImage) }}" alt="{{ client.clientName }} says" title="{{ client.clientName }} says" width="240" height="100">
                                               </div> 
                                               <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
                                                   <div class="caption"> 
                                             <p class="text-info lead adjust2"> <i class="fa fa-quote-left custom-quote" aria-hidden="true"></i> {{ client.subject }}</p>
 											
-                                                      <p>{{ client.description }} <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i>
-</p> 
+	                                                      <p>{{ client.description }} <i class="fa fa-quote-right custom-quote" aria-hidden="true"></i>
+	</p> 
 
 										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">{{ client.clientName }}</a>                                                          
+														<a class="btn btn-primary read-more" href="{{ path('deliverypartner_stories') }}" target="_self">{{ client.clientName }} says</a>                                                          
 													  </div>
                                                   </div> 
                                               </div>

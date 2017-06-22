@@ -55,9 +55,8 @@ class OurClientType extends AbstractType
             		))
             //->add('active')
             ->add('active', 'checkbox', array(
-            		'label'    => 'active',
+            		'label'    => 'Active',
             		'required' => false,
-            		'label' => 'Status',
             ));
         ;
     }
