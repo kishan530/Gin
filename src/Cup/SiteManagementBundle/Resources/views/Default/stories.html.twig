@@ -25,6 +25,8 @@
     {% set i=0 %}
     {% for client in clients %}
     
+    {%  if client.active == 'true' %}
+    
      {% if client.storyTitle!="" %}
         {% if i is odd %}
         <div class="row">
@@ -36,7 +38,7 @@
         	</div> 
         	<div class="col-lg-3 text-center">      
              {% if client.storyImage!="" %}       
-  		  <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" ">                    
+  		  <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" " width="255" height="255">                    
     		 {% endif %}
     		 </div> 
     </div>
@@ -57,6 +59,7 @@
     </div>
       {% endif %}
       {% set i=i+1 %}
+     {% endif %}
      {% endif %}
 	{% endfor %}
     {#}

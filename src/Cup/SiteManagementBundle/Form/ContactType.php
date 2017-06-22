@@ -33,9 +33,9 @@ class ContactType extends AbstractType
             		                
             						'required'    => false,
             						'label' => '',
-				            	
-            						
+				            	        						
             				))
+            				
             ->add('email',null ,array(
             		                
             						'required'    => true,
@@ -47,7 +47,39 @@ class ContactType extends AbstractType
             ->add('message','textarea',array('attr' => array('rows' => '7'),
             						'required'  => true,
             				))
-           
+            				
+            				->add('numberOfEmployees',null,array(
+            				
+            						'required'    => false,
+            						'label' => '',
+            						 
+            				))
+            				
+            				->add('city',null,array(
+            				
+            						'required'    => false,
+            						'label' => '',
+            						 
+            				))
+            				
+            				->add('numberOfCups',null,array(
+            				
+            						'required'    => false,
+            						'label' => '',
+            						 
+            				))
+            				
+            ->add('advertiseType', 'choice', array(
+            						'expanded' => true,
+            						'multiple' => false,
+            						'label' => '',
+            						'choices' => array(
+            								'Get Free Cups'=>'Get Free Cups',
+            								'Advertise with us'=>'Advertise with us',
+            								
+            						),
+            						'required'    => true,
+            				))
           
         ;
                     

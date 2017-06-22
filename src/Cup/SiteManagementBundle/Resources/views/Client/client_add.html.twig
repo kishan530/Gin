@@ -4,12 +4,86 @@
   <section class="section clearfix">
   <div class="container">
     
-    <h1 class="page-header">add client details</h1>
+    <h1 class="page-header">Add Client Details</h1>
     
 {{ form_start(form) }}
-{{ form_widget(form) }}
 
+{# {{ form_widget(form) }}#}
 
+{{ form_errors(form, { 'global_errors': true }) }}
+	<div class="row">
+		 <div class="col-lg-6">
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.clientName) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.clientName) }}
+                            </div>                       
+                        </div>
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.subject) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.subject) }}
+                            </div>                       
+                        </div>
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.description) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.description) }}
+                            </div>                       
+                        </div>
+       <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.storyTitle) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.storyTitle) }}
+                            </div>                       
+                        </div>
+       <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.storyDescription) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.storyDescription) }}
+                            </div>                       
+                        </div>
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.clientImage) }}
+                            <p> (Prefer image dimension 240*100) </p>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.clientImage) }}
+                            </div>                       
+                        </div>
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.storyImage) }}
+                            <p> (Prefer image dimension 255*255) </p>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.storyImage) }}
+                            </div>                       
+                        </div>
+		
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.active) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.active) }}
+                            </div>                       
+                        </div>
+	</div>
+	
+	</div>
+	
 {{ form_end(form) }}
 </div>
 </section>

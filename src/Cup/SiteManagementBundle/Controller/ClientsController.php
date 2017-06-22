@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cup\SiteManagementBundle\Form\OurClientType;
 use Cup\SiteManagementBundle\Entity\OurClient;
 use Cup\SiteManagementBundle\Dto\OurClientDto;
+use Cup\SiteManagementBundle\Entity\Contact;
+use Cup\SiteManagementBundle\Form\ContactType;
 
 
 class ClientsController extends Controller
@@ -23,7 +25,7 @@ class ClientsController extends Controller
 		->findAll();
 // 		echo var_dump($client);
 		// replace this example code with whatever you need
-		return $this->render('CupSiteManagementBundle:Client:Client_index.html.twig', array(
+		return $this->render('CupSiteManagementBundle:Client:client_index.html.twig', array(
 				'clients' => $client
 				
 		));
@@ -167,7 +169,7 @@ class ClientsController extends Controller
 			Return $this->redirectToRoute('cup_site_management_campaign_client_list');
 		}
 		// replace this example code with  whatever you need
-		return $this->render('CupSiteManagementBundle:Client:client_edit.html.twig', array(
+		return $this->render('CupSiteManagementBundle:Client:client_add.html.twig', array(
 				'client' => $clientObj,
 				'form' =>$form->createView()
 		));
@@ -195,5 +197,30 @@ class ClientsController extends Controller
 		$em->remove($client);
 		$em->flush();
 		return $this->redirect($this->generateUrl('cup_site_management_campaign_client_list'));
+	}
+	
+	public function popUpContactAction(Request $request)
+	{
+
+		$entity = new Contact();
+		$form   = $this->createContactForm($entity);
+		return $this->render('CupSiteManagementBundle:Client:popupcontact.html.twig', array(
+				'form' =>$form->createView()
+		));
+	}
+	
+	/**
+	 *
+	 * @param Contact $entity
+	 * @return unknown
+	 */
+	private function createContactForm(Contact $entity)
+	{
+		$form = $this->createForm(new ContactType(), $entity, array(
+				'action' => $this->generateUrl('deliverypartner_reach_us'),
+				'method' => 'POST',
+		));
+		$form->add('submit', 'submit', array('label' => 'Submit Now'));
+		return $form;
 	}
 }

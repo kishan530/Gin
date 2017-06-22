@@ -87,6 +87,34 @@ class Contact
      * 
      */
     private $message;
+    
+    /**
+    * @var string
+
+     * @ORM\Column(name="advertisetype", type="string", length=100)
+     **/
+    private $advertiseType;
+    
+    /**
+     * @var string
+    
+     * @ORM\Column(name="number_of_employees", type="string", length=100)
+     **/
+    private $numberOfEmployees;
+    
+    /**
+     * @var string
+    
+     * @ORM\Column(name="city", type="string", length=100)
+     **/
+    private $city;
+    
+    /**
+     * @var string
+    
+     * @ORM\Column(name="number_of_cups", type="string", length=100)
+     **/
+    private $numberOfCups;
 
     
 
@@ -263,6 +291,80 @@ class Contact
 		$this->message = $message;
 		return $this;
 	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getAdvertiseType() {
+		return $this->advertiseType;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$advertiseType
+	 */
+	public function setAdvertiseType($advertiseType) {
+		$this->advertiseType = $advertiseType;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getNumberOfEmployees() {
+		return $this->numberOfEmployees;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$numberOfEmployees
+	 */
+	public function setNumberOfEmployees($numberOfEmployees) {
+		$this->numberOfEmployees = $numberOfEmployees;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getCity() {
+		return $this->city;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$city
+	 */
+	public function setCity($city) {
+		$this->city = $city;
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getNumberOfCups() {
+		return $this->numberOfCups;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$numberOfCups
+	 */
+	public function setNumberOfCups($numberOfCups) {
+		$this->numberOfCups = $numberOfCups;
+		return $this;
+	}
+	
+	
 
 
 

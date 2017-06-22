@@ -1,0 +1,94 @@
+<div id="contact" class="modal fade" tabindex="-1" data-easein="rotateInDownLeft" data-easeout="rotateOutDownLeft" style="z-index: 10000000;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+                <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+       <div  id="contactForm">
+      {{ form_start(form) }}
+				                {{ form_errors(form, { 'global_errors': true }) }}
+      		<div class="row">
+      		
+      		<div class="col-md-12 col-sm-12 col-xs-12" id="advertise">
+                                {{ form_widget(form.advertiseType) }}
+                            </div>  
+      		</div>
+      		<div class="row">
+                  <div class="col-md-7">
+						<div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                         {{ form_widget(form.name, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Name','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                    </div>
+                         </div>
+                            <div class="row">
+                                     <div class="col-md-12 col-sm-12 col-xs-12">
+                                     {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
+                                    </div>
+                          </div>
+                          <div class="row">
+                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                         {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
+                                    </div>
+                            </div>	
+                  </div>
+	              <div class="col-md-5">
+	              <div class="row"> 
+	                <div class="col-md-12 col-sm-12 col-xs-12">
+                 			 {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'Number of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                     </div>
+                   </div>
+                   <div class="row">
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                			{{ form_widget(form.city, { 'attr': {'class':'make-margin','placeholder':'City','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                 </div>
+                 </div>
+                 <div class="row">
+                 <div class="col-md-12 col-sm-12 col-xs-12">
+                           {{ form_widget(form.numberOfCups, { 'attr': {'class':'make-margin','placeholder':'Number of Cups(in a month)','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                 </div>
+                 </div>
+                 
+	                       
+	             
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                                    
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}                                                                                                                                                                                               				              
+                                    
+                                    </div>
+                                    
+                                     <div class="col-md-12 col-sm-12 col-xs-12" id = "advertise">
+                                {{ form_widget(form.advertiseType) }}
+                            </div>  
+                         </div>
+                                              
+                     
+                      <div class="col-md-12">
+                      
+                     <div class="make-margin"></div>
+                                   <div class="col-md-12 col-sm-12 col-xs-12" style ="margin-bottom: 2%;">
+                            {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-danger btn-lg border-radius'}}) }}
+                                </div>
+                        </div>  
+                     
+             </div>   
+             
+               {{ form_end(form) }}   
+               </div> 
+               <section class="section clearfix footer text-center">
+	<div><div class="col-md-12">Any Queries? Don't hesitate to call us @+91 8884442846/47 </div> </div>
+				</section> 
+      </div>
+                 
+
+        </div>
+        
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -41,6 +41,9 @@
 	 <div class="item">
          <img src="{{ asset('images/slides/Photo-collage-02.jpg') }}" width="100%" height="350px">
     </div>
+    <div class="item">
+         <img src="{{ asset('images/slides/Rohan builder.jpg') }}" width="100%" height="350px">
+    </div>
 	 
   </div>
 
@@ -235,12 +238,16 @@
                           <!-- Indicators --> 
                           <ol class="carousel-indicators"> 
                           {%  set i=0 %}
+                          
                             {% for client in clientList %}
-                             
+                            
+                             {%  if client.active == 'true' %}
                               <li data-target="#testimonials" data-slide-to="{{ i }}" {% if i=='0' %}class="active" {% endif %}></li>
-                           
+                          
                              {%  set i=i+1 %}
+                              {% endif %}
                                {% endfor %}
+                               
                                {#}
                               <li data-target="#testimonials" data-slide-to="1"></li>
                               <li data-target="#testimonials" data-slide-to="2"></li>
@@ -253,9 +260,16 @@
                           </ol>
                           <!-- Wrapper for slides -->
                           
+                          
                           <div class="carousel-inner">
                           {%  set i=0 %}
-                           {% for client in clientList %}
+                          
+                          
+                           
+                          {% for client in clientList %}
+                                                     
+                           {%  if client.active == 'true' %}
+                           
                            <a href="{{ path('deliverypartner_stories') }}"> 
                               <div class="item {% if  i=='0' %}active {% endif %}">
                               
@@ -263,7 +277,7 @@
                                       <div class="col-xs-12">
                                           <div class="thumbnail adjust1">
                                               <div class="col-md-3 col-sm-3 col-xs-12"> 
-                                <img class="media-object img-rounded img-responsive" src="{{ asset('../../clients/'~client.clientImage) }}" alt="FlashDoor says" title="FlashDoor says">
+                                <img class="media-object img-rounded img-responsive" src="{{ asset('../../clients/'~client.clientImage) }}" alt="FlashDoor says" title="FlashDoor says" width="240" height="100">
                                               </div> 
                                               <div class="col-md-9 col-sm-9 col-xs-12 text-justify"> 
                                                   <div class="caption"> 
@@ -283,21 +297,27 @@
                                  
                           </div>  </a>
                            {%  set i=i+1 %}
+                           
+                           {% endif %}
+                           
                     {% endfor %}
-
-                                                        
+				
+                                                     
 
                         {#
                               <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
                     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>  #}
                           </div>
+                         
                       </div> 
        
                 </div>
         </div>
     </div>
+    
     <div class="row">
+    
                  <div class="col-lg-12 text-center">
                     <a class="btn btn-primary read-more campaign-btn" href="{{ path('deliverypartner_stories') }}" target="_self">Read GingerCup Stories</a>
                 </div>
@@ -497,46 +517,7 @@ div#sib_embed_signup div.message_area{ font-size: 12px;}
     
 </section>
 
-<div id="contact" class="modal fade" tabindex="-1" data-easein="rotateInDownLeft" data-easeout="rotateOutDownLeft" style="z-index: 10000000;">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
 
-                <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Contact Us</h4>
-      </div>
-      <div class="modal-body">
-      		<div class="row">
-                  <div class="col-md-12" id="contactForm">
-						{{ form_start(form) }}
-				                {{ form_errors(form, { 'global_errors': true }) }}
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                         {{ form_widget(form.name, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Name','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
-                                    </div>
-                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                     {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
-                                    </div>
-                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                         {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                    {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}                                                                                                                                                                                               				              
-                                    
-                                    </div>
-                     <div class="make-margin"></div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12">
-                            {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary btn-lg border-radius'}}) }}
-                                </div>
-                                {{ form_end(form) }} 
-                  </div>
-             </div>        	   
-      </div>
-     
-                
 
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
+
 {% endblock %}

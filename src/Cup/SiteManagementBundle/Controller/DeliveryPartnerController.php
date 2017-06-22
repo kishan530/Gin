@@ -103,8 +103,7 @@ class DeliveryPartnerController extends Controller
 
     	
     	
-        $entity = new Contact();
-    	$form   = $this->createContactForm($entity);
+      
        // return $this->render('CupSiteManagementBundle:Default:home.html.twig');
        
     	$clientList = $this->getDoctrine()
@@ -112,7 +111,6 @@ class DeliveryPartnerController extends Controller
     	->findAll();
     	
         return $this->render('CupSiteManagementBundle:Default:home.html.twig', array(
-            'form' => $form->createView(),
         	'postslist'=>$postslist,
         	'clientList'=>$clientList
         ));
@@ -1524,8 +1522,7 @@ class DeliveryPartnerController extends Controller
         ;
     }
     
-    
-     /**
+    /**
      *
      * @param Contact $entity
      * @return unknown
@@ -1539,6 +1536,7 @@ class DeliveryPartnerController extends Controller
     	$form->add('submit', 'submit', array('label' => 'Submit Now'));
     	return $form;
     }
+     
     
     /**
      *

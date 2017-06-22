@@ -15,17 +15,33 @@ class OurClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        	->add('clientName')
-        	->add('subject')
-            ->add('description')
-            ->add('storyTitle')
-            ->add('storyDescription')
+        	->add('clientName', null, array(
+            		'required'    => true,
+            		'label' => 'ClientName', ))
+        			
+        	->add('subject', null, array(
+            		'required'    => true,
+            		'label' => 'Subject', ))
+            		
+            ->add('description', null, array(
+            		'required'    => true,
+            		'label' => 'Description', ))
+            		
+            ->add('storyTitle', null, array(
+            		'required'    => true,
+            		'label' => 'StoryTitle', ))
+            		
+            ->add('storyDescription', null, array(
+            		'required'    => true,
+            		'label' => 'StoryDescription', ))
+            		
             //->add('clientImage')
             ->add('clientImage', 'file',array(
             		'required' => false,
             		'attr'   =>  array(
             				'class'   => 'filestyle',
-            				'data-icon'   => 'false'
+            				'data-icon'   => 'false',
+            				'label' => 'ClientImage',
             		),
             		))
             //->add('storyImage')
@@ -33,13 +49,15 @@ class OurClientType extends AbstractType
             				'required' => false,
             				'attr'   =>  array(
             						'class'   => 'filestyle',
-            						'data-icon'   => 'false'
+            						'data-icon'   => 'false',
+            						'label' => 'StoryImage',
             				),
             		))
             //->add('active')
             ->add('active', 'checkbox', array(
             		'label'    => 'active',
             		'required' => false,
+            		'label' => 'Status',
             ));
         ;
     }

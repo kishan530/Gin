@@ -124,6 +124,10 @@ deliverypartner_edit:
     path:     /{id}/edit
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:edit" }
     methods:  [GET, POST]
+    
+cup_site_management_campaign_popupcontact_view:
+    path:    /popup-contact
+    defaults: { _controller: CupSiteManagementBundle:Clients:popUpContact }
 
 deliverypartner_delete:
     path:     /{id}/delete
