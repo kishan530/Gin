@@ -19,7 +19,11 @@
                                         <th>Sl.No </th>
                                         <th>Name</th>
                                         <th>Mobile</th>
-                                        <th>Email</th>                                                                     
+                                        <th>Email</th>
+                                         <th>City</th>
+                                         <th>Number of Employees</th>
+                                         <th>Number of Cups</th>
+                                         <th>Advertisetype</th>                                                                    
                                         <th> Message </th> 
                                     </tr>	
                             {% endif %}			
@@ -29,7 +33,12 @@
                                     <td>{{ loop.index }}</td>
                                     <td>{{ contact.name }}</td> 
                                     <td>{{ contact.mobile }}</td> 
-                                   <td>{{ contact.email }}</td>                                       
+                                   <td>{{ contact.email }}</td>
+                                     <td>{{ contact.email }}</td> 
+                                     <td>{{ contact.city }}</td>
+                                     <td>{{ contact.numberOfCups }}</td>
+                                     <td>{{ contact.numberOfEmployees }}</td> 
+                                     <td>{{ contact.advertiseType }}</td>                                   
                                     <td>{{ contact.message }}</td>
 
                                 </tr>

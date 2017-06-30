@@ -1543,6 +1543,7 @@ class DeliveryPartnerController extends Controller
      */
     public function contactAction(Request $request){
     	$entity = new Contact();
+    	$entity->setAdvertiseType('Get Free Cups');
     	$form   = $this->createContactForm($entity);
     	$form->handleRequest($request);
     	if ($form->isValid()) {

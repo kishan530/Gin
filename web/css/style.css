@@ -48,7 +48,7 @@ color:#000;font-weight:700 !important;font-size:28px;line-height:38px;padding-to
 .section-heading{
 	padding-top:5px;
 }
-.heading span,.page-heading span,.section-heading span{color:#d94343;}
+.heading span,.page-heading span,.section-heading span{color:#FD143A;}
 .contact-text{}
 .contact-text p{margin: 0}
 .box-row{
@@ -140,7 +140,7 @@ color:#000;font-weight:700 !important;font-size:28px;line-height:38px;padding-to
 .paper-text{font-family:'comic sans ms', sans-serif;color:#666666;font-size:14px;line-height:24px;text-align: justify;}
 .ad-text{color: #333333;font-family: 'proxima-nova', Helvetica, Arial, sans-serif;text-align: justify;font-size: 13px;}
 .Campaign-title{font-size:20px;}
-.read-more{padding:7px 20px;background-color:#d94343;border: none;}
+.read-more{padding:7px 20px;background-color:#FD143A;border: none;}
 .read-more:hover{padding:7px 20px;background-color:#727376;border: none;}
 hr{border-top:2px solid #eee;}
 .slider-label{z-index:5;white-space:normal;font-size:24px;line-height:22px;font-weight:400;color:rgb(255, 255, 255);visibility:inherit;transition:none;border-width:0px;margin:0px;padding:0px;letter-spacing:0px;opacity:1;transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);transform-origin:50% 50% 0px;}
@@ -196,7 +196,7 @@ hr{border-top:2px solid #eee;}
 .small-gap2{margin:10px;}
 .carousel-indicators .active{background:#31708f;}
 .content{margin-top:20px;}
-.adjust1{width:100%;margin-bottom:0;}
+.adjust1{width:100%;margin-bottom:0;padding: 0;}
 .adjust2{margin:0;}
 #testimonials{
 	background-color: #000;
@@ -226,12 +226,14 @@ i.custom-quote {
     font-size: 21px;
     font-weight: normal;
 }
-.user-account label span{color: #d94343}
+.user-account label span{color: #FD143A}
 .media-object{margin:auto;margin-top:15%;}
 
 .step{display:none}.step.active{display:block}.classic-title{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #eee;font-weight:400}.classic-title span{padding-bottom:8px;border-bottom:1px solid;border-bottom-color:#2828fa}
 .only-mobile{display: none !important;}
-.free-cups{ color: #fff;background-color: #d94343;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
+.free-cups{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
+.contact-popup1{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
+.contact-popup2{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
 @media screen and (max-width:768px){
 	.media-object{margin-top:0;}
 	.box-right{
@@ -260,6 +262,17 @@ i.custom-quote {
    		display: inline-block !important;
 	}
 	.heading {padding-top: 0px}
+	
+	.caption {
+		width:280px;
+	}
+	.adjust2{
+		text-align: center;
+	}
+	.read-more{
+		href:hidden;
+	}
+	
 }
 .footer-top{
 	background: #000;
@@ -341,3 +354,60 @@ i.custom-quote {
     display: inline;
     margin-left: 2%;
 }
+
+
+.advertiseButton {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 2.5em;
+  margin: auto;
+  background: #FD143A;
+}
+.advertiseButton {
+   right: 0;
+   -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+       -ms-transform-origin: 100% 50%;
+        -o-transform-origin: 100% 50%;
+           transform-origin: 100% 50%;
+   -webkit-transform: rotate(90deg) translate(50%, 50%);
+      -moz-transform: rotate(90deg) translate(50%, 50%);
+       -ms-transform: rotate(90deg) translate(50%, 50%);
+        -o-transform: rotate(90deg) translate(50%, 50%);
+           transform: rotate(90deg) translate(50%, 50%);
+}
+
+
+.referstory a {
+    text-decoration: none;
+    color: white;
+}
+.contactform{
+	
+	    width: 102%;
+}
+.paperstory{
+	
+	color: white;
+}
+.paperstory2 h3 {
+    position: absolute;
+    top: 22%;
+    left: 23%;
+    color: #FFF;
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    width: 55%;
+    font-size: 34px;
+    font-weight: bold;
+    padding-bottom: 9px;
+}
+
+.paperstory3 h3{
+	left:5%;
+	width:94%;
+}
+
+
+

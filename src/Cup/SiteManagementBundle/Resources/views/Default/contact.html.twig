@@ -6,6 +6,12 @@
 {% endblock %}
 
 
+{% block advertiseButton %}
+		
+	
+{% endblock %}
+
+
   {% block body %}
 
 
@@ -41,35 +47,70 @@
                                             <div class="row top-buffer">
                                                 {{ form_errors(form.email) }}
                                             </div>
+                                            
                                             <div class="row top-buffer">
                                                 {{ form_errors(form.message) }}
                                             </div>
                                         </ul>
 								    </div>
                                 </div>
-                                {{ form_start(form) }}
+                                
 				                {{ form_errors(form, { 'global_errors': true }) }}
+				                
+				                   <div class="row">
+				                
+						                <div class="col-md-12 col-sm-12 col-xs-12" id="advertise">
+		                                {{ form_widget(form.advertiseType) }}
+		                            	</div> 
+                            	
+                            	</div>
+				                   <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                          {{ form_widget(form.name, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Name','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                         
+                                         {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
+                                         
+                                            {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
                                     </div>
+                                   
+                                    
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                     {{ form_widget(form.mobile, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Mobile No','title':'Please enter a valid Mobile No'}}) }}
+                                    
+                                    	<div class="free-cups-toggle"  >
+                                    	 {{ form_widget(form.city, { 'attr': {'class':'make-margin','placeholder':'City','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                    	 
+                                        {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'Number of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                        
+                                         {{ form_widget(form.numberOfCups, { 'attr': {'class':'make-margin','placeholder':'Number of Cups(in a month)','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                                         
+                                         </div>
+                                         
+                                          <div class="free-cups-img-toggle" style="display:none">
+								         	 <img alt=""
+													src="{{ asset('images/Logo5.png') }}">
+								         </div>  
+                                         
                                     </div>
-                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                         {{ form_widget(form.email, { 'attr': {'class':'make-margin','placeholder': 'Enter Your Email','title':'Please enter a valid Email', 'maxlength':'100'}}) }}
+                                    
+                                    
                                     </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                 
+                                    <div class="row">
+      		
+      		
+                                 
+                                    <div class="col-md-12 col-sm-12 col-xs-12 contactform">
                                     {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}
                                         
                                         
+                                      <div class="col-md-12 col-sm-12 col-xs-12 contactform">  
                                         
-                                        
-                                         {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary btn-lg border-radius'}}) }}
+                                         {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary read-more campaign-btn'}}) }}
 							              
-                                    
                                     </div>
-                                {{ form_end(form) }}   
-                            </div><!-- end contact-form -->
+                                    </div>
+                           
+                            <!-- end contact-form -->
                         </div><!-- end col -->
                     </div><!-- end row -->
                     <!-- END CONTENT -->

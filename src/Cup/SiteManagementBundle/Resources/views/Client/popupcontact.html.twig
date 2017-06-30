@@ -35,23 +35,31 @@
                             </div>	
                   </div>
 	              <div class="col-md-5">
+	              
+	              <div class="free-cups-toggle">
+	              
+				<div class="row">
+	               	<div class="col-md-12 col-sm-12 col-xs-12">
+	                			{{ form_widget(form.city, { 'attr': {'class':'make-margin','placeholder':'City','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+	                 </div>
+                 </div>
 	              <div class="row"> 
 	                <div class="col-md-12 col-sm-12 col-xs-12">
                  			 {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'Number of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
                      </div>
                    </div>
-                   <div class="row">
-               <div class="col-md-12 col-sm-12 col-xs-12">
-                			{{ form_widget(form.city, { 'attr': {'class':'make-margin','placeholder':'City','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
-                 </div>
-                 </div>
+                   
                  <div class="row">
                  <div class="col-md-12 col-sm-12 col-xs-12">
                            {{ form_widget(form.numberOfCups, { 'attr': {'class':'make-margin','placeholder':'Number of Cups(in a month)','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
                  </div>
                  </div>
                  
-	                       
+	         	 </div>   
+	         	 <div class="free-cups-img-toggle">
+	         	 <img alt=""
+						src="{{ asset('images/Logo5.png') }}">
+	         	 </div>       
 	             
               </div>
               <div class="row">
