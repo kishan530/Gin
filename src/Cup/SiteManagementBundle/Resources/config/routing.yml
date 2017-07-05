@@ -106,19 +106,41 @@ cup_site_management_campaign_client_add:
 
 cup_site_management_campaign_client_edit:
     path:    /{id}/client-edit
-    defaults: { _controller: CupSiteManagementBundle:Clients:clientEdit }
+    defaults: { _controller: "CupSiteManagementBundle:Clients:clientEdit" }
 
 cup_site_management_campaign_client_view:
     path:    /{id}/client-view
-    defaults: { _controller: CupSiteManagementBundle:Clients:clientView }
+    defaults: { _controller: "CupSiteManagementBundle:Clients:clientView" }
 
 cup_site_management_campaign_client_list:
     path:    /client-list
-    defaults: { _controller: CupSiteManagementBundle:Clients:clientList }
+    defaults: { _controller: "CupSiteManagementBundle:Clients:clientList" }
 
 cup_site_management_campaign_client_delete:
     path:    /{id}/client-delete
-    defaults: { _controller: CupSiteManagementBundle:Clients:clientDelete }
+    defaults: { _controller: "CupSiteManagementBundle:Clients:clientDelete" }
+
+
+cup_site_management_media_add:
+    path:    /media-add
+    defaults: { _controller: "CupSiteManagementBundle:Media:mediaAdd" }
+
+
+cup_site_management_media_edit:
+    path:    /{id}/media-edit
+    defaults: { _controller: "CupSiteManagementBundle:Media:mediaEdit" }
+
+
+
+cup_site_management_media_list:
+    path:    /media-list
+    defaults: { _controller: "CupSiteManagementBundle:Media:mediaList" }
+
+cup_site_management_media_delete:
+    path:    /{id}/media-delete
+    defaults: { _controller: "CupSiteManagementBundle:Media:mediaDelete"}
+
+
 
 deliverypartner_edit:
     path:     /{id}/edit
@@ -249,10 +271,21 @@ deliverypartner_yumist_gallery:
 deliverypartner_other_gallery:
     path:     /gallery/other
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:otherGallery" }
+
+
 deliverypartner_contact_list:
     path:     /contact-list
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:contactList" }
     methods:  [GET]
+
+
+
+deliverypartner_contact_search:
+    path:     /contact-search
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:contactList" }
+    methods:  [GET]
+
+
 cup_site_management_campaign_preview_design_old:
     path:     /preview/{id}/design
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewDesignOld" }

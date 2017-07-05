@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Cup\SiteManagementBundle\Form\ContactSearchType;
+use Cup\SiteManagementBundle\DTO\ContactSearchDto;
 use Cup\SiteManagementBundle\Entity\DeliveryPartner;
 use Cup\SiteManagementBundle\Form\DeliveryPartnerType;
 use Cup\SiteManagementBundle\Entity\CampaignRequest;
@@ -249,7 +251,14 @@ class DeliveryPartnerController extends Controller
      */
     public function newsAction()
     {
-        return $this->render('CupSiteManagementBundle:Default:news.html.twig');
+    	$mediaList = $this->getDoctrine()
+    	->getRepository('CupSiteManagementBundle:OurMedia')
+    	->findAll();
+    	 
+    	return $this->render('CupSiteManagementBundle:Default:news.html.twig', array(
+    			'mediaList'=>$mediaList
+    	));
+//         return $this->render('CupSiteManagementBundle:Default:news.html.twig');
     }
     /**
      *
@@ -1536,14 +1545,19 @@ class DeliveryPartnerController extends Controller
     	$form->add('submit', 'submit', array('label' => 'Submit Now'));
     	return $form;
     }
-     
+    
     
     /**
      *
      */
     public function contactAction(Request $request){
     	$entity = new Contact();
-    	$entity->setAdvertiseType('Get Free Cups');
+    	$entity->setAdvertiseType('Advertise with us');
+    	date_default_timezone_set('Asia/Kolkata');
+    	$date = new \DateTime();
+    	$entity->setDate($date);
+    	 
+    	
     	$form   = $this->createContactForm($entity);
     	$form->handleRequest($request);
     	if ($form->isValid()) {
@@ -1551,6 +1565,7 @@ class DeliveryPartnerController extends Controller
     		$em->persist($entity);
     		$em->flush();
     		$email = $entity->getEmail();
+    	
     		$body="<br>";    		
     		$body.="<label>Name:</label>".$entity->getName()."<br>";
     		$body.="<label>Email:</label>".$entity->getEmail()."<br>";
@@ -1595,22 +1610,71 @@ class DeliveryPartnerController extends Controller
     			'form'   => $form->createView(),
     	));
     }
+
+    
+    private function createContactSearchForm(ContactSearchDto $dto){
+    	//$catalogueService = $this->container->get( 'catalogue.service' );
+    	$form = $this->createForm(new ContactSearchType(), $dto, array(
+    			'action' => $this->generateUrl('deliverypartner_contact_search'),
+    			'method' => 'GET',
+    	));
+    	 
+    	$form->add ( 'submit', 'submit', array (
+    			'label' => 'Search'
+    	) );
+    
+    	return $form;
+    }
+    
     
     /**
 	 * contact list
 	 * @return unknown
 	 */
-	public function contactListAction() {
+	public function contactListAction(Request $request) {
 		$em = $this->getDoctrine ()->getManager ();	
 		$security = $this->container->get ( 'security.context' );
 		if (! $security->isGranted ( 'ROLE_SUPER_ADMIN' )) {
 			return $this->redirect ( $this->generateUrl ( "cup_security_homepage" ) );
 		}
-		$contacts = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->findBy(array(), array('id' => 'DESC'));
-	   return $this->render('CupSiteManagementBundle:Default:contactList.html.twig',array(
-    			'contacts' => $contacts,
-    	));
 		
+		$contacts = array();
+		
+		$contactSearch = new ContactSearchDto();
+		$form   = $this->createContactSearchForm($contactSearch);
+		$form->handleRequest($request);
+		if ($form->isValid()) {
+			
+			//$contacts = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->findBy(array(), array('id' => 'DESC'));
+			$from = $contactSearch->getFrom();
+			$to   = $contactSearch->getTo();
+			
+			$from = new \DateTime($from->format("Y-m-d")." 00:00:00");
+			$to   = new \DateTime($to->format("Y-m-d")." 23:59:59");
+			
+			$qb = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->createQueryBuilder("Contact");
+			$qb
+			->andWhere('Contact.date BETWEEN :from AND :to')
+			->setParameter('from', $from )
+			->setParameter('to', $to)
+			;
+			$contacts = $qb->getQuery()->getResult();
+			
+	//return $result;
+			
+			
+			
+			return $this->render('CupSiteManagementBundle:Default:contactList.html.twig',array(
+					'form'   => $form->createView(),
+					'contacts' => $contacts,
+			));
+		}
+		
+		
+		return $this->render('CupSiteManagementBundle:Default:contactList.html.twig',array(
+				'form'   => $form->createView(),
+				'contacts' => $contacts,
+		));
 	}
     
       /**

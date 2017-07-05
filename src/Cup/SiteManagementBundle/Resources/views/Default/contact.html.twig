@@ -20,7 +20,7 @@
             <div class="row">
                 <div id="fullwidth" class="col-sm-12">
 
-                     <h1 class="page-heading text-center"><span>Contact</span> Us</h1>
+                     <h1 class="page-heading text-center reachuspage"><span>Contact</span> Us</h1>
                     <!-- START CONTENT -->
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-12 contact-text">
@@ -32,7 +32,7 @@
                              <p class="page-text">Email:contact@gingercup.com</p>
                              <p class="page-text">Phone:+91-888 444 2846/47</p>
                         </div><!-- end col -->
-
+{{ form_start(form) }}
                         <div class="col-md-8 col-sm-8 col-xs-12">
                             <div id="contact_form" class="contact_form">
                                 <div id="message">
@@ -76,7 +76,7 @@
                                     
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                     
-                                    	<div class="free-cups-toggle"  >
+                                    	<div class="free-cups-toggle"  style="display:none">
                                     	 {{ form_widget(form.city, { 'attr': {'class':'make-margin','placeholder':'City','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
                                     	 
                                         {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'Number of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
@@ -85,7 +85,7 @@
                                          
                                          </div>
                                          
-                                          <div class="free-cups-img-toggle" style="display:none">
+                                          <div class="free-cups-img-toggle" >
 								         	 <img alt=""
 													src="{{ asset('images/Logo5.png') }}">
 								         </div>  
@@ -116,6 +116,7 @@
                     <!-- END CONTENT -->
 
                 </div><!-- end fullwidth -->
+             {{ form_end(form) }}   
             </div><!-- end row -->
         </div><!-- end container -->
     </section><!-- end section -->

@@ -116,7 +116,12 @@ class Contact
      **/
     private $numberOfCups;
 
-    
+    /**
+     * @var string
+     * @ORM\Column(name="date", type="date", nullable=true)
+     * @Assert\Date()
+     */
+    private $date;
 
     /**
 
@@ -363,6 +368,25 @@ class Contact
 		$this->numberOfCups = $numberOfCups;
 		return $this;
 	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getDate() {
+		return $this->date;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$date
+	 */
+	public function setDate($date) {
+		$this->date = $date;
+		return $this;
+	}
+	
 	
 	
 

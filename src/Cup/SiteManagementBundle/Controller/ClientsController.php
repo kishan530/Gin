@@ -204,6 +204,7 @@ class ClientsController extends Controller
 
 		$entity = new Contact();
 		$form   = $this->createContactForm($entity);
+	  	
 		return $this->render('CupSiteManagementBundle:Client:popupcontact.html.twig', array(
 				'form' =>$form->createView()
 		));

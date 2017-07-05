@@ -1,0 +1,78 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block body %}
+  <section class="section clearfix">
+  <div class="container">
+    
+    <h1 class="page-header">Add Media Details</h1>
+    
+{{ form_start(form) }}
+
+{# {{ form_widget(form) }}#}
+
+{{ form_errors(form, { 'global_errors': true }) }}
+	<div class="row">
+		 <div class="col-lg-6">
+		 
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.mediaName) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.mediaName) }}
+                            </div>                       
+                        </div>
+                        
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.newsSubject) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.newsSubject) }}
+                            </div>                       
+                        </div>
+                        
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.newsDescription) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.newsDescription) }}
+                            </div>                       
+                        </div>
+                        
+       <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.newsTitle) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.newsTitle) }}
+                            </div>                       
+                        </div>
+                        
+   <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.newsLink) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.newsLink) }}
+                            </div>                       
+                        </div>
+                        
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.mediaLogo) }}
+                            <p> (Prefer image dimension 240*100) </p>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.mediaLogo) }}
+                            </div>                       
+                        </div>
+                        
+	</div>	
+	</div>
+	
+{{ form_end(form) }}
+</div>
+</section>
+{% endblock %}
