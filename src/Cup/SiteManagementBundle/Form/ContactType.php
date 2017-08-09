@@ -80,6 +80,13 @@ class ContactType extends AbstractType
             						),
             						'required'    => true,
             				))
+            				
+            				->add('answer',null,array(
+            				
+            						'required'    => false,
+            						'label' => '',
+            						 
+            				))
           
         ;
                     

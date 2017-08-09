@@ -122,6 +122,8 @@ class Contact
      * @Assert\Date()
      */
     private $date;
+    
+    private $answer;
 
     /**
 
@@ -386,6 +388,24 @@ class Contact
 		$this->date = $date;
 		return $this;
 	}
+	
+	/**
+	 *
+	 * @return the unknown_type
+	 */
+	public function getAnswer() {
+		return $this->answer;
+	}
+	
+	/**
+	 *
+	 * @param unknown_type $answer        	
+	 */
+	public function setAnswer($answer) {
+		$this->answer = $answer;
+		return $this;
+	}
+	
 	
 	
 	

@@ -1,0 +1,195 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+
+<script type="text/javascript">
+
+//keep track of how many city fields have been rendered
+var imageCount = '{{ form.imageList|length }}';
+
+$('#add-another-image').click(function(e) {
+        e.preventDefault();
+        /*if(itemCount>4){
+            alert('Max 5 only');
+            exit();
+        }*/
+
+        var imageList = $('#image-list');
+
+        // grab the prototype template
+        var newWidget = imageList.attr('data-prototype1');
+        // replace the "__name__" used in the id and name of the prototype
+        // with a number that's unique to your city
+        newWidget = newWidget.replace(/__name__/g, imageCount);
+        imageCount++;
+
+        // create a new list element and add it to the list
+        var newLi = $('<div></div>').html(newWidget);
+        newLi.appendTo(imageList);
+    });
+
+</script>
+
+<script>
+
+
+$("#result").on('click',".delete", function (e) {
+ 		e.preventDefault();
+ 		var deleteUrl  = $(this).attr('href');
+  		 if (!confirm("This details will be deleted permanently form the system, please confirm")) {
+  	            exit();
+  	        }
+ 	  		 var id = $(this).attr('value');
+ 	  		 var li = $(this).parent();
+ 		    	   $.ajax({
+	   	     	 
+	    	       url: deleteUrl,
+	    	       type: "GET",
+	    	       data: { 'id': id },
+	    	       success: function(data) {	
+	    	    	  //swal('Deactivated Successfully !');
+	    	    	   alert('image deleted'); 
+	    			  li.remove();
+	    	       },
+	  	       error: function(XMLHttpRequest, textStatus, errorThrown)
+	    	       {
+	  	           alert('Error: ' +  errorThrown);
+	    	       }
+	    	   });
+  	});			
+	
+
+</script>
+
+{% endblock %}
+
+{% block body %}
+  <section class="section clearfix">
+  <div class="container">
+    
+    <h1 class="page-header">Add Gallery Collections</h1>
+    
+{{ form_start(form) }}
+
+{# {{ form_widget(form) }}#}
+
+{{ form_errors(form, { 'global_errors': true }) }}
+	<div class="row">
+		 <div class="col-lg-6">
+		 
+        <div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.name) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.name) }}
+                            </div>                       
+                        </div>
+             
+                        
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.bannerImage) }}
+                        <p> (Prefer image dimension 847*225) </p>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.bannerImage) }} 
+                            </div>                       
+                        </div>
+                        
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.imagePath) }}
+                             <p> (Prefer image dimension 294*245) </p>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.imagePath) }}
+                            </div>                       
+                        </div> 
+                       
+		<div class="row form-group">
+                            <div class="col-lg-6">
+                            {{ form_label(form.url) }}
+{#                             <p> (Prefer image dimension 240*100) </p>#}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.url) }}
+                            </div>                       
+                        </div> 
+                        
+	</div>	
+	</div>
+	{% if gallery.galleryImages|length>0 %}
+	<h4 >Gallery Images</h4>
+	{% endif %}
+	<div class="row" id="result">
+ 	 <div class="col-lg-3">
+	<ul>
+	{% for galleryImage in gallery.galleryImages if gallery.galleryImages|length>0 %}
+ 	
+ 	
+		<li>{{ galleryImage.imagePath }} <a href="{{ path('cup_site_management_gallery_image_delete', {'id': galleryImage.id})}}" class="delete" value="{{ galleryImage.id }}"> <i class="fa fa-trash-o pull-right" aria-hidden="true "></i> </a></li>
+    
+ 	{% endfor %}
+
+	</ul>
+	 </div>
+     </div>
+	
+		
+                     
+                     {% macro image_prototype(i) %}
+                    <div class="borderhotelbox">
+                     <div class="row ">
+	                    
+	                   {#} <div class="col-lg-6">
+                         <div class="row form-group">
+	                            <div class="col-lg-6">
+							{{ form_label(i.name) }}
+                               {{ form_widget(i.name) }}
+                                {{ form_widget(i.id) }} 
+                           		 </div> 
+                         </div>
+                        </div> #}
+                                             
+                         <div class="col-lg-6">
+                    		<div class="row form-group">
+	                            {#}<div class="col-lg-6">
+	                                {{ form_label(i.imagePath) }}
+	                            </div> {#}
+	                                                    
+	                      		 <div class="col-lg-6"> 
+	                            	
+	                                {{ form_widget(i.imagePath) }}
+	                       		</div>
+	                       		 <div class="col-lg-6"> 
+	                       		  {{ form_widget(i.name) }}
+	                       		</div>
+                                                    
+                       		</div>
+                        </div>
+                        
+                                                
+                     </div>
+                 	</div>  
+                       
+                     {% endmacro %}
+               <div class="row">
+                     <div id="image-list"
+                                                data-prototype1="{{ _self.image_prototype(form.imageList.vars.prototype)|e }}">
+                            {% for i in form.imageList %}
+                            	{{ _self.image_prototype(i) }}
+                            {% endfor %}
+                        </div>
+                        </div>
+                        
+                    <a href="#" id="add-another-image" class="pull-right" style="margin-right:600px;">Add another Image</a>
+	
+	
+	
+	
+{{ form_end(form) }}
+</div>
+</section>
+{% endblock %}

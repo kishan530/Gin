@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Cup\SiteManagementBundle\Form\ContactSearchType;
-use Cup\SiteManagementBundle\DTO\ContactSearchDto;
+use Cup\SiteManagementBundle\Dto\ContactSearchDto;
 use Cup\SiteManagementBundle\Entity\DeliveryPartner;
 use Cup\SiteManagementBundle\Form\DeliveryPartnerType;
 use Cup\SiteManagementBundle\Entity\CampaignRequest;
@@ -102,9 +102,9 @@ class DeliveryPartnerController extends Controller
     	//echo var_dump($postslist[0]->guid);
 		//exit();
     	
-
-    	
-    	
+    	    	
+    	//echo var_dump($gallery);
+    	//exit();
       
        // return $this->render('CupSiteManagementBundle:Default:home.html.twig');
        
@@ -114,7 +114,8 @@ class DeliveryPartnerController extends Controller
     	
         return $this->render('CupSiteManagementBundle:Default:home.html.twig', array(
         	'postslist'=>$postslist,
-        	'clientList'=>$clientList
+        	'clientList'=>$clientList,
+        		
         ));
         
         
@@ -254,7 +255,7 @@ class DeliveryPartnerController extends Controller
     	$mediaList = $this->getDoctrine()
     	->getRepository('CupSiteManagementBundle:OurMedia')
     	->findAll();
-    	 
+    	
     	return $this->render('CupSiteManagementBundle:Default:news.html.twig', array(
     			'mediaList'=>$mediaList
     	));
@@ -320,13 +321,23 @@ class DeliveryPartnerController extends Controller
      */
     public function galleryAction()
     {
-    	return $this->render('CupSiteManagementBundle:Default:gallery.html.twig');
+    	$gallery = $this->getDoctrine()
+    	->getRepository('CupSiteManagementBundle:GalleryCollection')
+    	->findAll();
+    	//echo var_dump($gallery);
+    	//exit();
+    	return $this->render('CupSiteManagementBundle:Default:gallery.html.twig',array(
+				'galleries' => $gallery
+				
+				
+		));
     }
     /**
      *
      */
     public function bahubaliGalleryAction()
-    {
+    {	
+    	
     	return $this->render('CupSiteManagementBundle:Default:bahubali-gallery.html.twig');
     }
     /**
@@ -1552,15 +1563,39 @@ class DeliveryPartnerController extends Controller
      */
     public function contactAction(Request $request){
     	$entity = new Contact();
+    	$session = $request->getSession();
+    	
     	$entity->setAdvertiseType('Advertise with us');
     	date_default_timezone_set('Asia/Kolkata');
     	$date = new \DateTime();
     	$entity->setDate($date);
-    	 
+    	 $error=null;
     	
+    	$imagesList = array("2.jpg"=>'2', "4.jpg"=>'4', "6.jpg"=>'6');
+    	
+            $captcha = array_rand($imagesList);
+         //   echo var_dump($captchaIndex);
+        	//exit();
+           // $captcha =  $imagesList[$captchaIndex];
+           // echo var_dump($captcha);
+            //exit();
+          
     	$form   = $this->createContactForm($entity);
     	$form->handleRequest($request);
     	if ($form->isValid()) {
+    		$answer=$entity->getAnswer();
+    	//echo var_dump($answer);
+    	//exit();
+    		
+    		
+    		$oldCaptcha = $session->get('captcha');
+    		
+    		//echo var_dump($oldCaptcha);
+    		//exit();
+    		$correctAnswer = $imagesList[$oldCaptcha];
+    		
+    		if($answer==$correctAnswer)
+    		{
     		$em = $this->getDoctrine()->getManager();
     		$em->persist($entity);
     		$em->flush();
@@ -1605,9 +1640,22 @@ class DeliveryPartnerController extends Controller
     		
     		return $this->redirect($this->generateUrl('deliverypartner_contact_success'));
     	}
+    	else {
+    		$error='Please  Enter Valid Answer';
+    		$session->set('captcha',$captcha);
+    	}
+    	
+    	}
+    	//echo var_dump($captcha);
+    //	exit();
+    	
+    	$session->set('captcha',$captcha);
+    	
     	return $this->render('CupSiteManagementBundle:Default:contact.html.twig',array(
     			'entity' => $entity,
+    			'error'=> $error,
     			'form'   => $form->createView(),
+    			'captcha'=>$captcha,
     	));
     }
 
@@ -1649,16 +1697,18 @@ class DeliveryPartnerController extends Controller
 			$from = $contactSearch->getFrom();
 			$to   = $contactSearch->getTo();
 			
-			$from = new \DateTime($from->format("Y-m-d")." 00:00:00");
-			$to   = new \DateTime($to->format("Y-m-d")." 23:59:59");
+		 		if(!is_null($from)){
+				$from = new \DateTime($from->format("Y-m-d")." 00:00:00");
+
 			
-			$qb = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->createQueryBuilder("Contact");
-			$qb
-			->andWhere('Contact.date BETWEEN :from AND :to')
-			->setParameter('from', $from )
-			->setParameter('to', $to)
-			;
-			$contacts = $qb->getQuery()->getResult();
+				$to = new \DateTime($to->format("Y-m-d")." 23:59:59"); 			
+              
+				$qb = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->createQueryBuilder("Contact"); 			
+				$qb ->andWhere('Contact.date BETWEEN :from AND :to') ->setParameter('from', $from ) ->setParameter('to', $to) ; 			
+				$contacts = $qb->getQuery()->getResult();
+			}else{
+				$contacts = $em->getRepository ( 'CupSiteManagementBundle:Contact' )->findAll();
+			}
 			
 	//return $result;
 			

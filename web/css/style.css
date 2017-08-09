@@ -273,6 +273,7 @@ i.custom-quote {
 		href:hidden;
 	}
 	
+	
 }
 .footer-top{
 	background: #000;
@@ -332,13 +333,16 @@ i.custom-quote {
 #slide-nav #slidemenu .navbar-nav .dropdown-menu li a{min-width:0;width:80%;white-space:normal;}
 #slide-nav{border-top:0}
 #slide-nav.navbar-inverse #slidemenu{background:#333}
-#slide-nav #navbar-height-col{position:fixed;top:0;height:100%;width:40%;left:-80%;background:#eee;z-index:17;}
+/* #slide-nav #navbar-height-col{position:fixed;top:0;height:100%;width:40%;left:-80%;background:#eee;z-index:17;} */
+#slide-nav #navbar-height-col{position:fixed;top:0;height:100%;width:40%;left:-80%;background:#000;z-index:17;}
 #slide-nav.navbar-inverse #navbar-height-col{background:#333;z-index:1;border:0;}
 #slide-nav .navbar-form{width:100%;margin:8px 0;text-align:center;overflow:hidden;}
 #slide-nav .navbar-form .form-control{text-align:center}
 #slide-nav .navbar-form .btn{width:100%}
 .navbar-nav>li>a{
-	font-size: 9px;
+	/* font-size: 9px; */
+	font-size: 15px;
+	color:#f5f5f5;
 }
 }
 @media (min-width:768px){#page-content{left:0!important}
@@ -479,3 +483,92 @@ line-height: 23px;
  padding-top: 0px;
     margin-top: 2px;
 }	
+
+.captchaform{
+	width:40%;
+	}
+	.contactformtextarea{
+	
+	width: 98%;
+    height: 80px;
+	
+	}
+	
+	.contactformsubmit{
+	margin-right: 175px;
+	}
+	
+	.storytitle{
+	font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	margin-left: 18px;
+	}
+	.coffeetitle{
+	margin-left: 0px;
+	}
+	.storybox{
+	    min-height: 550px;
+	    padding-left: 15px;
+    padding-right: 15px;
+	}
+	.galleryimgbox{
+	    max-width: 350px;
+    max-height: 290px;
+    display: block;
+    }
+   
+    .containerstory {
+    width: 1275px;
+	}
+    .medialinkright{
+    margin-right:25px;
+    margin-bottom: 10px;
+    background-color:#FD143A; }
+    
+    .medialinkleft{
+    margin-left:25px;
+    margin-bottom: 10px;
+    background-color:#FD143A;}
+    
+    .contactborder{
+    padding-top: 0px;
+	margin-left: 25px;}
+    
+    .contactfont{
+    color: #f5f5f5;
+    
+    }
+    .contarea{
+    height:100px !important;
+    }
+   @media (max-width:768px){
+   .jssort04{
+   display: none !important;
+   }
+   .advertiseButton{
+   display: none !important;
+   }
+   .captchaclass{
+   width:100% !important;
+  }
+   .captchamargin{
+    margin-left: 12px !important;}
+    .captchaclassbutton{
+    margin-left: -12px; }
+    .popupmobile{
+        left: 45px;}
+  
+   .mobilemenu{
+   	 color: #eee;}
+   	 .menucolor{
+   	 background: #000;}
+   	 
+ .menudisplay li a:hover{
+ background-color: #b16363;
+}
+   	 
+   	 } 
+ .newbordercontact{
+ padding-bottom: 0px !important;}
+   	 
+   

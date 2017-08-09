@@ -34,10 +34,12 @@
         .jssora07r.jssora07rdn { background-position: -305px -35px; }
         .jssora07l.jssora07lds { background-position: -5px -35px; opacity: .3; pointer-events: none; }
         .jssora07r.jssora07rds { background-position: -65px -35px; opacity: .3; pointer-events: none; }
-        /* jssor slider thumbnail navigator skin 04 css *//*.jssort04 .p            (normal).jssort04 .p:hover      (normal mouseover).jssort04 .pav          (active).jssort04 .pav:hover    (active mouseover).jssort04 .pdn          (mousedown)*/.jssort04 .p {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;}.jssort04 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort04 .w, .jssort04 .pav:hover .w {    position: absolute;    width: 60px;    height: 30px;    border: #0099FF 1px solid;    box-sizing: content-box;}.jssort04 .pdn .w, .jssort04 .pav .w {    border-style: dashed;}.jssort04 .c {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;    background-color: #000;    filter: alpha(opacity=45);    opacity: .45;    transition: opacity .6s;    -moz-transition: opacity .6s;    -webkit-transition: opacity .6s;    -o-transition: opacity .6s;}.jssort04 .p:hover .c, .jssort04 .pav .c {    filter: alpha(opacity=0);    opacity: 0;}.jssort04 .p:hover .c {    transition: none;    -moz-transition: none;    -webkit-transition: none;    -o-transition: none;}* html .jssort04 .w {    width /**/: 62px;    height /**/: 32px;}
+        /* jssor slider thumbnail navigator skin 04 css *//*. .p            (normal).jssort04 .p:hover      (normal mouseover).jssort04 .pav          (active).jssort04 .pav:hover    (active mouseover).jssort04 .pdn          (mousedown)*/
+        .jssort04 .p {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;}.jssort04 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort04 .w, .jssort04 .pav:hover .w {    position: absolute;    width: 60px;    height: 30px;   /* border: #0099FF 1px solid;*/    box-sizing: content-box;}.jssort04 .pdn .w, .jssort04 .pav /*me .w {    border-style: dashed;}*/.jssort04 .c {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;    background-color: #000;    filter: alpha(opacity=45);    opacity: .45;    transition: opacity .6s;    -moz-transition: opacity .6s;    -webkit-transition: opacity .6s;    -o-transition: opacity .6s;}.jssort04 .p:hover .c, .jssort04 .pav .c {    filter: alpha(opacity=0);    opacity: 0;}.jssort04 .p:hover .c {    transition: none;    -moz-transition: none;    -webkit-transition: none;    -o-transition: none;}* html .jssort04 .w {    width /**/: 62px;    height /**/: 32px;}
+        
     </style>
  
- 
+
  
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -61,25 +63,30 @@
     
 
     <div class="item active">
-   <a href="{{ path('deliverypartner_bahubali_gallery') }}"> <img src="{{ asset('images/slides/baahubali.jpg') }}" width="100%" height="300px"> </a>
+   <a href="{{ path('deliverypartner_gallery') }}"> <img src="{{ asset('images/slides/baahubali.jpg') }}" width="100%" height="300px"> </a>
     </div>
       <div class="item ">
-         <a href="{{ path('deliverypartner_Hotstar_gallery') }}"><img src="{{ asset('images/slides/Hotstar.jpg') }}" width="100%" height="350px"></a>
+         <a href="{{ path('cup_site_management_gallery_collection_view', {'url': 'Hotstar' })}}"><img src="{{ asset('images/slides/Hotstar.jpg') }}" width="100%" height="350px"></a>
     </div>
      <div class="item">
          <a href="{{ path('deliverypartner_gallery') }}"><img src="{{ asset('images/slides/jET.jpg') }}" width="100%" height="350px"></a>
     </div>
-    <div class="item">
-         <a href="{{ path('deliverypartner_myra_gallery') }}"><img src="{{ asset('images/slides/myra.jpg') }}" width="100%" height="350px"></a>
+{#     <div class="item">#}
+{#          <a href="{{ path('deliverypartner_myra_gallery') }}"><img src="{{ asset('images/slides/myra.jpg') }}" width="100%" height="350px"></a>#}
+{#     </div>#}
+	<div class="item">
+         <a href="{{ path('deliverypartner_gallery') }}"><img src="{{ asset('images/slides/mediapartner.jpg') }}" width="100%" height="350px"></a>
     </div>
+	
+	
     <div class="item">
-         <a href="{{ path('deliverypartner_uber_gallery') }}"><img src="{{ asset('images/slides/Uber.jpg') }}" width="100%" height="350px"></a>
+         <a href="{{ path('cup_site_management_gallery_collection_view', {'url': 'Uber' })}}"><img src="{{ asset('images/slides/Uber.jpg') }}" width="100%" height="350px"></a>
     </div>
 	 <div class="item">
-         <img src="{{ asset('images/slides/Photo-collage-02.jpg') }}" width="100%" height="350px">
+      <a href="{{ path('deliverypartner_gallery') }}">   <img src="{{ asset('images/slides/Photo-collage-02.jpg') }}" width="100%" height="350px"></a>
     </div>
     <div class="item">
-         <img src="{{ asset('images/slides/Rohan builder.jpg') }}" width="100%" height="350px">
+        <a href="{{ path('deliverypartner_gallery') }}"> <img src="{{ asset('images/slides/Rohan builder.jpg') }}" width="100%" height="350px"></a>
     </div>
 	 
   </div>
@@ -278,6 +285,9 @@
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1080px;height:200px;overflow:hidden;">
            {%  set i=0 %}
             {% for client in clientList %}
+            {%  if client.active == 'true' %}
+    
+     {% if client.subject!="" %}
             <div class="referstory">
                  <a href="{{ path('deliverypartner_stories') }}"> 
                               
@@ -299,7 +309,7 @@
 	</p> 
 
 										<div class="adjust2 text-right"> 
-														<a class="btn btn-primary read-more hidden-xs" href="{{ path('deliverypartner_stories') }}" target="_self">{{ client.clientName }} says</a>                                                          
+														<a class="btn btn-primary read-more " href="{{ path('deliverypartner_stories') }}" target="_self">{{ client.clientName }} says</a>                                                          
 													  </div>
                                                   </div> 
                                               </div>
@@ -314,14 +324,16 @@
                           
                 <img data-u="thumb" src="{{ asset('../../clients/'~client.clientImage) }}" />
             </div>	
-              {%  set i=i+1 %}		          
+              {%  set i=i+1 %}
+              {% endif %}	
+              {% endif %}		          
         {% endfor %}
 {#           <a data-u="any" href="https://www.jssor.com/wordpress.html" style="display:none">wordpress slider</a>#}
         </div>
         <!-- Thumbnail Navigator -->
         <div data-u="thumbnavigator" class="jssort04" style="position:absolute;left:0px;bottom:0px;width:980px;height:60px;" data-autocenter="1">
             <!-- Thumbnail Item Skin Begin -->
-            <div data-u="slides" style="cursor: default;">
+            <div data-u="slides" style="cursor: pointer;">
                 <div data-u="prototype" class="p">
                     <div class="w">
                         <div data-u="thumbnailtemplate" class="t"></div>

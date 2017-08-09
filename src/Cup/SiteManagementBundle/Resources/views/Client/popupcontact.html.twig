@@ -1,6 +1,6 @@
 <div id="contact" class="modal fade" tabindex="-1" data-easein="rotateInDownLeft" data-easeout="rotateOutDownLeft" style="z-index: 10000000;">
     <div class="modal-dialog modal-md">
-        <div class="modal-content contentpopup">
+        <div class="modal-content contentpopup popupmobile">
 
                 <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -45,13 +45,13 @@
                  </div>
 	              <div class="row"> 
 	                <div class="col-md-12 col-sm-12 col-xs-12">
-                 			 {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'Number of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                 			 {{ form_widget(form.numberOfEmployees, { 'attr': {'class':'make-margin','placeholder':'No of Employees','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
                      </div>
                    </div>
                    
                  <div class="row">
                  <div class="col-md-12 col-sm-12 col-xs-12">
-                           {{ form_widget(form.numberOfCups, { 'attr': {'class':'make-margin','placeholder':'Number of Cups(in a month)','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
+                           {{ form_widget(form.numberOfCups, { 'attr': {'class':'make-margin','placeholder':'No of Cups(in a month)','title':'Please enter a valid Name', 'maxlength':'100'}}) }}
                  </div>
                  </div>
                  
@@ -74,16 +74,25 @@
                                 {{ form_widget(form.advertiseType) }}
                             </div>  
                          </div>
+                         <div class="row">
+                         <div class="col-md-12">
+                         <div class="col-md-4 col-sm-4 col-xs-4 captchaclass">
+               <figure><img src="{{ asset('images/homeCups/add_captcha.jpg') }}" alt="captcha details" height="50" style=" margin-left: 12px"></figure>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 col-xs-6 captchaclass captchamargin">
+				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform','placeholder':'Your answer','title':'Your answer here?', 'maxlength':'100'  }} ) }}
+            		</div>
                                               
                      
-                      <div class="col-md-12">
                       
+                      <div class="col-md-2 col-sm-2 col-xs-2 captchaclass captchaclassbutton ">
                      <div class="make-margin"></div>
                                    <div class="col-md-12 col-sm-12 col-xs-12" style ="margin-bottom: 2%;">
                             {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-danger btn-lg border-radius popupsubmit'}}) }}
                                 </div>
-                        </div>  
-                     
+                        </div> </div> 
+                     </div>
              </div>   
              
                {{ form_end(form) }}   

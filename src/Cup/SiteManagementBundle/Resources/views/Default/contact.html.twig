@@ -17,23 +17,15 @@
 
  <section class="section clearfix page">
         <div class="">
-            <div class="row">
+            <div class="row ">
                 <div id="fullwidth" class="col-sm-12">
 
-                     <h1 class="page-heading text-center reachuspage"><span>Contact</span> Us</h1>
+                     {#}<h1 class="page-heading text-center reachuspage"><span>Contact</span> Us</h1>{#}
                     <!-- START CONTENT -->
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12 contact-text">
-                           
-                            <h3 class="sub-title">Address</h3>
-                             
-                            <p class="page-text">1st Floor,3rd Cross</p> 
-                            <p class="page-text">Kundalahalli Colony, ITPL Main Road Bangalore-560037</p>
-                             <p class="page-text">Email:contact@gingercup.com</p>
-                             <p class="page-text">Phone:+91-888 444 2846/47</p>
-                        </div><!-- end col -->
+                    <div class="row ">
+                        
 {{ form_start(form) }}
-                        <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="col-md-8 col-sm-8 col-xs-8">
                             <div id="contact_form" class="contact_form">
                                 <div id="message">
                                     <div class="col-lg-12 col-sm-12 form-group has-error">
@@ -95,20 +87,41 @@
                                     
                                     </div>
                                  
-                                    <div class="row">
-      		
-      		
                                  
-                                    <div class="col-md-12 col-sm-12 col-xs-12 contactform">
-                                    {{ form_widget(form.message, { 'attr': {'class':'make-margin','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}
+                                 
+                                    <div class="row">
+                                         		
+      		   <div class="col-md-12 col-sm-12 col-xs-12 contactform ">
+                       {{ form_widget(form.message, { 'attr': {'class':'make-margin contactformtextarea contarea','placeholder': 'Enter Your message','title':'Please enter a valid message', }}) }}
+                 </div>   
+                      <div class="row">
+                              <div class="col-md-12" >    	
+                                   <div class="row"> 
                                         
+                                   <div class="col-md-4 col-sm-4 col-xs-4 ">
+                                   
+                                  
+               <figure><img src="{{ asset('images/homeCups/'~captcha) }}" alt="captcha details" height="60"   style="margin-left:15px;"></figure>
+								
+								</div>
+								
+								  <div class="col-md-6 col-sm-6 col-xs-6 " style ="margin-left: -80px;">
+				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform','placeholder':'','title':'Your answer here?', 'maxlength':'100'  }} ) }}
+				
+            					</div>
+            					 <div class="col-md-2 col-sm-2 col-xs-2  ">  
                                         
-                                      <div class="col-md-12 col-sm-12 col-xs-12 contactform">  
-                                        
-                                         {{ form_widget(form.submit,{ 'attr': {'class': 'pull-right btn btn-primary read-more campaign-btn'}}) }}
+                        {{ form_widget(form.submit,{ 'attr': {'class': 'pull-left btn btn-primary read-more campaign-btn contactformsubmit '}}) }}
 							              
-                                    </div>
-                                    </div>
+                                  </div>
+            					
+            					</div>
+            					</div>
+            				</div>
+            					<span style="color:Red">{{ error }}</span>
+                                        
+                                     
+                                   
                            
                             <!-- end contact-form -->
                         </div><!-- end col -->
@@ -116,8 +129,48 @@
                     <!-- END CONTENT -->
 
                 </div><!-- end fullwidth -->
-             {{ form_end(form) }}   
+             {{ form_end(form) }} 
+           
+           
+           
+             <div class="row ">
+             
+             
+              
+           <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top" style="background-color:#FD143A;">
+           <h3 style="text-align: center;">CONTACT US</h3>
+           </div>
+             <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact">
+                           
+                            <h3 class="sub-title" style="text-align: center;">Address</h3>
+                             
+                            <p class="page-text contactfont" style="text-align: center;">1st Floor,3rd Cross</p> 
+                            <p class="page-text contactfont" style="text-align: center;">Kundalahalli Colony, ITPL Main Road Bangalore-560037</p>
+                             <p class="page-text contactfont" style="text-align: center;">Email:contact@gingercup.com</p>
+                             
+            </div><!-- end col -->
+            <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact ">
+                           
+                            <h3 class="sub-title" align="center">Follow Us On</h3>
+                         
+                     <a href="https://www.facebook.com/gingercup"><p class="page-text contactfont" style="text-align: center;">
+                            
+                             <i class="fa fa-facebook-square" style="font-size:20px; color:#3079ea">  </i>  FaceBook  </p> </a>
+                  <a href="https://twitter.com/ginger_cup">  <p class="page-text contactfont" style="text-align: center; margin-left: -14px;">  <i class="fa fa-twitter-square" style="font-size:20px; color:#3ebdf1"></i> Twitter  </p> </a>
+            </div><!-- end col -->
+            <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact">
+                           
+                            <h3 class="sub-title contactfont" align="center">Contact</h3>
+							<p class="page-text contactfont"style="text-align: center;">contact@gingercup.com</p>
+                             <p class="page-text contactfont" style="text-align: center;">+91-888 444 2846/47</p>
+            </div><!-- end col -->
+           
+            
+             </div>
+             
+             
+             
             </div><!-- end row -->
-        </div><!-- end container -->
+        </div><!-- end container -->  {# edit here #}
     </section><!-- end section -->
   {% endblock %}

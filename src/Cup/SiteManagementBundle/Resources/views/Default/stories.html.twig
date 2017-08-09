@@ -1,9 +1,11 @@
 {% extends 'page.html.twig' %}
+
 {% block title %}GINGERCUP STORIES | GingerCup{% endblock %}
 
 {% block javascript %}
 
 {% endblock %}
+
 
 {% block meta %}
 <meta name="description" itemprop="description" content="Promote your brand,create more awareness and revenue through disposable coffee cup advertising.Gingercup offers premium range of coffee paper cups & mugs." />
@@ -18,50 +20,45 @@
 <meta name="twitter:title" content="GINGERCUP STORIES - GingerCup" />
 {% endblock %}
   {% block body %}
-<section class="section clearfix page">
+  
+<section class="section clearfix page ">
 <div class="">
     <h1 class="text-center page-heading"><span>GingerCup</span> Stories</h1>
     <div>
+    	<div class="row">
     {% set i=0 %}
     {% for client in clients %}
     
     {%  if client.active == 'true' %}
     
      {% if client.storyTitle!="" %}
-        {% if i is odd %}
-        <div class="row">
-        
-        
-               <div class="col-lg-9">
-             <h3 class="sub-title">{{  client.storyTitle }}</h3>
-            <p class="page-text">{{ client.storyDescription }}</p>
-        	</div> 
-        	<div class="col-lg-3 text-center">      
-             {% if client.storyImage!="" %}       
-  		  <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" " width="255" height="255">                    
-    		 {% endif %}
-    		 </div> 
-    </div>
-     {% else %}  
-     
-     <div class="row">   
-       <div class="col-lg-3 text-center">   
-      {% if client.storyImage!="" %}   
-        <img class="img-responsive" src="{{ asset('../../clients/'~client.storyImage) }}" alt=" ">
-       {% endif %}   
-       </div>
-               <div class="col-lg-9">
-             <h3 class="sub-title">{{  client.storyTitle }}</h3>
-            <p class="page-text">{{ client.storyDescription }}</p>
-        	</div>       
-               
-  		                     
-    </div>
-      {% endif %}
-      {% set i=i+1 %}
+      
+      <div class="col-lg-6 box-outer storybox ">
+		<div class="box">
+{# 		<a href="{{ path('deliverypartner_paper_cup_advertising') }}">#}
+			<div class="box-img-outer">
+            <div class="row text-center box-img">
+            {% if client.storyImage!="" %}
+                 <img src="{{ asset('../../clients/'~client.storyImage) }}" alt=" " height="218">
+             {% endif %}    
+{# 				  <h3 class="box-title d-plan">Distribution Planning</h3>#}
+            </div>
+            </div>
+{#             </a>#}
+            <div class="row">
+            <h3 class="text-left storytitle "> {{ client.storyTitle }}  </h3>
+                 <div class="col-lg-12">
+                <p class="page-text adv">{{ client.storyDescription }}	</p>
+                </div>
+            </div>
+			
+			</div>
+        </div>
+      
      {% endif %}
      {% endif %}
 	{% endfor %}
+	</div>
     {#}
     <div class="row">
         <div class="col-lg-3 text-center">
@@ -94,6 +91,11 @@
     <div class="small-gap"></div>
 </div>
 {#}
-</div>
+<div class="col-lg-12 text-right">
+                    <a class="btn btn-primary read-more campaign-btn" href="{{ path('deliverypartner_paper_cup_advertising') }}">Paper Cup Advertising</a>
+  </div>
+
 </section>
+</div>
+
 {% endblock %}

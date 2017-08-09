@@ -34,7 +34,7 @@
                             {{ form_label(form.description) }}
                             </div>
                             <div class="col-lg-6">
-                                {{ form_widget(form.description) }}
+                                {{ form_widget(form.description,{ 'attr': {'class':'make-margin contactformtextarea','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}
                             </div>                       
                         </div>
        <div class="row form-group">
@@ -50,7 +50,8 @@
                             {{ form_label(form.storyDescription) }}
                             </div>
                             <div class="col-lg-6">
-                                {{ form_widget(form.storyDescription) }}
+                                {{ form_widget(form.storyDescription,{ 'attr': {'class':'make-margin contactformtextarea','placeholder': 'Enter Your message','title':'Please enter a valid message', 'maxlength':'5000'}}) }}
+   
                             </div>                       
                         </div>
         <div class="row form-group">

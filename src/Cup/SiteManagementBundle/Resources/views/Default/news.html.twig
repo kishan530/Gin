@@ -24,18 +24,62 @@
 <div class="">
     <h1 class="text-center page-heading ">News</h1>
     
+     {% set i=0 %}
     {% for media in mediaList %}
     
+   
+	{% if (loop.index is odd) %}
+    
     <div class="row">
+    
+   
+    
         <div class="col-lg-3 text-center img-center">
+        <div class="box-img-outer">
+         <div class="box-img-outer">
+         	<div class="row text-center box-img">
              <img class="img-responsive" src="{{ asset('../../medias/'~media.mediaLogo) }}">
+             </div>
         </div>
+        </div>
+        
+        </div>
+        <div class="col-lg-9 img-center">
+            <h3 class="sub-title" style="color:#FD143A;">{{ media.newsSubject }}</h3>
+            <p class="page-text">{{media.newsDescription  }}</p>
+          {#} <p>Read More in <a title="{{ media.newsTitle }}" href="{{media.newsLink}}" target="_blank">{{ media.mediaName }}</a></p>{#}
+        </div>
+        
+        <a href="{{media.newsLink}}" class="btn btn-danger pull-right medialinkright" >Read More</a>
+    </div>
+    
+    {% else %}
+    
+    <div class="row">
+    
+   
         <div class="col-lg-9 img-center">
             <h3 class="sub-title">{{ media.newsSubject }}</h3>
             <p class="page-text">{{media.newsDescription  }}</p>
-           <p>Read More in <a title="{{ media.newsTitle }}" href="{{media.newsLink}}" target="_blank">{{ media.mediaName }}</a></p>
+          {#} <p>Read More in <a title="{{ media.newsTitle }}" href="{{media.newsLink}}" target="_blank">{{ media.mediaName }}</a></p>{#}
         </div>
+         <div class="col-lg-3 text-center img-center">
+         <div class="box-img-outer">
+         <div class="box-img-outer">
+         	<div class="row text-center box-img">
+             <img class="img-responsive" src="{{ asset('../../medias/'~media.mediaLogo) }}">
+             </div>
+        </div>
+        </div>
+        
+        </div >
+        
+        <a href="{{media.newsLink}}" class="btn btn-danger pull-left medialinkleft" >Read More</a>
     </div>
+   {% endif %}
+                      
+                    
+               
     
 	{% endfor %}
  </div>

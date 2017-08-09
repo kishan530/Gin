@@ -25,8 +25,8 @@ class ContactSearchType extends AbstractType
         $builder
             ->add('from','date',array(
             		'widget'=> 'single_text',
-            		'format'=>'d/M/y',
-            		'required'    => true,
+            		'format'=>'M/d/y',
+            		'required'    => false,
             		'label'     => 'From Date',
             		'attr' => array('data-date-format' => 'dd/mm/yyyy')
             		
@@ -34,8 +34,8 @@ class ContactSearchType extends AbstractType
             				
             ->add('to','date',array(
             		'widget'=> 'single_text',
-            		'format'=>'d/M/y',
-            		'required'    => true,
+            		'format'=>'M/d/y',
+            		'required'    => false,
             		'label'     => 'To Date',
             		'attr' => array('data-date-format' => 'dd/mm/yyyy')
             				))

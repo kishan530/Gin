@@ -140,6 +140,28 @@ cup_site_management_media_delete:
     path:    /{id}/media-delete
     defaults: { _controller: "CupSiteManagementBundle:Media:mediaDelete"}
 
+cup_site_management_gallery_collection_list:
+    path:    /gallery-collection-list
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryList" } 
+
+ 
+cup_site_management_gallery_collection_add:
+    path:    /gallery-collection-add
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryAdd" }
+
+cup_site_management_gallery_collection_edit:
+    path:    /{id}/gallery-collection-edit
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryEdit" }
+
+cup_site_management_gallery_collection_delete:
+    path:    /{id}/gallery-collection-delete
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryDelete" }
+cup_site_management_gallery_image_delete:
+    path:    /{id}/gallery-image-delete
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryImageDelete" }
+
+
+
 
 
 deliverypartner_edit:
@@ -198,80 +220,10 @@ deliverypartner_terms_and_conditions:
 deliverypartner_gallery:
     path:     /gallery
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:gallery" }
-deliverypartner_bahubali_gallery:
-    path:     /gallery/bahubali
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bahubaliGallery" }
-deliverypartner_brigade_gallery:
-    path:     /gallery/brigade
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:brigadeGallery" }
-deliverypartner_Hotstar_gallery:
-    path:     /gallery/hotstar
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:hotstarGallery" }
-deliverypartner_pokerninja_college_gallery:
-    path:     /gallery/pokerninja-college
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pokerninjaCollegeGallery" }
-deliverypartner_uber_gallery:
-    path:     /gallery/uber
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:uberGallery" }
-
-deliverypartner_bookmyshow_gallery:
-    path:     /gallery/bookmyshow
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:bookmyshowGallery" }
-deliverypartner_checkLittle_gallery:
-    path:     /gallery/checkLittle
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:checkLittleGallery" }
-deliverypartner_clovia_gallery:
-    path:     /gallery/clovia
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:cloviaGallery" }
-deliverypartner_colors_gallery:
-    path:     /gallery/colors
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:colorsGallery" }
-deliverypartner_flashdoor_gallery:
-    path:     /gallery/flashdoor
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:flashdoorGallery" }
-deliverypartner_fxkart_gallery:
-    path:     /gallery/fxkart
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:fxkartGallery" }
-deliverypartner_huawei_gallery:
-    path:     /gallery/huawei
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:huaweiGallery" }
-deliverypartner_modasta_gallery:
-    path:     /gallery/modasta
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:modastaGallery" }
-deliverypartner_myra_gallery:
-    path:     /gallery/myra
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:myraGallery" }
-deliverypartner_nestaway_gallery:
-    path:     /gallery/nestaway
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:nestawayGallery" }
-deliverypartner_pioneer_gallery:
-    path:     /gallery/pioneer
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pioneerGallery" }
-deliverypartner_pizzahut_gallery:
-    path:     /gallery/pizzahut
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pizzahutGallery" }
-deliverypartner_pulse_gallery:
-    path:     /gallery/pulse
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:pulseGallery" }
-deliverypartner_scripbox_gallery:
-    path:     /gallery/scripbox
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:scripboxGallery" }
-deliverypartner_superprofs_gallery:
-    path:     /gallery/superprofs
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:superprofsGallery" }
-deliverypartner_wooplr_gallery:
-    path:     /gallery/wooplr
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:wooplrGallery" }
-deliverypartner_yumist_gallery:
-    path:     /gallery/yumist
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:yumistGallery" }
-
-
-
-deliverypartner_other_gallery:
-    path:     /gallery/other
-    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:otherGallery" }
-
+    
+cup_site_management_gallery_collection_view:
+    path:    /gallery/{url}
+    defaults: { _controller: "CupSiteManagementBundle:Gallery:galleryView" } 
 
 deliverypartner_contact_list:
     path:     /contact-list

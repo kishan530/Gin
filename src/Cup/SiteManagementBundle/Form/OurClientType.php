@@ -21,19 +21,23 @@ class OurClientType extends AbstractType
         			
         	->add('subject', null, array(
             		'required'    => true,
-            		'label' => 'Subject', ))
+            		'label' => 'Testimonial Title', ))
             		
-            ->add('description', null, array(
-            		'required'    => true,
-            		'label' => 'Description', ))
+            ->add('description','textarea',array('attr' => array('cols' => '10','rows' => '5'),
+            				'required'  => true,
+            		'label' => 'Description',
+            		))
             		
-            ->add('storyTitle', null, array(
+            ->add('storyTitle', null, array(	
             		'required'    => true,
             		'label' => 'StoryTitle', ))
             		
-            ->add('storyDescription', null, array(
-            		'required'    => true,
-            		'label' => 'StoryDescription', ))
+          
+     ->add('storyDescription','textarea',array('attr' => array('cols' => '10','rows' => '5'),
+            				'required'  => true,
+            				'label' => 'StoryDescription',
+            		))
+            		
             		
             //->add('clientImage')
             ->add('clientImage', 'file',array(
