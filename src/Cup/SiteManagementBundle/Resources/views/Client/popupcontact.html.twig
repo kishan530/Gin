@@ -77,11 +77,11 @@
                          <div class="row">
                          <div class="col-md-12">
                          <div class="col-md-4 col-sm-4 col-xs-4 captchaclass">
-               <figure><img src="{{ asset('images/homeCups/add_captcha.jpg') }}" alt="captcha details" height="50" style=" margin-left: 12px"></figure>
+               <figure><img src="{{ asset('images/homeCups/'~captcha) }}" alt="captcha details" height="60" class="mediacaptchaimage"  style="margin-left:15px; width:100%;"></figure>
 					</div>
 					
-					<div class="col-md-6 col-sm-6 col-xs-6 captchaclass captchamargin">
-				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform','placeholder':'Your answer','title':'Your answer here?', 'maxlength':'100'  }} ) }}
+					<div class="col-md-6 col-sm-6 col-xs-6  captchamargin" >
+				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform boxcaptcha','placeholder':'Your answer','title':'Your answer here?', 'maxlength':'100'  }} ) }}
             		</div>
                                               
                      
@@ -97,8 +97,8 @@
              
                {{ form_end(form) }}   
                </div> 
-               <section class="section clearfix footer text-center popupfooter">
-	<div><div class="col-md-12">Any Queries? Don't hesitate to call us @+91 8884442846/47 </div> </div>
+               <section class="section clearfix footer text-center ">
+	<div><div class="col-md-12 col-xs-12">Any Queries? Don't hesitate to call us @+91 8884442846/47 </div> </div>
 				</section> 
       </div>
                  

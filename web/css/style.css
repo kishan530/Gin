@@ -229,12 +229,15 @@ i.custom-quote {
 .user-account label span{color: #FD143A}
 .media-object{margin:auto;margin-top:15%;}
 
-.step{display:none}.step.active{display:block}.classic-title{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #eee;font-weight:400}.classic-title span{padding-bottom:8px;border-bottom:1px solid;border-bottom-color:#2828fa}
+.step{display:none}.step.active{display:block}.classic-title{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #eee;font-weight:400}.classic-title span{padding-bottom:8px;border-bottom:1px solid;border-bottom-color:#2828fa;margin-left: 25px }
 .only-mobile{display: none !important;}
 .free-cups{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
 .contact-popup1{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
 .contact-popup2{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
 @media screen and (max-width:768px){
+	
+	
+	
 	.media-object{margin-top:0;}
 	.box-right{
 		float: none;
@@ -307,6 +310,11 @@ i.custom-quote {
 .papercup-text{font-family:'comic sans ms', sans-serif;font-size:15px;text-align:center;line-height:34px;}
 .coffee-text{font-family: 'Open Sans', Helvetica, Arial, sans-serif;color: #666666;font-size: 14px;line-height: 24px;}
 @media (min-width:768px){#testimonials{height:200px;}
+.seohometag{
+	font-size: 10px;
+    margin-left: 100px;
+	}
+
 }
 @media (max-width:510px){
         
@@ -484,9 +492,7 @@ line-height: 23px;
     margin-top: 2px;
 }	
 
-.captchaform{
-	width:40%;
-	}
+
 	.contactformtextarea{
 	
 	width: 98%;
@@ -496,7 +502,13 @@ line-height: 23px;
 	
 	.contactformsubmit{
 	margin-right: 175px;
+	margin-top: -46px;
+    
+    margin-bottom: 20px;
+    margin-left: 560px;
 	}
+	
+	
 	
 	.storytitle{
 	font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
@@ -536,7 +548,7 @@ line-height: 23px;
     
     .contactfont{
     color: #f5f5f5;
-    
+    text-align: center;
     }
     .contarea{
     height:100px !important;
@@ -550,6 +562,7 @@ line-height: 23px;
    }
    .captchaclass{
    width:100% !important;
+  
   }
    .captchamargin{
     margin-left: 12px !important;}
@@ -566,9 +579,184 @@ line-height: 23px;
  .menudisplay li a:hover{
  background-color: #b16363;
 }
-   	 
+.semi-circle-border{
+	position: static;
+	   
+}
+.caroselheight{
+	 margin: 0px -16px 10px !important;
+}
+.clientnamebutton{
+	display:none;
+	
+}
+   	
    	 } 
- .newbordercontact{
- padding-bottom: 0px !important;}
    	 
+   	 
+ .newbordercontact{
+ width: 250px;
+     margin-left: 60px;
+ }
+ .contactbelow{
+  float: left;  width: 200px;
+  }
+ 
+}
+  @media (max-width:468px){
+  
+  .newbordercontact{
+ width: 250px;
+     margin-left: 34px;
+ }
+  .contactformsubmit {
+   display:none;
+}
+
+  
+  
+  
+  .contactbtndown{
+margin-top: 100px;
+    margin-bottom: 10px;
+}
+  .contactbelow{
+  float: left;  width: 200px;
+  }
+  .newbordercontact{
+ width: 250px;
+     margin-left: 40px;
+ }
+  
+  h3 {
+    font-size: 15px;
+  
+  }
+  .mediacontactblock{
+  width: 29.333333%;
+  }
+  
+.popupfooter {
+    
+    line-height: 20px;
+    font-size: 10px;
+}
+
+
+.mailmedia{
+text-align: left;
+font-size: 9px;
+margin-left: -14px !important; 
+}
+.mediacaptchaimage{    
+width: 100px;
+    height: 35px;
+}
+.captchaform {
+    width: 66%;
+    margin-top: 43px !important;
+    margin-left: 20px !important;
+}
+.poweredBy{
+          display: none;
+      }
+.mediacallview{  
+      margin-left: 20px;
+    }
+.navbar-nav>li>a {
+    font-size: 15px;
+    color: #555;
+}
+.mediatwitter{
+	margin-left: 13px;
+}
+
+.captchaformview{
+	 margin-left: -64px;
+    margin-top: 55px;
+}
+
+.contctcaptchamobile{
+	margin-top: 82px !important;
+	
+}
+
+
+  }  
+  
+ .contactgood{
+ margin-left: 80px;
+ } 
+  
+.contacttwitter{
+	text-align: center;
+	 margin-left: -14px;
+	}
+.colortwitter{
+	font-size:20px; 
+	color:#3ebdf1;
+}
+ @media (min-width:768px) and @media(max-width:1024px){
+ 
+ .newbordercontact{
+ width: 250px;
+     margin-left: 34px;
+ }
+  
+ 
+ .campaign-btn {
+        margin-left: -120px;
+}
+.captcha768{
+	    margin-left: -1px !important;
+	        
+}
+
+.togglebar{
+	left: 0%;
+}
+
+.contctcaptchamobile{
+	margin-left:-62px;
+	margin-top: 82px !important;
+	
+}
+.captext{
+ width: 80%;
+ }
+
+
+ }
+   .captcha768{
+   margin-left: -1px;
+   }
    
+  .textlocationlist{
+   margin-left: 15px !important;
+   }
+   .downloadfile{
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+ .uploadDesign{
+   width: 620px !important; 
+   height: 330px;
+ } 
+ .captext{
+ width: 50%;
+ }
+ .boxcaptcha{
+     width: 115px;
+ }
+ 
+ .headline1line {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;    
+}
+.seohometag{
+	font-size: 10px;
+    margin-left: 200px;
+}

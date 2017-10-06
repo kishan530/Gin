@@ -46,9 +46,9 @@ class CampaignCityType extends AbstractType
             ->add('budget')
             ->add('campaignDate','date',array(
           		'widget'=> 'single_text',
-          		'format'=>'d/M/y',
+          		'format'=>'M/d/y',
           		'required'    => false,
-             	'attr' => array('data-date-format' => 'dd/mm/yyyy','class'=>'date-picker')
+             	'attr' => array('data-date-format' => 'dd/MM/yyyy','class'=>'date-picker')
           ))
         ;
     }

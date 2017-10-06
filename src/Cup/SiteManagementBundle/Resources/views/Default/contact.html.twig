@@ -25,7 +25,7 @@
                     <div class="row ">
                         
 {{ form_start(form) }}
-                        <div class="col-md-8 col-sm-8 col-xs-8">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
                             <div id="contact_form" class="contact_form">
                                 <div id="message">
                                     <div class="col-lg-12 col-sm-12 form-group has-error">
@@ -98,20 +98,20 @@
                               <div class="col-md-12" >    	
                                    <div class="row"> 
                                         
-                                   <div class="col-md-4 col-sm-4 col-xs-4 ">
+                                   <div class="col-md-4 col-sm-4 col-xs-7 ">
                                    
                                   
-               <figure><img src="{{ asset('images/homeCups/'~captcha) }}" alt="captcha details" height="60"   style="margin-left:15px;"></figure>
+               <figure><img src="{{ asset('images/homeCups/'~captcha) }}" alt="captcha details" height="60" class="mediacaptchaimage"  style="margin-left:15px; width:100%;"></figure>
 								
 								</div>
 								
-								  <div class="col-md-6 col-sm-6 col-xs-6 " style ="margin-left: -80px;">
-				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform','placeholder':'','title':'Your answer here?', 'maxlength':'100'  }} ) }}
+								  <div class="col-md-6 col-sm-6 col-xs-5  captchaformview  ">
+				{{ form_widget(form.answer, { 'attr': {'class':'make-margin captchaform  ','placeholder':'your Ans','title':'Your answer here?', 'maxlength':'100'  }} ) }}
 				
             					</div>
-            					 <div class="col-md-2 col-sm-2 col-xs-2  ">  
+            					 <div class="col-md-2 col-sm-2 col-xs-12 text-center" style="margin-bottom: 5px;">  
                                         
-                        {{ form_widget(form.submit,{ 'attr': {'class': 'pull-left btn btn-primary read-more campaign-btn contactformsubmit '}}) }}
+                        {{ form_widget(form.submit,{ 'attr': {'class': ' btn btn-primary read-more campaign-btn   '}}) }}
 							              
                                   </div>
             					
@@ -136,35 +136,35 @@
              <div class="row ">
              
              
-              
-           <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top" style="background-color:#FD143A;">
+           <div class="contactbelow">   
+           <div class="col-md-4 col-sm-4 col-xs-12 contact-text footer-top mediacontactblock newbordercontact" style="background-color:#FD143A;">
            <h3 style="text-align: center;">CONTACT US</h3>
            </div>
-             <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact">
+             <div class="col-md-4 col-sm-4 col-xs-12 contact-text footer-top newbordercontact  ">
                            
                             <h3 class="sub-title" style="text-align: center;">Address</h3>
                              
                             <p class="page-text contactfont" style="text-align: center;">1st Floor,3rd Cross</p> 
                             <p class="page-text contactfont" style="text-align: center;">Kundalahalli Colony, ITPL Main Road Bangalore-560037</p>
-                             <p class="page-text contactfont" style="text-align: center;">Email:contact@gingercup.com</p>
+                             <p class="page-text contactfont poweredBy" style="text-align: center;">Email: contact@gingercup.com </p>
                              
             </div><!-- end col -->
-            <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact ">
+            <div class="col-md-4 col-sm-4 col-xs-12 contact-text footer-top newbordercontact ">
                            
                             <h3 class="sub-title" align="center">Follow Us On</h3>
                          
                      <a href="https://www.facebook.com/gingercup"><p class="page-text contactfont" style="text-align: center;">
                             
                              <i class="fa fa-facebook-square" style="font-size:20px; color:#3079ea">  </i>  FaceBook  </p> </a>
-                  <a href="https://twitter.com/ginger_cup">  <p class="page-text contactfont" style="text-align: center; margin-left: -14px;">  <i class="fa fa-twitter-square" style="font-size:20px; color:#3ebdf1"></i> Twitter  </p> </a>
+                  <a href="https://twitter.com/ginger_cup">  <p class="page-text contactfont contacttwitter" >  <i class="fa fa-twitter-square colortwitter mediatwitter"></i> Twitter  </p> </a>
             </div><!-- end col -->
-            <div class="col-md-4 col-sm-4 col-xs-4 contact-text footer-top newbordercontact">
+            <div class="col-md-4 col-sm-4 col-xs-12 contact-text footer-top newbordercontact ">
                            
                             <h3 class="sub-title contactfont" align="center">Contact</h3>
-							<p class="page-text contactfont"style="text-align: center;">contact@gingercup.com</p>
+							<p class="page-text contactfont mailmedia">contact@gingercup.com</p>
                              <p class="page-text contactfont" style="text-align: center;">+91-888 444 2846/47</p>
             </div><!-- end col -->
-           
+           </div>
             
              </div>
              

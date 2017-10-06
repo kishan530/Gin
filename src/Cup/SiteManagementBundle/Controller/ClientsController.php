@@ -203,10 +203,99 @@ class ClientsController extends Controller
 	{
 
 		$entity = new Contact();
+		$session = $request->getSession();
+		 
+		$entity->setAdvertiseType('Advertise with us');
+		date_default_timezone_set('Asia/Kolkata');
+		$date = new \DateTime();
+		$entity->setDate($date);
+		$error=null;
+		 
+		$imagesList = array("2.jpg"=>'2', "4.jpg"=>'4', "6.jpg"=>'6');
+		 
+		$captcha = array_rand($imagesList);
+		//   echo var_dump($captchaIndex);
+		//exit();
+		// $captcha =  $imagesList[$captchaIndex];
+		// echo var_dump($captcha);
+		//exit();
+		
 		$form   = $this->createContactForm($entity);
-	  	
-		return $this->render('CupSiteManagementBundle:Client:popupcontact.html.twig', array(
-				'form' =>$form->createView()
+		$form->handleRequest($request);
+		if ($form->isValid()) {
+			$answer=$entity->getAnswer();
+			//echo var_dump($answer);
+			//exit();
+		
+		
+			$oldCaptcha = $session->get('captcha');
+		
+			//echo var_dump($oldCaptcha);
+			//exit();
+			$correctAnswer = $imagesList[$oldCaptcha];
+		
+			if($answer==$correctAnswer)
+			{
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($entity);
+				$em->flush();
+				$email = $entity->getEmail();
+				 
+				$body="<br>";
+				$body.="<label>Name:</label>".$entity->getName()."<br>";
+				$body.="<label>Email:</label>".$entity->getEmail()."<br>";
+				$body.="<label>Contact Number:</label>".$entity->getMobile()."<br>";
+				$body.="<label>Message:</label>".$entity->getMessage()."<br>";
+				$Mailer='<table>
+			<TR><TD>Dear Admin , bellow person has some query.Please do response to '.$entity->getName().' on the earliest. </TD></TR>
+			<tr style="background-color:#f2f2f2" width="100%">
+              <td valign="top" align="center" colspan="2">
+                <p style="margin:0 0 8px 0;font-size:14px;line-height:22px;text-align:left">
+            		<b style="padding:20px;">
+                       '.$body.'
+            		</b></p>
+		
+				<tr><td>Thank you</td></tr>
+				<tr><td>Best Regards, <br>
+		
+						Gingercup Team <br><br></td></tr>
+              </td>
+            </tr>
+		
+			  </table>';
+		
+				$message="Dear ".$entity->getName()."<br>
+                            Greetings from Gingercup Team!<br>
+                            Your request has been lodged successfully. We will contact you through call/mail within next 48 working hours.<br><br>
+		
+		
+                            Best Regards,<br>
+                            Gingercup Team <br> ";
+				$subject = "Request";
+				$adminSubject = "Request from ".$entity->getName()." - ".$entity->getMobile();
+				$mailService = $this->container->get( 'mail.services' );
+				$mailService->mail($email,$subject,$message);
+				$mailService->mail('contact@gingercup.com',$adminSubject,$Mailer);
+				//$mailService->mail('kishan.kish530@gmail.com',$adminSubject,$Mailer);
+		
+				return $this->redirect($this->generateUrl('deliverypartner_contact_success'));
+			}
+			else {
+				$error='Please  Enter Valid Answer';
+				$session->set('captcha',$captcha);
+			}
+			 
+		}
+		//echo var_dump($captcha);
+		//	exit();
+		 
+		$session->set('captcha',$captcha);
+		 
+		return $this->render('CupSiteManagementBundle:Client:popupcontact.html.twig',array(
+				'entity' => $entity,
+				'error'=> $error,
+				'form'   => $form->createView(),
+				'captcha'=>$captcha,
 		));
 	}
 	

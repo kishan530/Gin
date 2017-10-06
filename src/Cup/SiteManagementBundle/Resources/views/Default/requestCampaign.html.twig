@@ -128,6 +128,7 @@ $("#location").on('change', "#cup_SiteManagementBundle_cup_campaign_location_col
                 data : { 'locations': locations,'city': city,'budget':budget},
                 success:function(data, textStatus, jqXHR)
                 {
+                	alert(data);
                     var res = data.split(",");
                      $('#reach'+city).html(res[0]); 
                      $('#quantity'+city).html(res[1]); 
@@ -155,6 +156,7 @@ $("#location").on('change', "#cup_SiteManagementBundle_cup_campaign_location_col
                 data : { 'locations': locations,'city': city,'budget':budget},
                 success:function(data, textStatus, jqXHR)
                 {
+                	 var res = data.split(",");
                      $('#reach'+city).html(res[0]); 
                      $('#quantity'+city).html(res[1]); 
                      $('#cost'+city).html(res[2]);                        
@@ -181,6 +183,7 @@ $("#location").on('change', "#cup_SiteManagementBundle_cup_campaign_location_col
                 data : { 'locations': locations,'city': city,'budget':budget},
                 success:function(data, textStatus, jqXHR)
                 {
+                	 var res = data.split(",");
                       $('#reach'+city).html(res[0]); 
                      $('#quantity'+city).html(res[1]); 
                      $('#cost'+city).html(res[2]);                        

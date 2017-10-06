@@ -62,7 +62,7 @@
 				<div class="col-md-10">
 					<div class="user-account pull-right">
 						<div class="text-left">
-							<label> <span>Call us</span> +91-8884442846/47
+							<label> <span class="mediacallview">Call us</span> +91-8884442846/47
 							</label> {% if is_granted('IS_AUTHENTICATED_FULLY') %} Welcome <a
 								href="{{ path('fos_user_security_logout') }}"><b>{%
 									trans%}Logout{% endtrans %}</b></a> {% else %} {# <a href="{{
@@ -70,7 +70,7 @@
 							path('fos_user_registration_register')}}">Signup</a> #} {%
 							endif%}
 						</div>
-						<div>
+						<div class="mediacallview">
 							{% block reachus %} <a href="#reachUs" data-toggle="modal"
 								data-target="#contact" data-type="1" class="contact-popup1" >Get Free Cups</a> <a
 								href="#reachUs" data-toggle="modal" data-target="#contact" data-type="2"
@@ -91,7 +91,7 @@
 			<nav class="navbar" id=slide-nav>
 
 				<div class="container">
-					<div class="navbar-header">
+					<div class="navbar-header togglebar">
 						<button type="button" class="navbar-toggle" aria-expanded="false"
 							aria-controls="navbar">
 							<span class="sr-only">Toggle navigation</span> <span
@@ -240,7 +240,7 @@
 	</div>
 
 	<section class="section clearfix footer text-center">
-		<div>Copyright @ 2017-2018 . All rights reserved.</div>
+		<div>Copyright @ 2017-2018 .<a href="{{ path('cup_site_management_homepage') }}"><b>Paper Cups</b></a> All rights reserved.</div>
 		<div class="terms">
 			<a href="{{ path('deliverypartner_privacy_policy')}}" target="_blank">Privacy
 				Policy</a> | <a
@@ -315,7 +315,7 @@
     $(".contact-popup1").click(function(e){
         e.preventDefault();
         $type = $(this).attr('data-type');
-     //  alert("hi");
+     // alert("hi");
         if($type==1){
        		 $('#gingercup_contact_advertiseType_0').prop('checked', true);
        	 	$('#gingercup_contact_advertiseType_1').prop('checked', false);
@@ -328,9 +328,11 @@
         	  $(".free-cups-toggle").hide();
         	  $(".free-cups-img-toggle").show();
          }
-
+        
+        
 
         $("input[type=radio]").change(function(){
+            //alert("hello1");
             $(".free-cups-toggle").toggle();
             $(".free-cups-img-toggle").toggle();
         });
@@ -340,9 +342,11 @@
  //   $("#gingercup_contact_advertiseType").on('change', "input[type=radio]", function (e) {
 
     	$("input[type=radio]").change(function(){
-		//alert('hi');
+		//alert('hi02');
+		 
         $(".free-cups-toggle").toggle();
         $(".free-cups-img-toggle").toggle();
+       
     });
      </script>
 

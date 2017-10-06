@@ -31,7 +31,7 @@ class ContactType extends AbstractType
             				
             ->add('mobile',null,array(
             		                
-            						'required'    => false,
+            						'required'    => true,
             						'label' => '',
 				            	        						
             				))
@@ -83,7 +83,7 @@ class ContactType extends AbstractType
             				
             				->add('answer',null,array(
             				
-            						'required'    => false,
+            						'required'    => true,
             						'label' => '',
             						 
             				))

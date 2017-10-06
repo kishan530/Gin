@@ -596,6 +596,11 @@ class DeliveryPartnerController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $budget = $this->getTotalBudget($selectCity);
+            
+            //$CampaignDate = $campaignRequest->getCampaignDate();
+           // echo var_dump($CampaignDate);
+            //exit();
+            
             $campaignRequest->setTotalAmount($budget);
              $session->set('selectCity',$selectCity);
             return new Response('true');
@@ -698,7 +703,7 @@ class DeliveryPartnerController extends Controller
                              $quantity += (int) $c;
                         }
                     $budget = $city->getBudget();
-                    $cost = round($budget/$reach,2);
+                    $cost = round($budget/$cityReach,2);
                     $city->setLocation($locationCollection);
                     $city->setReach($cityReach);
                     $city->setCupQuantityPerDay($budget);
@@ -706,7 +711,7 @@ class DeliveryPartnerController extends Controller
                     $city->setCampaign($campaignRequest);
                     if($cityReach>0)
                     $city = $this->getEndDate($city);
-                
+                        
                 }
             }
             else{
@@ -734,6 +739,7 @@ class DeliveryPartnerController extends Controller
                 $city->setPartner($partnerCollection);
                 $city->setReach($cityReach);
                 $city->setCampaign($campaignRequest);
+                
                 if($cityReach>0)
                 $city = $this->getEndDate($city);
                 
@@ -828,7 +834,7 @@ class DeliveryPartnerController extends Controller
     }
     private function getEndDate($city){
          $budget = $city->getBudget();
-         $reach = $city->getReach();
+        $reach = $city->getReach();
         $days = round($budget/$reach);
         $city->setNoOfDays($days);
         $endDate = clone $city->getCampaignDate();
@@ -1169,7 +1175,7 @@ class DeliveryPartnerController extends Controller
         /*$session = $request->getSession();
         $campaignRequest = $session->get('campaignRequest');
          $campaignRequest->setTotalReach($reach);*/
-        
+        ///echo var_dump($reach);
         return new Response($reach);
     }
     

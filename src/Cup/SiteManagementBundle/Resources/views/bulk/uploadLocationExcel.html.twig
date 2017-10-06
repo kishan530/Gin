@@ -32,7 +32,7 @@
 							<div class="col-lg-12 col-sm-12">
 								<div class="row form-group {% if form.filePath.vars.errors|length %}has-error{% endif %}">
 									<div class="col-lg-4">
-										{{ form_label(form.filePath) }}
+										{{ form_label(form.filePath,'filePath',{'label_attr': {'class': 'textlocationlist',}}) }}
 									</div>
 									<div class="col-lg-8">
 										{{ form_widget(form.filePath) }}
@@ -47,9 +47,10 @@
 							</div>		
 						</div> 			
                     </div>
-                   <div class="row">
+                   <div class="row downloadfile">
               	     <a id="download" href="{{ path('cup_site_management_bulk_location_download_sample') }}" class="go-right"><b>Download Sample</b></a>	
               	     <div class="gap-small"></div>
+              	     
                     </div>
               
               </div>

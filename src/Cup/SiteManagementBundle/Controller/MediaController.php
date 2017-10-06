@@ -144,7 +144,7 @@ class MediaController extends Controller
 		));
 	}
 	
-	public function galleryDeleteAction($id)
+	public function mediaDeleteAction($id)
 	{
 		$media = $this->getDoctrine()
 		->getRepository('CupSiteManagementBundle:OurMedia')
