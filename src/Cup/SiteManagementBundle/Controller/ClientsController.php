@@ -313,4 +313,16 @@ class ClientsController extends Controller
 		$form->add('submit', 'submit', array('label' => 'Submit Now'));
 		return $form;
 	}
+	
+	public function removeTrailingSlashAction(Request $request)
+	{
+		$pathInfo = $request->getPathInfo();
+		$requestUri = $request->getRequestUri();
+	
+		$url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
+	
+		return $this->redirect($url, 301);
+	}
+	
+	
 }

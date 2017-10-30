@@ -120,6 +120,14 @@ cup_site_management_campaign_client_delete:
     path:    /{id}/client-delete
     defaults: { _controller: "CupSiteManagementBundle:Clients:clientDelete" }
 
+remove_trailing_slash:
+    path: /{url}
+    defaults: { _controller: CupSiteManagementBundle:Clients:removeTrailingSlash }
+    requirements:
+        url: .*/$
+    methods: [GET]
+
+
 
 cup_site_management_media_add:
     path:    /media-add
