@@ -4,6 +4,18 @@
 
      $(document).ready(function() {
         $('.date-picker').datepicker();
+
+        var activityType = $("#cup_sitemanagementbundle_consumer_activityType").val();
+
+   	 if (activityType==1)
+   		$('#hiddenDiv').show();
+     	else{
+     		$('#hiddenDiv').hide();
+     		 	
+     		//$("#cup_sitemanagementbundle_consumer_activityType").attr('disabled',true);
+     		
+     		}
+        
     });
     
     
@@ -32,7 +44,26 @@
 	           }); 
 	});	
 
-</script>
+
+    $("#consumer").on('change', '#cup_sitemanagementbundle_consumer_activityType', function (e) {
+    	var activityType = $("#cup_sitemanagementbundle_consumer_activityType").val();
+
+   	 if (activityType==1)
+        	$('#hiddenDiv').show();
+     	else{
+     		 	
+     		 		$('#hiddenDiv').hide();
+     		
+     		
+     		}
+	});	
+    </script>
+    <SCRIPT> 	
+
+
+	
+		
+</SCRIPT>  
 
 {% endblock %}
 {% block stylesheets %}
@@ -183,6 +214,15 @@
                                 {{ form_widget(form.estabType) }}
                             </div>                            
                         </div>
+                         <div class="row form-group"> 
+                            <div class="col-lg-6">
+                            {{ form_label(form.activityType) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_widget(form.activityType) }}
+                            </div>                            
+                        </div>
+                        <div class="cupQuantityPerMonth" id="hiddenDiv">
                     <div class="row form-group"> 
                             <div class="col-lg-6">
                             {{ form_label(form.cupSizes) }}
@@ -218,6 +258,7 @@
                                      </div>
                                 </div>
                             </div>                            
+                        </div>
                         </div>
                     <div class="row form-group"> 
                             <div class="col-lg-6">

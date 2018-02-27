@@ -80,6 +80,18 @@ class ConsumerType extends AbstractType
 		}
 		return $tempTypes;
 	}
+	private function getActivityType()
+	{
+		$types = $this->cupService->getActivityTypes();
+		$tempTypes = array();
+	
+		foreach ($types as $type){
+			//if($city->getActive()){
+			$tempTypes[$type->getId()] = $type->getActivity();
+			// }
+		}
+		return $tempTypes;
+	}
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -118,6 +130,14 @@ class ConsumerType extends AbstractType
             		'choices' => $this->getEstabType(),
             		'required'    => true,
             ))
+            ->add('activityType', 'choice', array(
+            		'expanded' => false,
+            		'multiple' => false,
+            		'label' => 'Activity Type',
+            		//'empty_value'   => 'Select',
+            		'choices' => $this->getActivityType(),
+            		'required'    => true,
+            ))
             ->add('rating', 'choice', array(
             		'expanded' => false,
             		'multiple' => false,
@@ -139,7 +159,9 @@ class ConsumerType extends AbstractType
             ->add('cupSizes')
             ->add('cupSizes2')
             ->add('cupSizes3')
-            ->add('cupQuantityPerDay')
+            ->add('cupQuantityPerDay', 'text', array(
+            		'label' => 'CupQuantity Per Month',
+            ))
             ->add('cupQuantityPerDay2')
             ->add('cupQuantityPerDay3')
             ->add('reach')

@@ -299,6 +299,10 @@ cup_site_management_campaign_add_estab_type:
 cup_site_management_campaign_edit_estab_type:
     path:     /edit/{id}/estab-type
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editEstabType" }
+cup_site_management_campaign_delete_estab_type:
+    path:     /delete/{id}/estab_type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deleteEstabType" }
+    methods:  [GET]    
 cup_site_management_campaign_invoice_list:
     path:     /invoice-list
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:invoiceList" }
@@ -335,4 +339,17 @@ cup_site_management_bulk_location_upload:
 cup_site_management_bulk_location_download_sample:
     path:     /bulk-location-download-sample
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:downloadLocationSample" }
-
+cup_site_management_campaign_activity_type_list:
+    path:     /activity-type-list
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:activityTypeList" }
+    methods:  [GET]
+cup_site_management_campaign_add_activity_type:
+    path:     /add-activity-type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:addActivityType" }
+cup_site_management_campaign_edit_activity_type:
+    path:     /edit/{id}/activity-type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:editActivityType" }
+cup_site_management_campaign_delete_activity_type:
+    path:     /delete/{id}/activity_type
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:deleteActivityType" }
+    methods:  [GET]

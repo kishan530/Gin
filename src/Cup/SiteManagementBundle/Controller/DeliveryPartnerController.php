@@ -59,6 +59,8 @@ use Cup\SiteManagementBundle\Form\UploadLocationExcelType;
 use Cup\SiteManagementBundle\Service\ToWords;
 use Cup\SiteManagementBundle\Service\WebScrapper;
 use Doctrine\Common\Collections\ArrayCollection;
+use Cup\SiteManagementBundle\Entity\ActivityType;
+use Cup\SiteManagementBundle\Form\ActivityTypeType;
 
 /**
  * DeliveryPartner controller.
@@ -2609,8 +2611,8 @@ class DeliveryPartnerController extends Controller
     /**
      *
      */
-    public function addEstabTypeAction(Request $request){
-    	$entity = new EstabType();
+   public function addEstabTypeAction(Request $request){
+     	$entity = new EstabType();
     	$form   = $this->createEstabForm($entity);
     	$form->handleRequest($request);
     	if ($form->isValid()) {
@@ -2683,6 +2685,20 @@ class DeliveryPartnerController extends Controller
     	$form->add('submit', 'submit', array('label' => 'Search'));
     	return $form;
     }
+    public function deleteEstabTypeAction(Request $request,$id)
+    {
+    	$security = $this->container->get ( 'security.context' );
+    	if (! $security->isGranted ( 'ROLE_SUPER_ADMIN' )) {
+    		if (! $security->isGranted ( 'ROLE_ADMIN' ))
+    			return $this->redirect ( $this->generateUrl ( "cup_security_homepage" ) );
+    	}
+    	$em = $this->getDoctrine ()->getManager ();
+    	$estubTypes = $em->getRepository ( 'CupSiteManagementBundle:EstabType' )->find($id);
+    	$em->remove($estubTypes);
+    	$em->flush();
+    	return new Response('true');
+    
+    }
      /**
 	 * contact list
 	 * @return unknown
@@ -2711,6 +2727,125 @@ class DeliveryPartnerController extends Controller
                 'form'   => $form->createView(),
     	));
 		
+	}
+	/**
+	 *
+	 * @param EstabType $entity
+	 * @return unknown
+	 */
+	private function createEditActivityForm(ActivityType $entity,$id)
+	{
+		$cupService = $this->container->get( 'cup.services' );
+		$form = $this->createForm(new ActivityTypeType($cupService), $entity, array(
+				'action' => $this->generateUrl('cup_site_management_campaign_edit_activity_type',array('id'=>$id)),
+				'method' => 'POST',
+		));
+		$form->add('submit', 'submit', array('label' => 'Update'));
+		return $form;
+	}
+	
+	/**
+	 *
+	 */
+	/**
+	 *
+	 * @param ActivityType $entity
+	 * @return unknown
+	 */
+	private function createActivityForm(ActivityType $entity)
+	{
+		$cupService = $this->container->get( 'cup.services' );
+		$form = $this->createForm(new ActivityTypeType($cupService), $entity, array(
+				'action' => $this->generateUrl('cup_site_management_campaign_add_activity_type'),
+				'method' => 'POST',
+		));
+		$form->add('submit', 'submit', array('label' => 'Add'));
+		return $form;
+	}
+	
+	
+	/**
+	 *
+	 */
+	public function addActivityTypeAction(Request $request){
+		$entity = new ActivityType();
+		$form   = $this->createActivityForm($entity);
+		$form->handleRequest($request);
+		if ($form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($entity);
+			$em->flush();
+	
+			 
+			return $this->redirect($this->generateUrl('cup_site_management_campaign_add_activity_type'));
+			 
+		}
+		return $this->render('CupSiteManagementBundle:Master:addActivityType.html.twig',array(
+				'entity' => $entity,
+				'form'   => $form->createView(),
+		));
+	}
+	
+	/**
+	 *
+	 * @param ActivityType $entity
+	 * @return unknown
+	 */	
+	public function editActivityTypeAction(Request $request,$id){
+		$em = $this->getDoctrine()->getManager();
+		$entity = $em->getRepository('CupSiteManagementBundle:ActivityType')->find($id);
+		$form   = $this->createEditActivityForm($entity,$id);
+		$form->handleRequest($request);
+		if ($form->isValid()) {
+			$em->merge($entity);
+			$em->flush();
+	
+		} 
+			return $this->render('CupSiteManagementBundle:Master:addActivityType.html.twig',array(
+				'entity' => $entity,
+				'form'   => $form->createView(),
+		));
+	
+	}
+	public function deleteActivityTypeAction(Request $request,$id)
+	{
+		$security = $this->container->get ( 'security.context' );
+		if (! $security->isGranted ( 'ROLE_SUPER_ADMIN' )) {
+			if (! $security->isGranted ( 'ROLE_ADMIN' ))
+				return $this->redirect ( $this->generateUrl ( "cup_security_homepage" ) );
+		}
+		$em = $this->getDoctrine ()->getManager ();
+		$activityTypes = $em->getRepository ( 'CupSiteManagementBundle:ActivityType' )->find($id);
+		$em->remove($activityTypes);
+		$em->flush();
+		return new Response('true');
+	
+	}
+	public function activityTypeListAction(Request $request) {
+		$security = $this->container->get ( 'security.context' );
+		if (! $security->isGranted ( 'ROLE_SUPER_ADMIN' )) {
+			return $this->redirect ( $this->generateUrl ( "cup_security_homepage" ) );
+		}
+		$consumers = array();
+	//	$entity = new ActivityType();
+	///	$form   = $this->createEstabSearchForm($entity);
+	//	$form->handleRequest($request);
+		//if ($form->isValid()) {
+		$em = $this->getDoctrine ()->getManager ();
+		// $user = $entity->getCreatedBy();
+		$activityTypes = $em->getRepository ( 'CupSiteManagementBundle:ActivityType' )->findBy(array(), array('id' => 'DESC'));
+		
+	
+		return $this->render('CupSiteManagementBundle:Master:activityTypeList.html.twig',array(
+				'activityTypes' => $activityTypes,
+              //  'form'   => $form->createView(),
+		));
+		// }
+		return $this->render('CupSiteManagementBundle:Master:activityTypeList.html.twig',array(
+				'activityTypes' => $activityTypes,
+               // 'form'   => $form->createView(),
+		));
+	
 	}
     
      /**

@@ -3,11 +3,11 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: gingercup
+    database_name: mailginger_live
     database_user: root
     database_password: null
     mailer_transport: gmail
-    mailer_host: ssl://smtp.gmail.com
+    mailer_host: 'ssl://smtp.gmail.com'
     mailer_user: noreply@gingercup.com
     mailer_password: no@gingercup
     locale: en

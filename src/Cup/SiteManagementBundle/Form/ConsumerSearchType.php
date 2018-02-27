@@ -57,6 +57,7 @@ class ConsumerSearchType extends AbstractType
 		}
 		return $tempTypes;
 	}
+	
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -91,6 +92,14 @@ class ConsumerSearchType extends AbstractType
             		'choices' => $this->getEstabType(),
             		'required'    => false,
             ))
+           /* ->add('activityType', 'choice', array(
+            		'expanded' => false,
+            		'multiple' => false,
+            		'label' => 'Activity Type',
+            		'empty_value'   => 'Select',
+            		'choices' => $this->getActivityType(),
+            		'required'    => false,
+            ))*/
             ->add('rating', 'choice', array(
             		'expanded' => false,
             		'multiple' => false,

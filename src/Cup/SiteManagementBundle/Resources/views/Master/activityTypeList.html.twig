@@ -39,31 +39,33 @@
             <div class="row">
                 <div class="col-lg-6">
                 <div class="small-gap"></div>
-                <h2>Estub Types</h2>
+                <h2>Activity Types</h2>
                 </div>
                  <div class="col-lg-6">
                      <div class="small-gap"></div>
-                       <a href="{{ path('cup_site_management_campaign_add_estab_type') }}" class="btn btn-primary" style="margin-left: 245px;" >Add New</a>
+                       <a href="{{ path('cup_site_management_campaign_add_activity_type') }}" class="btn btn-primary" style="margin-left: 245px;" >Add New</a>
                 </div>
                
                 <div id="fullwidth" class="col-sm-12">
                     <div class="col-lg-10">
                         <table id="list" class="table table-bordered col-lg-12 col-sm-12">
-                           {% if estubTypes|length>0 %}	
+                           {% if activityTypes|length>0 %}	
                                   <tr class="blue">
                                         <th>Sl.No </th>
                                         <th>Name</th>
-                                        <th></th>                                                                   
+                                        <th>active</th> 
+                                        <th></th>                                                                  
                                     </tr>	
                             {% endif %}			
 
-                             {% for estubType in estubTypes if estubTypes|length>0 %}
+                             {% for activityType in activityTypes if activityTypes|length>0 %}
                                 <tr>
                                     <td>{{ loop.index }}</td>
-                                    <td>{{ estubType.typeName }}</td>   
-                                    <td> <a href="{{ path('cup_site_management_campaign_edit_estab_type',{ 'id': estubType.id }) }}" class="deactivate">Edit</a>
-                                   &nbsp &nbsp <a href="{{ path('cup_site_management_campaign_delete_estab_type',{ 'id': estubType.id }) }}" class="deactivate" title="{{ estubType.typeName }}" >Delete</a></td>                    
-                                    
+                                    <td>{{ activityType.Activity }}</td>
+                                     <td> {% if activityType.active %} yes {% else %} No {% endif %}</td>   
+                                    <td> <a href="{{ path('cup_site_management_campaign_edit_activity_type',{ 'id': activityType.id }) }}" class="deactivate">Edit</a>
+                                    &nbsp &nbsp <a href="{{ path('cup_site_management_campaign_delete_activity_type',{ 'id': activityType.id }) }}" class="deactivate" title="{{ activityType.Activity }}" >Delete</a> </td>                 
+                                 
                                 </tr>
                             {% endfor %}
                         </table>

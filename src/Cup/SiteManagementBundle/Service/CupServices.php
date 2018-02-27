@@ -40,6 +40,10 @@ class CupServices
         $locations = $this->em->getRepository('CupSiteManagementBundle:EstabType')->findBy(array(),array('typeName'=>'ASC'));
         return $locations;
     }
+	public function getActivityTypes(){
+        $locations = $this->em->getRepository('CupSiteManagementBundle:ActivityType')->findBy(array(),array('id'=>'ASC'));
+        return $locations;
+    }
      public function getLocation(){
         $locations = $this->em->getRepository('CupSiteManagementBundle:Location')->findAll();
         return $locations;

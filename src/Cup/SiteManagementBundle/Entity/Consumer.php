@@ -138,6 +138,12 @@ class Consumer
     private $estabType;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="activity_type", type="integer")
+     */
+    private $activityType;
+    /**
      * @var string
      *
      * @ORM\Column(name="CupSizes", type="string", length=100)
@@ -874,5 +880,13 @@ class Consumer
     {
     	return $this->errors;
     }
+	public function getActivityType() {
+		return $this->activityType;
+	}
+	public function setActivityType($activityType) {
+		$this->activityType = $activityType;
+		return $this;
+	}
+	
     
 }
