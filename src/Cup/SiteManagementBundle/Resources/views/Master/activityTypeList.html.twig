@@ -4,7 +4,7 @@
 <script>
 
     $("#list").on('click', ".deactivate", function (e) {	
-        exit();
+        //exit();
     var formURL = $(this).attr("href");
     var tr = $(this).parent().parent();
     $.ajax(
@@ -63,7 +63,7 @@
                                     <td>{{ loop.index }}</td>
                                     <td>{{ activityType.Activity }}</td>
                                      <td> {% if activityType.active %} yes {% else %} No {% endif %}</td>   
-                                    <td> <a href="{{ path('cup_site_management_campaign_edit_activity_type',{ 'id': activityType.id }) }}" class="deactivate">Edit</a>
+                                    <td> <a href="{{ path('cup_site_management_campaign_edit_activity_type',{ 'id': activityType.id }) }}">Edit</a>
                                     &nbsp &nbsp <a href="{{ path('cup_site_management_campaign_delete_activity_type',{ 'id': activityType.id }) }}" class="deactivate" title="{{ activityType.Activity }}" >Delete</a> </td>                 
                                  
                                 </tr>

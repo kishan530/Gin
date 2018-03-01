@@ -1,0 +1,113 @@
+#default index page
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteCond %{HTTP_USER_AGENT} libwww-perl.* 
+   RewriteRule .* ? [F,L]
+   RewriteCond %{HTTP_HOST} ^XXX\.XXX\.XXX\.XXX
+   RewriteRule (.*) http://www.gingercup.com/$1 [R=301,L]
+   RewriteCond %{HTTP_HOST} !^www.gingercup.com$ [NC]
+   RewriteRule ^(.*)$ http://www.gingercup.com/$1 [L,R=301]
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_URI} !blog/(.*)$
+   RewriteCond %{REQUEST_URI} !FreeCupsApi/(.*)$
+   RewriteCond %{REQUEST_URI} !v2/(.*)$
+   RewriteCond %{REQUEST_URI} !freecup/(.*)$
+   RewriteCond %{REQUEST_URI} !sendy/(.*)$
+   RewriteCond %{REQUEST_URI} !piwik/(.*)$
+   RewriteRule ^(.*)$ Gin7/web/$1 [QSA,L]
+   Redirect 301 /store.html http://www.gingercup.com
+   Redirect 301 /feed/ http://www.gingercup.com
+   Redirect 301 /index.php http://www.gingercup.com
+   Redirect 301 /media-partners/ http://www.gingercup.com
+   Redirect 301 /tea-time-your-time.html http://www.gingercup.com
+   Redirect 301 /marketingCampaign.php http://www.gingercup.com
+   Redirect 301 /find-us.html http://www.gingercup.com/reach-us
+   Redirect 301 /v3/avatar-left-sidebar-style/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolio-scroll-list/feed/ http://www.gingercup.com
+   Redirect 301 /v3/testimonials/feed/ http://www.gingercup.com
+   Redirect 301 /v3/our-team/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolios/feed/ http://www.gingercup.com
+   Redirect 301 /v3/big-width-style/feed/ http://www.gingercup.com
+   Redirect 301 /our-history/feed/ http://www.gingercup.com
+   Redirect 301 /v3/blog-3/feed/ http://www.gingercup.com
+   Redirect 301 /v3/contact/feed/ http://www.gingercup.com/reach-us
+   Redirect 301 /v3/portfolios/feed/ http://www.gingercup.com
+   Redirect 301 /v3/category/fashion/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/text/feed/ http://www.gingercup.com
+   Redirect 301 /v3/example-1/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/gallery/feed/ http://www.gingercup.com
+   Redirect 301 /v3/category/digital/feed/ http://www.gingercup.com
+   Redirect 301 /printed-paper-cups http://www.gingercup.com
+   Redirect 301 /v3/portfolio-masonry-filters/feed/ http://www.gingercup.com
+   Redirect 301 /v3/faqs/feed/ http://www.gingercup.com
+   Redirect 301 /v3/cart/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/video/feed/ http://www.gingercup.com
+   Redirect 301 /v3/big-width-style-left-sidebar/feed/ http://www.gingercup.com
+   Redirect 301 /v3/our-team-style-3/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolio-masonry-filters/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolio-masonry-image-no-crop/feed/ http://www.gingercup.com
+   Redirect 301 /v3/member-list/feed/ http://www.gingercup.com
+   Redirect 301 /v3/shop-home-example/feed/ http://www.gingercup.com
+   Redirect 301 /v3/services/feed/ http://www.gingercup.com
+   
+   Redirect 301 /whats-your-cup-size-asks-clovia/feed/ http://www.gingercup.com
+   Redirect 301 /gingercup-lets-simplify-marketing-for-you/feed/ http://www.gingercup.com
+   Redirect 301 /v3/example-5/feed/ http://www.gingercup.com
+   Redirect 301 /v3/comments/feed/ http://www.gingercup.com
+   Redirect 301 /v3/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/css3/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolio-filter-list/feed/ http://www.gingercup.com
+   Redirect 301 /v3/category/tutorials/feed/ http://www.gingercup.com
+   Redirect 301 /v3/awesome-icons/feed/ http://www.gingercup.com
+   Redirect 301 /portfolio/angry-tiger/ http://www.gingercup.com
+   
+   Redirect 301 /v3/category/marketing/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/image/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/soundcloud/feed/ http://www.gingercup.com
+   Redirect 301 /v3/search/feed/rss2/ http://www.gingercup.com
+   Redirect 301 /v3/author/santosh/feed/ http://www.gingercup.com
+   Redirect 301 /portfolio/angry-tiger/ http://www.gingercup.com
+   Redirect 301 /v3/clients-image/feed/ http://www.gingercup.com
+   Redirect 301 /v3/buttons/feed/ http://www.gingercup.com
+   Redirect 301 /v3/alert-message/feed/ http://www.gingercup.com
+   Redirect 301 /v3/tag/audio/feed/ http://www.gingercup.com
+   
+   Redirect 301 /v3/checkout/feed/ http://www.gingercup.com
+   Redirect 301 /v3/title/feed/ http://www.gingercup.com
+   Redirect 301 /v3/category/music/feed/ http://www.gingercup.com
+   Redirect 301 /v3/example-2/feed/ http://www.gingercup.com
+   Redirect 301 /v3/think-minimalist-create-simple/feed/ http://www.gingercup.com
+   Redirect 301 /v3/clean-mid-left-sidebar-style/feed/ http://www.gingercup.com
+   Redirect 301 /v3/portfolio-list/feed/ http://www.gingercup.com
+   Redirect 301 /portfolio/ipsum-dolor-sit-amet/ http://www.gingercup.com
+   Redirect 301 /v3/tag/responsive/feed/ http://www.gingercup.com
+   Redirect 301 /v3/category/freebies/feed/ http://www.gingercup.com
+   Redirect 301 /v3/social-skills-bar/feed/ http://www.gingercup.com
+   
+   Redirect 301 /portfolio-cats/illustration/ http://www.gingercup.com
+   Redirect 301 /whats-your-cup-size-asks-clovia/ http://www.gingercup.com
+   Redirect 301 /portfolio-cats/3d-interior/ http://www.gingercup.com
+   Redirect 301 /portfolio-cats/digital-art/ http://www.gingercup.com
+   Redirect 301 /marketing-technique/through-cups-media/ http://www.gingercup.com
+   Redirect 301 /portfolio/duis-autem-vel-eum/ http://www.gingercup.com
+   Redirect 301 /member/ralph-adolf/ http://www.gingercup.com
+   Redirect 301 /my-account/ http://www.gingercup.com
+   Redirect 301 /portfolio/consetetur-elitr-sed/ http://www.gingercup.com
+   Redirect 301 /portfolio/mercury-xm500/ http://www.gingercup.com
+   Redirect 301 /portfolio/record-player/ http://www.gingercup.com
+   Redirect 301 /portfolio/living-room-storage/ http://www.gingercup.com
+   Redirect 301 /portfolio/lorem-duis-autem-eum/ http://www.gingercup.com
+   Redirect 301 /portfolio/lunacy/ http://www.gingercup.com
+   Redirect 301 /portfolio/excepteur-sint-obcaecat/ http://www.gingercup.com
+   Redirect 301 /portfolio/bulk-storage/ http://www.gingercup.com
+   Redirect 301 /portfolio/at-vero-eos-et-accusam/ http://www.gingercup.com
+   Redirect 301 /marketing-technique/ http://www.gingercup.com
+   Redirect 301 /blog-3/feed/ http://www.gingercup.com
+
+   
+   
+ </IfModule>
+
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico|PNG)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>

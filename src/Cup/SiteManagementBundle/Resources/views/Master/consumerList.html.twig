@@ -105,8 +105,10 @@
                             <div class="col-lg-10">
                             </div>
                             <div class="col-lg-1">
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
                                  <div class="small-gap"></div>
                                 <input type="checkbox" name="export"> <label>Export</label>
+                                 {% endif%}
                             </div>
                             <div class="col-lg-1">
                                 <div class="small-gap"></div>

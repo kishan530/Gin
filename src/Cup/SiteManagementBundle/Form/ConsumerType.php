@@ -74,7 +74,7 @@ class ConsumerType extends AbstractType
 		$tempTypes = array();
 		
         foreach ($types as $type){
-             //if($city->getActive()){
+             //if($type->getActive()){
 		          $tempTypes[$type->getId()] = $type->getTypeName();
             // }
 		}
@@ -86,9 +86,9 @@ class ConsumerType extends AbstractType
 		$tempTypes = array();
 	
 		foreach ($types as $type){
-			//if($city->getActive()){
+			if($type->getActive()){
 			$tempTypes[$type->getId()] = $type->getActivity();
-			// }
+			 }
 		}
 		return $tempTypes;
 	}
@@ -156,11 +156,13 @@ class ConsumerType extends AbstractType
             ->add('lat')
             ->add('lng')
             //->add('estabType')
+			->add('cupSizes',null,array('required'    => false))
             ->add('cupSizes')
             ->add('cupSizes2')
             ->add('cupSizes3')
             ->add('cupQuantityPerDay', 'text', array(
             		'label' => 'CupQuantity Per Month',
+					'required'    => false
             ))
             ->add('cupQuantityPerDay2')
             ->add('cupQuantityPerDay3')

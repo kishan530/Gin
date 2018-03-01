@@ -2799,6 +2799,8 @@ class DeliveryPartnerController extends Controller
 		if ($form->isValid()) {
 			$em->merge($entity);
 			$em->flush();
+			
+			return $this->redirect($this->generateUrl('cup_site_management_campaign_activity_type_list'));
 	
 		} 
 			return $this->render('CupSiteManagementBundle:Master:addActivityType.html.twig',array(
