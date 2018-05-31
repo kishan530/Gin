@@ -1320,7 +1320,11 @@ class DeliveryPartnerController extends Controller
     {
         $em = $this->getDoctrine ()->getManager ();	
 		$imageUrl = '../uploads/'.$id;
+		//echo var_dump($imageUrl);
+		//exit();
         $preview = $em->getRepository ( 'CupSiteManagementBundle:PreviewImage' )->findBy(array('imageUrl'=>$imageUrl,'active'=>1));
+       // echo var_dump($preview);
+       // exit();
         if(count($preview)>0){
         return $this->render('CupSiteManagementBundle:Default:3DView.html.twig', array(
             'preview' => $preview[0],

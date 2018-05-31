@@ -251,9 +251,8 @@ cup_site_management_campaign_preview_design_old:
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewDesignOld" }
     methods:  [GET]
 cup_site_management_campaign_preview_design:
-    path:     /preview/{id}/
+    path:     /preview/{id}/cup
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:previewDesign" }
-    methods:  [GET]
 cup_site_management_campaign_upload_preview_design:
     path:     /upload-preview-design
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:uploadPreviewDesign" }

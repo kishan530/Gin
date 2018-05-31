@@ -236,7 +236,12 @@ i.custom-quote {
 .contact-popup2{ color: #fff;background-color: #FD143A;border-color: #d43f3a;padding: 9px 12px;font-weight: bold; border-radius: 4px; display: inline-block}
 @media screen and (max-width:768px){
 	
-	
+#testimonials {
+    width: 290px;
+}
+.thumbnail .caption, .caption .text-info{
+	width: 230px;
+}
 	
 	.media-object{margin-top:0;}
 	.box-right{
@@ -312,7 +317,7 @@ i.custom-quote {
 @media (min-width:768px){#testimonials{height:200px;}
 .seohometag{
 	font-size: 10px;
-    margin-left: 100px;
+   margin-left: 100px;
 	}
 
 }
@@ -348,9 +353,13 @@ i.custom-quote {
 #slide-nav .navbar-form .form-control{text-align:center}
 #slide-nav .navbar-form .btn{width:100%}
 .navbar-nav>li>a{
-	/* font-size: 9px; */
+	/* font-size: 9px; 
+	color:#f5f5f5;*/
 	font-size: 15px;
 	color:#f5f5f5;
+}
+.navbar-nav.seo-links>li>a{
+	color:#000;
 }
 }
 @media (min-width:768px){#page-content{left:0!important}
@@ -580,8 +589,8 @@ line-height: 23px;
  background-color: #b16363;
 }
 .semi-circle-border{
-	position: static;
-	   
+	/*position: static;*/
+	position:relative;   
 }
 .caroselheight{
 	 margin: 0px -16px 10px !important;
@@ -612,9 +621,28 @@ line-height: 23px;
   .contactformsubmit {
    display:none;
 }
-
-  
-  
+  }
+@media (max-width:768px){
+ .newbordercontact { 
+    margin-left:5px !important;
+}
+ .mailmedia {
+    text-align: center !important;
+ }
+ #subscribe-letter{
+	padding:5px !important;
+}
+.col-lg-12 {
+    padding-right: 5px;
+    padding-left: 5px;
+}	
+.box-row {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ .seo-links li a{
+	 list-style-type: none !important;
+ } 
   
   .contactbtndown{
 margin-top: 100px;
@@ -632,9 +660,9 @@ margin-top: 100px;
     font-size: 15px;
   
   }
-  .mediacontactblock{
+ /* .mediacontactblock{
   width: 29.333333%;
-  }
+  }*/
   
 .popupfooter {
     
@@ -697,13 +725,12 @@ width: 100px;
 	color:#3ebdf1;
 }
  @media (min-width:768px) and @media(max-width:1024px){
- 
+
  .newbordercontact{
- width: 250px;
-     margin-left: 34px;
+    width:auto;
+     margin-left:34px;
  }
-  
- 
+
  .campaign-btn {
         margin-left: -120px;
 }
@@ -758,5 +785,8 @@ width: 100px;
 }
 .seohometag{
 	font-size: 10px;
-    margin-left: 200px;
+   /* margin-left: 200px;*/
+}
+#subscribe-letter{
+	padding:67px;
 }
