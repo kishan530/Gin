@@ -70,6 +70,12 @@ class OurClient
 	private $storyImage;
 	
 	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="alt_text", type="string")
+	 */
+	private $altText;
+	/**
 	 * @var boolean
 	 *
 	 * @ORM\Column(name="active", type="boolean")
@@ -240,6 +246,25 @@ class OurClient
 		$this->active = $active;
 		return $this;
 	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getAltText() {
+		return $this->altText;
+	}
+	
+	/**
+	 *
+	 * @param
+	 *        	$altText
+	 */
+	public function setAltText($altText) {
+		$this->altText = $altText;
+		return $this;
+	}
+	
 	
 	
 	

@@ -1648,7 +1648,7 @@ class DeliveryPartnerController extends Controller
              $mailService = $this->container->get( 'mail.services' );
     		$mailService->mail($email,$subject,$message);
     		$mailService->mail('contact@gingercup.com',$adminSubject,$Mailer);
-            //$mailService->mail('kishan.kish530@gmail.com',$adminSubject,$Mailer);
+            $mailService->mail('chaitanya@gingerdizital.com',$adminSubject,$Mailer);
     		
     		return $this->redirect($this->generateUrl('deliverypartner_contact_success'));
     	}

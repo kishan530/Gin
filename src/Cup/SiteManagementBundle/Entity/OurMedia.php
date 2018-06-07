@@ -55,6 +55,12 @@ class OurMedia
 	* @ORM\Column(name="newsLink", type="string")
 	*/
 	private $newsLink;
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="alt_text", type="string")
+	 */
+	private $altText;
 	
 	/**
 	 * @var string
@@ -188,6 +194,14 @@ class OurMedia
 		$this->newsLink = $newsLink;
 		return $this;
 	}
+	public function getAltText() {
+		return $this->altText;
+	}
+	public function setAltText($altText) {
+		$this->altText = $altText;
+		return $this;
+	}
+	
 	
 	
 	
