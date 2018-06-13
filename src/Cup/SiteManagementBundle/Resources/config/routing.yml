@@ -205,6 +205,10 @@ deliverypartner_stories:
     path:     /gingercup-story
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:story" }
     methods:  [GET]
+deliverypartner_paper_cup_brand_marketing:
+    path:     /paper-cup-brand-marketing
+    defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:paperMarketing" }
+    methods:  [GET]
 deliverypartner_coffee_cup_advertising:
     path:     /coffee-cup-advertising
     defaults: { _controller: "CupSiteManagementBundle:DeliveryPartner:coffeeAdvertising" }

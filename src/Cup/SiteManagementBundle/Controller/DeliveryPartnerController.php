@@ -3366,5 +3366,14 @@ class DeliveryPartnerController extends Controller
     	$objWriter->save('php://output');
     	return new response('true');
     }
+    /**
+     *
+     */
+    public function paperMarketingAction()
+    {
+    	
+    	return $this->render('CupSiteManagementBundle:Default:paperCupBrandMarketing.html.twig');
+    }
+    
     
 }

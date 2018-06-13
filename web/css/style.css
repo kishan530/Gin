@@ -790,3 +790,69 @@ width: 100px;
 #subscribe-letter{
 	padding:67px;
 }
+.btn-campaign{
+	    padding-bottom: 15px;
+}
+.btn-campaign a{
+	    
+		color:#fff;
+}
+
+.storybox-paper {
+    min-height: 720px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.responce-img{
+	height:300px;
+}
+.footer_social {
+    float: left;
+    padding: 5px;
+}
+.footbot_social {
+    list-style: none outside none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+.footbot_social li {
+    float: left;
+    background: none !important;
+}
+.footbot_social li a {
+    color: #ffffff;
+    display: block;
+    height: 40px;
+    text-align: center;
+    width: 40px;
+    transition: 0.25s;
+}
+.footbot_social li a i {
+    font-size: 18px;
+    margin-right: 0;
+    float: none;
+}
+.animate-icon, [class^="animate-icon"], [class*=" animate-icon"] {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.box-icon, [class^="box-icon-"], [class*=" box-icon-"] {
+    z-index: 2;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    line-height: 30px!important;
+    text-align: center;
+    display: block;
+    background: #ff0000 !important;
+    color: #fff;
+    transition: 0.3s;
+}
+.round {
+    
+    border-radius: 50%;
+}

@@ -40,7 +40,7 @@
 			<div class="box-img-outer">
             <div class="row text-center box-img">
             {% if client.storyImage!="" %}
-                 <img src="{{ asset('../../clients/'~client.storyImage) }}"  height="218" alt="{{ client.altText }}">
+                 <img src="{{ asset('../../clients/'~client.storyImage) }}"  height="218" title="{{ client.altText }}" alt="{{ client.altText }}">
              {% endif %}    
 {# 				  <h3 class="box-title d-plan">Distribution Planning</h3>#}
             </div>
